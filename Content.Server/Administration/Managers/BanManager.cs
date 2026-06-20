@@ -21,6 +21,12 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Newton.CCVars;
+using CCVars = Content.Shared.CCVar.CCVars;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Content.Server.Administration.Managers;
 
@@ -41,9 +47,13 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
     private ISawmill _sawmill = default!;
 
+    private string _webhookName = "Newton";
+    private string _webhookAvatarUrl = "https://media.istockphoto.com/id/1393248253/ru/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F/%D0%B1%D1%83%D0%BA%D0%B2%D0%B0-n-%D0%BA%D0%BE%D1%80%D0%BE%D0%BD%D0%B0-%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%BA%D0%BE%D1%80%D0%BE%D0%BD%D1%8B-%D0%BD%D0%B0-%D0%B1%D1%83%D0%BA%D0%B2%D0%B5-n-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B9-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD-%D0%B4%D0%BB%D1%8F-%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B-%D0%BC%D0%BE%D0%B4%D1%8B-%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D1%8B.jpg?s=170667a&w=0&k=20&c=vY0HzM7NdIdv0cfO6chFTTGDEty9rQmAjIl09mT2rpo=";
+
     public const string SawmillId = "admin.bans";
     public const string DbTypeAntag = "Antag";
     public const string DbTypeJob = "Job";
+    private string _webhook = string.Empty;
 
     private readonly Dictionary<ICommonSession, List<BanDef>> _cachedRoleBans = new();
     // Cached ban exemption flags are used to handle
@@ -62,6 +72,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
         _userDbData.AddOnLoadPlayer(CachePlayerData);
         _userDbData.AddOnPlayerDisconnect(ClearPlayerData);
+
+        _cfg.OnValueChanged(NewtonCCVars.DiscordBanWebhook, OnWebhookChanged, true);
     }
 
     private async Task CachePlayerData(ICommonSession player, CancellationToken cancel)
@@ -168,6 +180,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
 
+        SendWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString));
         KickMatchingConnectedPlayers(banDef, "newly placed ban");
     }
 
@@ -241,9 +254,15 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             ? Loc.GetString("cmd-roleban-inf")
             : Loc.GetString("cmd-roleban-until", ("expires", expires));
 
+        var adminName = banInfo.BanningAdmin == null
+            ? Loc.GetString("system-user")
+            : (await _db.GetPlayerRecordByUserId(banInfo.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
+
         var targetName = banInfo.Users.Count == 0
             ? "null"
             : string.Join(", ", banInfo.Users.Select(u => $"{u.UserName} ({u.UserId})"));
+
+        var expiresString = expires == null ? Loc.GetString("server-ban-string-never") : $"{expires}";
 
         _chat.SendAdminAlert(Loc.GetString(
             "cmd-roleban-success",
@@ -257,6 +276,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             if (_playerManager.TryGetSessionById(userId, out var session))
                 SendRoleBans(session);
         }
+
+        SendWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")),banInfo.Reason,banDef.Severity,expiresString,string.Join(", ", roleDefs)));
     }
 
     private async Task<(BanDef Ban, DateTimeOffset? Expires)> CreateBanDef(
@@ -488,4 +509,144 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     {
         _sawmill = _logManager.GetSawmill(SawmillId);
     }
+
+    #region "WEBHOOK"
+
+    private async void SendWebhook(WebhookPayload payload)
+    {
+        if (_webhook == string.Empty) return;
+
+        var client = new HttpClient();
+
+        var json = JsonSerializer.Serialize(payload);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        
+        var request = await client.PostAsync(_webhook, content);
+        var requestContent = await request.Content.ReadAsStringAsync();
+
+        if (!request.IsSuccessStatusCode)
+        {
+            _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {requestContent}");
+            return;
+        }
+    }
+
+    private async Task<WebhookPayload> GenerateBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires)
+    {
+        var severity = "";
+
+        switch (noteSeverity)
+        {
+            case NoteSeverity.None:
+                severity = "Нету";
+                break;
+            case NoteSeverity.Minor:
+                severity = "Низкая";
+                break;
+            case NoteSeverity.Medium:
+                severity = "Средняя";
+                break;
+            case NoteSeverity.High:
+                severity = "Высокая";
+                break;
+        }
+
+        var description = "**Администратор:** \n> " + adminName + "\n**Игрок:** \n> " + targetName + "\n**Причина:** \n> " + reason + "\n**Степень тяжести:** \n> " + severity + "\n**Истечёт:** \n> " + expires;
+
+        return new WebhookPayload
+        {
+            Username = _webhookName,
+            AvatarUrl = _webhookAvatarUrl,
+            Embeds = new List<Embed>
+            {
+                new()
+                {
+                    Title = "Серверный бан",
+                    Description = description,
+                    Color = 16711680
+                }
+            }
+        };
+    }
+
+    private async Task<WebhookPayload> GenerateRoleBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires, string roles)
+    {
+        var severity = "";
+
+        switch (noteSeverity)
+        {
+            case NoteSeverity.None:
+                severity = "Нету";
+                break;
+            case NoteSeverity.Minor:
+                severity = "Низкая";
+                break;
+            case NoteSeverity.Medium:
+                severity = "Средняя";
+                break;
+            case NoteSeverity.High:
+                severity = "Высокая";
+                break;
+        }
+
+        var description = "**Администратор:** \n> " + adminName + "\n**Игрок:** \n> " + targetName + "\n**Причина:** \n> " + reason + "\n**Роли:** \n> " + roles + "\n**Степень тяжести:** \n> " + severity + "\n**Истечёт:** \n> " + expires;
+
+        return new WebhookPayload
+        {
+            Username = _webhookName,
+            AvatarUrl = _webhookAvatarUrl,
+            Embeds = new List<Embed>
+            {
+                new()
+                {
+                    Title = "Бан ролей",
+                    Description = description,
+                    Color = 255
+                }
+            }
+        };
+    }
+
+    private void OnWebhookChanged(string url)
+    {
+        _webhook = url;
+
+        if (url == string.Empty)
+            return;
+    }
+
+    private struct WebhookPayload
+    {
+        [JsonPropertyName("username")]
+        public string Username { get; set; } = "";
+
+        [JsonPropertyName("avatar_url")]
+        public string? AvatarUrl { get; set; } = "";
+
+        [JsonPropertyName("embeds")]
+        public List<Embed>? Embeds { get; set; } = null;
+
+        public WebhookPayload()
+        {
+            
+        }
+    }
+
+    private struct Embed
+    {
+        [JsonPropertyName("title")]
+        public string Title { get; set; } = "";
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; } = "";
+
+        [JsonPropertyName("color")]
+        public int Color { get; set; } = 0;
+
+        public Embed()
+        {
+        }
+    }
+
+    #endregion
 }
