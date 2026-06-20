@@ -15,7 +15,6 @@ using Robust.Shared.Player;
 using Content.Shared._Newton.CCVars;
 using CCVars = Content.Shared.CCVar.CCVars;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
