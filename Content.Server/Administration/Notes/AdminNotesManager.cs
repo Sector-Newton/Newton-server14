@@ -12,6 +12,12 @@ using Content.Shared.Players.PlayTimeTracking;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared._Newton.CCVars;
+using CCVars = Content.Shared.CCVar.CCVars;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Content.Server.Administration.Notes;
 
@@ -25,6 +31,12 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     [Dependency] private IConfigurationManager _config = default!;
 
     public const string SawmillId = "admin.notes";
+
+    // Newton-noteswebhook-start
+    private string _webhookName = "Newton";
+    private string _webhookAvatarUrl = "https://media.istockphoto.com/id/1393248253/ru/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F/%D0%B1%D1%83%D0%BA%D0%B2%D0%B0-n-%D0%BA%D0%BE%D1%80%D0%BE%D0%BD%D0%B0-%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%BA%D0%BE%D1%80%D0%BE%D0%BD%D1%8B-%D0%BD%D0%B0-%D0%B1%D1%83%D0%BA%D0%B2%D0%B5-n-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B9-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD-%D0%B4%D0%BB%D1%8F-%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B-%D0%BC%D0%BE%D0%B4%D1%8B-%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D1%8B.jpg?s=170667a&w=0&k=20&c=vY0HzM7NdIdv0cfO6chFTTGDEty9rQmAjIl09mT2rpo=";
+    private string _webhook = string.Empty;
+    // Newton-noteswebhook-end
 
     public event Action<SharedAdminNote>? NoteAdded;
     public event Action<SharedAdminNote>? NoteModified;
@@ -75,7 +87,8 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
         // There's a foreign key constraint in place here. If there's no player record, it will fail.
         // Not like there's much use in adding notes on accounts that have never connected.
         // You can still ban them just fine, which is why we should allow admins to view their bans with the notes panel
-        if (await _db.GetPlayerRecordByUserId((NetUserId) player) is null)
+        var playerRecord = await _db.GetPlayerRecordByUserId((NetUserId) player);
+        if (playerRecord is null)
             return;
 
         var sb = new StringBuilder($"{createdBy.Name} added a");
@@ -163,6 +176,21 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
             seen
         );
         NoteAdded?.Invoke(note);
+        // Newton-noteswebhook-start
+        DateTimeOffset? expires = null;
+        NoteSeverity severityWebhook = NoteSeverity.None;
+
+        if (expiryTime != null)
+            expires = new DateTimeOffset(expiryTime.Value);
+
+        string expiresString = expires == null ? Loc.GetString("server-ban-string-never") : $"{expires}";
+
+        if (severity != null)
+            severityWebhook = severity.Value;
+        
+        if (!secret)
+            SendWebhook(await GenerateNotePayload(createdBy.Name, playerRecord.LastSeenUserName, message, severityWebhook, expiresString));
+        // Newton-noteswebhook-end
     }
 
     private async Task<SharedAdminNote?> GetAdminRemark(int id, NoteType type)
@@ -330,5 +358,111 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     public void PostInject()
     {
         _sawmill = _logManager.GetSawmill(SawmillId);
+        _config.OnValueChanged(NewtonCCVars.DiscordNotesWebhook, OnWebhookChanged, true); // Newton-noteswebhook
     }
+    // Newton-noteswebhook-start
+    #region "webhook"
+
+    private async void SendWebhook(WebhookPayload payload)
+    {
+        if (_webhook == string.Empty) return;
+
+        var client = new HttpClient();
+
+        var json = JsonSerializer.Serialize(payload);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        
+        var request = await client.PostAsync(_webhook, content);
+        var requestContent = await request.Content.ReadAsStringAsync();
+
+        if (!request.IsSuccessStatusCode)
+        {
+            _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {requestContent}");
+            return;
+        }
+    }
+
+    private async Task<WebhookPayload> GenerateNotePayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires)
+    {
+        var severity = "";
+
+        switch (noteSeverity)
+        {
+            case NoteSeverity.None:
+                severity = "Нету";
+                break;
+            case NoteSeverity.Minor:
+                severity = "Низкая";
+                break;
+            case NoteSeverity.Medium:
+                severity = "Средняя";
+                break;
+            case NoteSeverity.High:
+                severity = "Высокая";
+                break;
+        }
+
+        var description = "**Администратор:** \n> " + adminName + "\n**Игрок:** \n> " + targetName + "\n**Причина:** \n> " + reason + "\n**Степень тяжести:** \n> " + severity + "\n**Истечёт:** \n> " + expires;
+
+        return new WebhookPayload
+        {
+            Username = _webhookName,
+            AvatarUrl = _webhookAvatarUrl,
+            Embeds = new List<Embed>
+            {
+                new()
+                {
+                    Title = "Предупреждение",
+                    Description = description,
+                    Color = 16776960
+                }
+            }
+        };
+    }
+
+    private void OnWebhookChanged(string url)
+    {
+        _webhook = url;
+
+        _sawmill.Info($"notes webhook changed {_webhook}");
+
+        if (url == string.Empty)
+            return;
+    }
+
+    private struct WebhookPayload
+    {
+        [JsonPropertyName("username")]
+        public string Username { get; set; } = "";
+
+        [JsonPropertyName("avatar_url")]
+        public string? AvatarUrl { get; set; } = "";
+
+        [JsonPropertyName("embeds")]
+        public List<Embed>? Embeds { get; set; } = null;
+
+        public WebhookPayload()
+        {
+            
+        }
+    }
+
+    private struct Embed
+    {
+        [JsonPropertyName("title")]
+        public string Title { get; set; } = "";
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; } = "";
+
+        [JsonPropertyName("color")]
+        public int Color { get; set; } = 0;
+
+        public Embed()
+        {
+        }
+    }
+
+    #endregion
+    // Newton-noteswebhook-end
 }
