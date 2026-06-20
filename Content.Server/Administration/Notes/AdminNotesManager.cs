@@ -188,7 +188,7 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
         if (severity != null)
             severityWebhook = severity.Value;
         
-        if (!secret)
+        if (type == NoteType.Note && !secret)
             SendWebhook(await GenerateNotePayload(createdBy.Name, playerRecord.LastSeenUserName, message, severityWebhook, expiresString));
         // Newton-noteswebhook-end
     }
