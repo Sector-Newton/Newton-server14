@@ -1,0 +1,126 @@
+- type: guideEntry
+  id: NewtonDefaultRuleset
+  name: guide-entry-newton-ruleset
+  priority: 0
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRules.xml"
+  children:
+  - NewtonDefaultRule0
+  - NewtonDefaultRule1
+  - NewtonDefaultRule11
+  - NewtonDefaultRule12
+  - NewtonDefaultRule13
+  - NewtonDefaultRule2
+  - NewtonDefaultRule21
+  - NewtonDefaultRule22
+  - NewtonDefaultRule23
+  - NewtonDefaultRule3
+  - NewtonDefaultRule4
+  - NewtonDefaultRule6
+  - NewtonDefaultRule7
+  - NewtonDefaultRule8
+
+- type: guideEntry
+  id: NewtonDefaultRule0
+  name: guide-entry-newton-rule0
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule0.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule1
+  name: guide-entry-newton-rule1
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule1.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule11
+  name: guide-entry-newton-rule11
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule11.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule12
+  name: guide-entry-newton-rule12
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule12.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule13
+  name: guide-entry-newton-rule13
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule13.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule2
+  name: guide-entry-newton-rule2
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule2.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule21
+  name: guide-entry-newton-rule21
+  priority: 7
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule21.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule22
+  name: guide-entry-newton-rule22
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule22.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule23
+  name: guide-entry-newton-rule23
+  priority: 9
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule23.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule3
+  name: guide-entry-newton-rule3
+  priority: 10
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule3.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule4
+  name: guide-entry-newton-rule4
+  priority: 11
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule4.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule5
+  name: guide-entry-newton-rule5
+  priority: 12
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule5.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule6
+  name: guide-entry-newton-rule6
+  priority: 13
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule6.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule7
+  name: guide-entry-newton-rule7
+  priority: 14
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule7.xml"
+
+- type: guideEntry
+  id: NewtonDefaultRule8
+  name: guide-entry-newton-rule8
+  priority: 15
+  ruleEntry: true
+  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule8.xml"
