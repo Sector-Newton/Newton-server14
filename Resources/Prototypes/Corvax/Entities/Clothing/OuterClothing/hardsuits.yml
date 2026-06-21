@@ -12,17 +12,19 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 1.0
+    walkModifier: 1.2 #SN-value
+    sprintModifier: 1.2 #SN-value
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
+  - type: StaminaResistance #SN-start
+    damageCoefficient: 0.4 #SN-End
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
+        Blunt: 0.6 #SN-value
+        Slash: 0.6 #SN-value
+        Piercing: 0.5 #SN-value
         Heat: 0.05
         Cold: 0.1
         Shock: 0.1
@@ -44,3 +46,6 @@
     sprite: Corvax/Clothing/OuterClothing/hardsuits/security-pilot.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityPilot
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85 #SN-value
+    sprintModifier: 0.85 #SN-value
