@@ -12,19 +12,19 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.2 #SN-value
-    sprintModifier: 1.2 #SN-value
+    walkModifier: 1.2 #SN
+    sprintModifier: 1.2 #SN
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.4 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.4 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN-value
-        Slash: 0.6 #SN-value
-        Piercing: 0.5 #SN-value
+        Blunt: 0.6 #SN
+        Slash: 0.6 #SN
+        Piercing: 0.5 #SN
         Heat: 0.05
         Cold: 0.1
         Shock: 0.1
@@ -47,5 +47,5 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityPilot
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 #SN-value
-    sprintModifier: 0.85 #SN-value
+    walkModifier: 0.85 #SN
+    sprintModifier: 0.85 #SN

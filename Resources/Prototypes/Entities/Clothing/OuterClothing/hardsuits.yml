@@ -19,19 +19,19 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: FireProtection
-    reduction: 0.4 #SN-value
+    reduction: 0.4 #SN
   - type: ExplosionResistance
-    damageCoefficient: 0.7 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.7 #SN-End
+    damageCoefficient: 0.7 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.7 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7 #SN-value
-        Slash: 0.7 #SN-value
-        Piercing: 0.8 #SN-value
-        Heat: 0.4 #SN-value
-        Radiation: 0.4 #SN-value
+        Blunt: 0.7 #SN
+        Slash: 0.7 #SN
+        Piercing: 0.8 #SN
+        Heat: 0.4 #SN
+        Radiation: 0.4 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -58,20 +58,20 @@
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.7 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.7 #SN-End
+    damageCoefficient: 0.7 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.7 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7 #SN-value
-        Slash: 0.7 #SN-value
-        Piercing: 0.8 #SN-value
-        Heat: 0.7 #SN-value
+        Blunt: 0.7 #SN
+        Slash: 0.7 #SN
+        Piercing: 0.8 #SN
+        Heat: 0.7 #SN
         Radiation: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 #SN-value
-    sprintModifier: 0.85 #SN-value
+    walkModifier: 0.85 #SN
+    sprintModifier: 0.85 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
@@ -94,20 +94,20 @@
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance #SN-start
+  - type: ExplosionResistance #SN
     damageCoefficient: 0.6 
   - type: StaminaResistance 
-    damageCoefficient: 0.7 #SN-End
+    damageCoefficient: 0.7 #SN
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.9 
-        Slash: 0.8 #SN-value
+        Slash: 0.8 #SN
         Piercing: 0.9 
-        Heat: 0.9 #SN-value
-        Cold: 0.8 #SN-value
+        Heat: 0.9 #SN
+        Cold: 0.8 #SN
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
-        Caustic: 0.5 #SN-value
+        Caustic: 0.5 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -135,22 +135,22 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.5 #SN-End
+    damageCoefficient: 0.4 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.5 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.60 #SN-value
-        Slash: 0.50 #SN-value
-        Piercing: 0.6 #SN-value
-        Heat: 0.4 #SN-value
-        Cold: 0.4 #SN-value
-        Radiation: 0.3 #SN-value
-        Caustic: 0.6 #SN-value
+        Blunt: 0.60 #SN
+        Slash: 0.50 #SN
+        Piercing: 0.6 #SN
+        Heat: 0.4 #SN
+        Cold: 0.4 #SN
+        Radiation: 0.3 #SN
+        Caustic: 0.6 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 #SN-value
-    sprintModifier: 0.8 #SN-value
+    walkModifier: 0.8 #SN
+    sprintModifier: 0.8 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
@@ -175,21 +175,21 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.4 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.4 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.45 #SN-value
-        Slash: 0.45 #SN-value
-        Piercing: 0.6 #SN-value
+        Blunt: 0.45 #SN
+        Slash: 0.45 #SN
+        Piercing: 0.6 #SN
         Heat: 0.5 #Goliath hide gets grilled instead of you
-        Cold: 0.5 #SN-value
+        Cold: 0.5 #SN
         Radiation: 0.3 
-        Caustic: 0.5 #SN-value
+        Caustic: 0.5 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 #SN-value
-    sprintModifier: 0.8 #SN-value
+    walkModifier: 0.8 #SN
+    sprintModifier: 0.8 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitGoliath
@@ -216,19 +216,19 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 1.1 #SN-value
-    sprintModifier: 1.1 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.7 #SN-End
+    walkModifier: 1.1 #SN
+    sprintModifier: 1.1 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.7 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN-value
-        Slash: 0.6 #SN-value
-        Piercing: 0.5 #SN-value
-        Heat: 0.3 #SN-value
-        Cold: 0.3 #SN-value
-        Radiation: 0.3 #SN-value
+        Blunt: 0.6 #SN
+        Slash: 0.6 #SN
+        Piercing: 0.5 #SN
+        Heat: 0.3 #SN
+        Cold: 0.3 #SN
+        Radiation: 0.3 #SN
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
@@ -253,16 +253,16 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.6 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.6 #SN
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.5 #SN-value
-        Heat: 0.6 #SN-value
-        Radiation: 0.8 #SN-value
+        Piercing: 0.5 #SN
+        Heat: 0.6 #SN
+        Radiation: 0.8 #SN
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.75
@@ -290,23 +290,23 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.7 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.6 #SN-End
+    damageCoefficient: 0.7 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.6 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8 #SN-value
-        Slash: 0.8 #SN-value 
-        Piercing: 0.7 #SN-value
-        Heat: 0.8 #SN-value
-        Radiation: 0.8 #SN-value
-        Caustic: 0.6 #SN-value
+        Blunt: 0.8 #SN
+        Slash: 0.8 #SN
+        Piercing: 0.7 #SN
+        Heat: 0.8 #SN
+        Radiation: 0.8 #SN
+        Caustic: 0.6 #SN
   - type: ZombificationResistance #SN-start
     zombificationResistanceCoefficient: 0.4 #SN-End
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 #SN-value
-    sprintModifier: 0.9 #SN-value
+    walkModifier: 0.9 #SN
+    sprintModifier: 0.9 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
@@ -326,21 +326,21 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.4 #SN-End
+    damageCoefficient: 0.6 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.4 #SN
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.4
-        Slash: 0.4 #SN-value
+        Slash: 0.4 #SN
         Piercing: 0.6
-        Heat: 0.6 #SN-value
-        Radiation: 0.6 #SN-value
-        Caustic: 0.6 #SN-value
+        Heat: 0.6 #SN
+        Radiation: 0.6 #SN
+        Caustic: 0.6 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 #SN-value
-    sprintModifier: 0.8 #SN-value
+    walkModifier: 0.8 #SN
+    sprintModifier: 0.8 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
@@ -360,20 +360,20 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6 #SN-value
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.6 #SN-End
+    damageCoefficient: 0.6 #SN
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.6 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5 #SN-value
-        Slash: 0.5 #SN-value
-        Piercing: 0.6 #SN-value
-        Heat: 0.6 #SN-value 
-        Radiation: 0.6 #SN-value
+        Blunt: 0.5 #SN
+        Slash: 0.5 #SN
+        Piercing: 0.6 #SN
+        Heat: 0.6 #SN
+        Radiation: 0.6 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 #SN-value
-    sprintModifier: 0.9 #SN-value
+    walkModifier: 0.9 #SN
+    sprintModifier: 0.9 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
@@ -400,19 +400,19 @@
     reduction: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.2
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.6 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.6 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN-value
-        Slash: 0.6 #SN-value
-        Piercing: 0.7 #SN-value
+        Blunt: 0.6 #SN
+        Slash: 0.6 #SN
+        Piercing: 0.7 #SN
         Heat: 0.4
         Radiation: 0.0
   - type: ClothingSpeedModifier
-    walkModifier: 0.75 #SN-value
-    sprintModifier: 0.75 #SN-value
+    walkModifier: 0.75 #SN
+    sprintModifier: 0.75 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
@@ -438,10 +438,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8 #SN-value
-        Slash: 0.7 #SN-value
-        Piercing: 0.8 #SN-value
-        Heat: 0.8 #SN-value
+        Blunt: 0.8 #SN
+        Slash: 0.7 #SN
+        Piercing: 0.8 #SN
+        Heat: 0.8 #SN
         Caustic: 0.1
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
@@ -470,22 +470,22 @@
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.6 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.6 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN-value
-        Slash: 0.7 #SN-value
-        Piercing: 0.8 #SN-value
+        Blunt: 0.6 #SN
+        Slash: 0.7 #SN
+        Piercing: 0.8 #SN
         Heat: 0.3 
         Radiation: 0.1 
         Caustic: 0.2 
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 #SN-value
-    sprintModifier: 0.8 #SN-value
+    walkModifier: 0.8 #SN
+    sprintModifier: 0.8 #SN
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
@@ -519,20 +519,20 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.6
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.4 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.4 #SN
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.6 #SN-value
-        Piercing: 0.4 #SN-value
-        Heat: 0.6 #SN-value
-        Radiation: 0.4 #SN-value
+        Slash: 0.6 #SN
+        Piercing: 0.4 #SN
+        Heat: 0.6 #SN
+        Radiation: 0.4 #SN
         Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 #SN-value
-    sprintModifier: 0.8 #SN-value
+    walkModifier: 0.8 #SN
+    sprintModifier: 0.8 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
@@ -559,12 +559,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7 #SN-value
-        Slash: 0.7 #SN-value
-        Piercing: 0.8 #SN-value
-        Heat: 0.7 #SN-value
-        Radiation: 0.3 #SN-value
-        Caustic: 0.7 #SN-value
+        Blunt: 0.7 #SN
+        Slash: 0.7 #SN
+        Piercing: 0.8 #SN
+        Heat: 0.7 #SN
+        Radiation: 0.3 #SN
+        Caustic: 0.7 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -598,7 +598,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.35 #SN-value
+        Piercing: 0.35 #SN
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
@@ -631,19 +631,19 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
   - type: Tag
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.5 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.5 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.35 #SN-value
-        Slash: 0.35 #SN-value
+        Blunt: 0.35 #SN
+        Slash: 0.35 #SN
         Piercing: 0.5 
         Heat: 0.5
         Radiation: 0.5 
         Caustic: 0.5
-  - type: ZombificationResistance #SN-start
-    zombificationResistanceCoefficient: 0.2 #SN-End
+  - type: ZombificationResistance #SN
+    zombificationResistanceCoefficient: 0.2 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -677,17 +677,17 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN-value
-        Slash: 0.6 #SN-value
-        Piercing: 0.5 #SN-value
+        Blunt: 0.6 #SN
+        Slash: 0.6 #SN
+        Piercing: 0.5 #SN
         Heat: 0.2
         Radiation: 0.01
-        Caustic: 0.2 #SN-value
+        Caustic: 0.2 #SN
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 0.95 #SN-value
-    sprintModifier: 0.95 #SN-value
+    walkModifier: 0.95 #SN
+    sprintModifier: 0.95 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
@@ -720,12 +720,12 @@
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.3
-        Heat: 0.3 #SN-value
-        Radiation: 0.3 #SN-value
-        Caustic: 0.3 #SN-value
+        Heat: 0.3 #SN
+        Radiation: 0.3 #SN
+        Caustic: 0.3 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 #SN-value
-    sprintModifier: 0.85 #SN-value
+    walkModifier: 0.85 #SN
+    sprintModifier: 0.85 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
@@ -753,11 +753,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.25 #SN-value
-        Slash: 0.25 #SN-value
+        Blunt: 0.25 #SN
+        Slash: 0.25 #SN
         Piercing: 0.2
-        Heat: 0.25 #SN-value
-        Radiation: 0.25 #SN-value
+        Heat: 0.25 #SN
+        Radiation: 0.25 #SN
         Caustic: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.65
@@ -787,20 +787,20 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.5 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.5 #SN
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.25 #SN-value
+        Piercing: 0.25 #SN
         Heat: 0.25
         Radiation: 0.25
         Caustic: 0.75
   - type: ClothingSpeedModifier
-    walkModifier: 0.8 #SN-value
-    sprintModifier: 0.8 #SN-value
+    walkModifier: 0.8 #SN
+    sprintModifier: 0.8 #SN
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
   - type: Tag
     tags:
@@ -854,19 +854,19 @@
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.7
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.6 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.6 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65 #SN-value
-        Slash: 0.65 #SN-value
-        Piercing: 0.60 #SN-value
-        Heat: 0.4 #SN-value
-        Caustic: 0.75 #SN-value
+        Blunt: 0.65 #SN
+        Slash: 0.65 #SN
+        Piercing: 0.60 #SN
+        Heat: 0.4 #SN
+        Caustic: 0.75 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.75 #SN-value
-    sprintModifier: 0.75 #SN-value
+    walkModifier: 0.75 #SN
+    sprintModifier: 0.75 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitPirateEVA
@@ -891,24 +891,24 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.6
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.5 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.5 #SN
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN-value
-        Slash: 0.6 #SN-value
-        Piercing: 0.5 #SN-value
-        Heat: 0.6 #SN-value
-        Caustic: 0.75 #SN-value
+        Blunt: 0.6 #SN
+        Slash: 0.6 #SN
+        Piercing: 0.5 #SN
+        Heat: 0.6 #SN
+        Caustic: 0.75 #SN
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 #SN-value
-    sprintModifier: 0.85 #SN-value
+    walkModifier: 0.85 #SN
+    sprintModifier: 0.85 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
-    price: 10000 #SN-value
+    price: 10000 #SN
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -1059,8 +1059,8 @@
     coolingCoefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.7
-  - type: StaminaResistance #SN-start
-    damageCoefficient: 0.5 #SN-End
+  - type: StaminaResistance #SN
+    damageCoefficient: 0.5 #SN
   - type: Armor
     modifiers:
       coefficients:
@@ -1075,8 +1075,8 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
   - type: ClothingSpeedModifier
-    walkModifier: 1.2 #SN-value
-    sprintModifier: 1.2 #SN-value
+    walkModifier: 1.2 #SN
+    sprintModifier: 1.2 #SN
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
