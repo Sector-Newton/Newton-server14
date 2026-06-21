@@ -336,6 +336,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: Armor
+    modifiers:
+      coefficients:
+        Shock: 0.8 #SN
 
 # Budget Insulated Gloves
 - type: entity

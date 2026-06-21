@@ -148,6 +148,14 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
   - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
+        Shock: 0.8 #SN
 
 - type: entity
   parent: ClothingHandsBase
@@ -182,6 +190,12 @@
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Caustic: 0.8 #SN
+  - type: ZombificationResistance #SN
+    zombificationResistanceCoefficient: 0.9 #SN
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -196,6 +210,12 @@
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Caustic: 0.8 #SN
+  - type: ZombificationResistance #SN
+    zombificationResistanceCoefficient: 0.9 #SN
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -300,6 +320,14 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
+      - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
+        Shock: 0.8 #SN
 
 - type: entity
   parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
@@ -314,6 +342,13 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6 #SN
+        Slash: 0.6 #SN
+        Piercing: 0.5 #SN
+        Heat: 0.05
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -329,6 +364,14 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
+        Shock: 0.8 #SN
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat, BaseSlicingRefinable ]
@@ -346,6 +389,14 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
+        Shock: 0.8 #SN
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -462,6 +513,13 @@
     tags:
     - Kangaroo
     - WhitelistChameleon
+      - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
