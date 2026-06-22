@@ -47,7 +47,7 @@ public sealed class CCCVars
     /// Amount of seconds before timeout for TTS API requests.
     /// </summary>
     public static readonly CVarDef<int> TTSApiTimeout =
-        CVarDef.Create("tts.api_timeout", 5, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("tts.api_timeout", 3, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Default volume setting of TTS sound
