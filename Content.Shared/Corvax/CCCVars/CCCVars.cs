@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.Corvax.CCCVars;
 
@@ -16,29 +16,35 @@ public sealed class CCCVars
         CVarDef.Create("game.panic_bunker.deny_vpn", false, CVar.SERVERONLY);
 
     /**
-     * TTS (Text-To-Speech)
+     * TTS (Text-To-Speech) — ElevenLabs
      */
 
     /// <summary>
-    /// URL of the TTS server API.
+    /// Whether TTS is enabled.
     /// </summary>
     public static readonly CVarDef<bool> TTSEnabled =
         CVarDef.Create("tts.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
     /// <summary>
-    /// URL of the TTS server API.
+    /// Base URL of the ElevenLabs API (without trailing slash).
     /// </summary>
     public static readonly CVarDef<string> TTSApiUrl =
-        CVarDef.Create("tts.api_url", "", CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("tts.api_url", "https://api.elevenlabs.io", CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
-    /// Auth token of the TTS server API.
+    /// ElevenLabs API key (xi-api-key header value).
     /// </summary>
     public static readonly CVarDef<string> TTSApiToken =
         CVarDef.Create("tts.api_token", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     /// <summary>
-    /// Amount of seconds before timeout for API
+    /// ElevenLabs model ID for TTS generation.
+    /// </summary>
+    public static readonly CVarDef<string> TTSApiModel =
+        CVarDef.Create("tts.api_model", "eleven_flash_v2_5", CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Amount of seconds before timeout for TTS API requests.
     /// </summary>
     public static readonly CVarDef<int> TTSApiTimeout =
         CVarDef.Create("tts.api_timeout", 5, CVar.SERVERONLY | CVar.ARCHIVE);

@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -42,6 +43,16 @@ public sealed partial class TTSManager
     private int _maxCachedCount = 200;
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
+    private string _apiModel = string.Empty;
+
+    /// <summary>
+    /// ElevenLabs output format: signed 16-bit little-endian PCM at 8000 Hz.
+    /// Fastest format for real-time TTS.
+    /// </summary>
+    private const string OutputFormat = "pcm_8000";
+    private const int PcmSampleRate = 8000 ;
+    private const int PcmBitsPerSample = 16;
+    private const int PcmChannels = 1;
 
     public void Initialize()
     {
@@ -53,69 +64,81 @@ public sealed partial class TTSManager
         }, true);
         _cfg.OnValueChanged(CCCVars.TTSApiUrl, v => _apiUrl = v, true);
         _cfg.OnValueChanged(CCCVars.TTSApiToken, v => _apiToken = v, true);
+        _cfg.OnValueChanged(CCCVars.TTSApiModel, v => _apiModel = v, true);
     }
 
     /// <summary>
-    /// Generates audio with passed text by API
+    /// Generates audio with passed text via ElevenLabs API.
     /// </summary>
-    /// <param name="speaker">Identifier of speaker</param>
-    /// <param name="text">SSML formatted text</param>
-    /// <returns>OGG audio bytes or null if failed</returns>
-    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
+    /// <param name="voiceId">ElevenLabs voice_id</param>
+    /// <param name="text">Plain text to synthesize</param>
+    /// <param name="isWhisper">If true, uses lower stability for whisper effect</param>
+    /// <returns>WAV audio bytes or null if failed</returns>
+    public async Task<byte[]?> ConvertTextToSpeech(string voiceId, string text, bool isWhisper = false)
     {
         WantedCount.Inc();
-        var cacheKey = GenerateCacheKey(speaker, text);
+        var cacheKey = GenerateCacheKey(voiceId, text, isWhisper);
         if (_cache.TryGetValue(cacheKey, out var data))
         {
             ReusedCount.Inc();
-            _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
+            _sawmill.Verbose($"Use cached sound for '{text}' speech by '{voiceId}' voice");
             return data;
         }
 
-        _sawmill.Verbose($"Generate new audio for '{text}' speech by '{speaker}' speaker");
+        _sawmill.Verbose($"Generate new audio for '{text}' speech by '{voiceId}' voice");
 
-        var body = new GenerateVoiceRequest
+        var stability = isWhisper ? 0.2f : 0.5f;
+        var similarityBoost = isWhisper ? 0.5f : 0.75f;
+
+        var body = new ElevenLabsTtsRequest
         {
-            ApiToken = _apiToken,
             Text = text,
-            Speaker = speaker,
+            ModelId = _apiModel,
+            VoiceSettings = new ElevenLabsVoiceSettings
+            {
+                Stability = stability,
+                SimilarityBoost = similarityBoost,
+            },
         };
+
+        var url = $"{_apiUrl.TrimEnd('/')}/v1/text-to-speech/{voiceId}?output_format={OutputFormat}";
 
         var reqTime = DateTime.UtcNow;
         try
         {
             var timeout = _cfg.GetCVar(CCCVars.TTSApiTimeout);
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeout));
-            var response = await _httpClient.PostAsJsonAsync(_apiUrl, body, cts.Token);
+
+            using var request = new HttpRequestMessage(HttpMethod.Post, url);
+            request.Headers.Add("xi-api-key", _apiToken);
+            request.Content = JsonContent.Create(body);
+
+            var response = await _httpClient.SendAsync(request, cts.Token);
             if (!response.IsSuccessStatusCode)
             {
                 if (response.StatusCode == HttpStatusCode.TooManyRequests)
                 {
-                    _sawmill.Warning("TTS request was rate limited");
+                    _sawmill.Warning("TTS request was rate limited by ElevenLabs");
                     return null;
                 }
 
-                _sawmill.Error($"TTS request returned bad status code: {response.StatusCode}");
+                var errorBody = await response.Content.ReadAsStringAsync(cts.Token);
+                _sawmill.Error($"TTS request returned bad status code: {response.StatusCode}, body: {errorBody}");
                 return null;
             }
 
-            var json = await response.Content.ReadFromJsonAsync<GenerateVoiceResponse>(cancellationToken: cts.Token);
-            if (json.Results == null || json.Results.Count == 0)
-            {
-                _sawmill.Error($"TTS API returned empty results for '{text}'");
-                return null;
-            }
-
-            var firstResult = json.Results[0];
-            if (string.IsNullOrEmpty(firstResult.Audio))
+            // ElevenLabs returns raw audio bytes (PCM S16LE) directly in the response body
+            var pcmData = await response.Content.ReadAsByteArrayAsync(cts.Token);
+            if (pcmData.Length == 0)
             {
                 _sawmill.Error($"TTS API returned empty audio data for '{text}'");
                 return null;
             }
 
-            var soundData = Convert.FromBase64String(firstResult.Audio);
+            // Wrap raw PCM in a WAV header so the audio engine can play it
+            var wavData = WrapPcmInWav(pcmData);
 
-            _cache.Add(cacheKey, soundData);
+            _cache.Add(cacheKey, wavData);
             _cacheKeysSeq.Add(cacheKey);
             if (_cache.Count > _maxCachedCount)
             {
@@ -124,21 +147,21 @@ public sealed partial class TTSManager
                 _cacheKeysSeq.Remove(firstKey);
             }
 
-            _sawmill.Debug($"Generated new audio for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");
+            _sawmill.Debug($"Generated new audio for '{text}' speech by '{voiceId}' voice ({wavData.Length} bytes)");
             RequestTimings.WithLabels("Success").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
 
-            return soundData;
+            return wavData;
         }
         catch (TaskCanceledException)
         {
             RequestTimings.WithLabels("Timeout").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Error($"Timeout of request generation new audio for '{text}' speech by '{speaker}' speaker");
+            _sawmill.Error($"Timeout of request generation new audio for '{text}' speech by '{voiceId}' voice");
             return null;
         }
         catch (Exception e)
         {
             RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Error($"Failed of request generation new sound for '{text}' speech by '{speaker}' speaker\n{e}");
+            _sawmill.Error($"Failed of request generation new sound for '{text}' speech by '{voiceId}' voice\n{e}");
             return null;
         }
     }
@@ -149,59 +172,70 @@ public sealed partial class TTSManager
         _cacheKeysSeq.Clear();
     }
 
-    private string GenerateCacheKey(string speaker, string text)
+    private string GenerateCacheKey(string voiceId, string text, bool isWhisper)
     {
-        var key = $"{speaker}/{text}";
+        var key = $"{voiceId}/{text}/{isWhisper}";
         var bytes = System.Security.Cryptography.SHA256.HashData(Encoding.UTF8.GetBytes(key));
         return Convert.ToHexString(bytes);
     }
 
-    private struct GenerateVoiceRequest
+    /// <summary>
+    /// Wraps raw PCM S16LE data in a standard WAV (RIFF) header.
+    /// </summary>
+    private static byte[] WrapPcmInWav(byte[] pcmData)
     {
-        public GenerateVoiceRequest()
-        {
-        }
+        const int headerSize = 44;
+        var byteRate = PcmSampleRate * PcmChannels * PcmBitsPerSample / 8;
+        var blockAlign = (short)(PcmChannels * PcmBitsPerSample / 8);
+        var dataSize = pcmData.Length;
+        var fileSize = headerSize + dataSize - 8; // RIFF chunk size = file size - 8
 
-        [JsonPropertyName("api_token")]
-        public string ApiToken { get; set; } = "";
+        using var ms = new MemoryStream(headerSize + dataSize);
+        using var writer = new BinaryWriter(ms);
 
+        // RIFF header
+        writer.Write("RIFF"u8);
+        writer.Write(fileSize);
+        writer.Write("WAVE"u8);
+
+        // fmt sub-chunk
+        writer.Write("fmt "u8);
+        writer.Write(16);                      // Sub-chunk size (16 for PCM)
+        writer.Write((short)1);                // Audio format (1 = PCM)
+        writer.Write((short)PcmChannels);      // Number of channels
+        writer.Write(PcmSampleRate);           // Sample rate
+        writer.Write(byteRate);                // Byte rate
+        writer.Write(blockAlign);              // Block align
+        writer.Write((short)PcmBitsPerSample); // Bits per sample
+
+        // data sub-chunk
+        writer.Write("data"u8);
+        writer.Write(dataSize);
+        writer.Write(pcmData);
+
+        return ms.ToArray();
+    }
+
+    // --- ElevenLabs API DTOs ---
+
+    private struct ElevenLabsTtsRequest
+    {
         [JsonPropertyName("text")]
-        public string Text { get; set; } = "";
+        public string Text { get; set; }
 
-        [JsonPropertyName("speaker")]
-        public string Speaker { get; set; } = "";
+        [JsonPropertyName("model_id")]
+        public string ModelId { get; set; }
 
-        [JsonPropertyName("ssml")]
-        public bool SSML { get; private set; } = true;
-
-        [JsonPropertyName("word_ts")]
-        public bool WordTS { get; private set; } = false;
-
-        [JsonPropertyName("put_accent")]
-        public bool PutAccent { get; private set; } = true;
-
-        [JsonPropertyName("put_yo")]
-        public bool PutYo { get; private set; } = false;
-
-        [JsonPropertyName("sample_rate")]
-        public int SampleRate { get; private set; } = 24000;
-
-        [JsonPropertyName("format")]
-        public string Format { get; private set; } = "ogg";
+        [JsonPropertyName("voice_settings")]
+        public ElevenLabsVoiceSettings VoiceSettings { get; set; }
     }
 
-    private struct GenerateVoiceResponse
+    private struct ElevenLabsVoiceSettings
     {
-        [JsonPropertyName("results")]
-        public List<VoiceResult> Results { get; set; }
+        [JsonPropertyName("stability")]
+        public float Stability { get; set; }
 
-        [JsonPropertyName("original_sha1")]
-        public string Hash { get; set; }
-    }
-
-    private struct VoiceResult
-    {
-        [JsonPropertyName("audio")]
-        public string Audio { get; set; }
+        [JsonPropertyName("similarity_boost")]
+        public float SimilarityBoost { get; set; }
     }
 }

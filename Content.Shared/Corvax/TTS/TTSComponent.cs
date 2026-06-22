@@ -11,9 +11,9 @@ namespace Content.Shared.Corvax.TTS;
 public sealed partial class TTSComponent : Component
 {
     /// <summary>
-    /// Prototype of used voice for TTS.
+    /// Прототип дефолтного TTS голоса по умолчанию. Используется, если у говорящего нет TTSComponent или в нём не указан голос.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
-    public string? VoicePrototypeId { get; set; } = "Taskmaster";
+    public string? VoicePrototypeId { get; set; } = "1";
 }
