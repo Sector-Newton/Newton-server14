@@ -49,8 +49,8 @@ public sealed partial class TTSManager
     /// ElevenLabs output format: signed 16-bit little-endian PCM at 8000 Hz.
     /// Fastest format for real-time TTS.
     /// </summary>
-    private const string OutputFormat = "pcm_8000";
-    private const int PcmSampleRate = 8000 ;
+    private const string OutputFormat = "pcm_16000";
+    private const int PcmSampleRate = 16000 ;
     private const int PcmBitsPerSample = 16;
     private const int PcmChannels = 1;
 

@@ -1,35 +1,42 @@
+# - type: ttsVoice
+#   id: NameSirname
+#   name: Name Sirname
+#   sex: Female
+#   speaker: id
+#   roundStart: true
+
 - type: ttsVoice
-  id: 1
-  name: tts-voice-name-test-1
-  sex: Female
+  id: EgorGadzhiev
+  name: Егор Гаджиев
+  sex: Male
   speaker: 6A9D8WSMm4rFsg2DWFeE
   roundStart: true
 
 - type: ttsVoice
-  id: 2
-  name: tts-voice-name-test-2
-  sex: Male
+  id: Jean
+  name: Jean
+  sex: Female
   speaker: eVItLK1UvXctxuaRV2Oq
   roundStart: true
 
 - type: ttsVoice
-  id: 3
-  name: tts-voice-name-test-3
-  sex: Male
+  id: CherryTwinkle
+  name: Cherry Twinkle
+  sex: Female
   speaker: XJ2fW4ybq7HouelYYGcL
   roundStart: true
 
 - type: ttsVoice
-  id: 4
-  name: tts-voice-name-test-4
-  sex: Male
+  id: 1
+  name: Unknown 1
+  sex: idk
   speaker: CYw3kZ02Hs0563khs1Fj
   roundStart: true
 
 - type: ttsVoice
-  id: 5
-  name: tts-voice-name-test-5
-  sex: Male
+  id: Hina
+  name: Hina
+  sex: Female
   speaker: lhTvHflPVOqgSWyuWQry
   roundStart: true
 
@@ -41,91 +48,256 @@
   roundStart: true
 
 - type: ttsVoice
-  id: 7
-  name: tts-voice-name-test-7
+  id: Unknown2
+  name: Unknown 2
+  sex: idk
   speaker: ErXwobaYiN019PkySvjV
   roundStart: true
 
 - type: ttsVoice
-  id: 8
-  name: tts-voice-name-test-8
-  sex: Male
+  id: Unknown3
+  name: Unknown 3
+  sex: idk
   speaker: GBv7mTt0atIp3Br8iCZE
   roundStart: true
 
 - type: ttsVoice
-  id: 9
-  name: tts-voice-name-test-9
-  sex: Male
+  id: Unknown4
+  name: Unknown 4
+  sex: idk
   speaker: IKne3meq5aSn9XLyUdCD
   roundStart: true
 
 - type: ttsVoice
-  id: 10
-  name: tts-voice-name-test-10
-  sex: Female
+  id: Unknown5
+  name: Unknown 5
+  sex: idk
   speaker: LcfcDJNUP1GQjkzn1xUU
   roundStart: true
 
 - type: ttsVoice
-  id: 11
-  name: tts-voice-name-test-11
-  sex: Female
+  id: Unknown6
+  name: Unknown 6
+  sex: idk
   speaker: MF3mGyEYCl7XYWbV9V6O
   roundStart: true
 
 - type: ttsVoice
-  id: 12
-  name: tts-voice-name-test-12
-  sex: Male
+  id: Unknown7
+  name: Unknown 7
+  sex: idk
   speaker: N2lVS1w4EtoT3dr4eOWO
   roundStart: true
 
 - type: ttsVoice
-  id: 13
-  name: tts-voice-name-test-13
-  sex: Male
+  id: Unknown8
+  name: Unknown 8
+  sex: idk
   speaker: TuD65ndvjvZSIo4W751Y
   roundStart: true
 
 - type: ttsVoice
-  id: 14
-  name: tts-voice-name-test-14
-  sex: Female
+  id: Cornelius
+  name: Cornelius
+  sex: Male
   speaker: 6sFKzaJr574YWVu4UuJF
   roundStart: true
 
 - type: ttsVoice
-  id: 15
-  name: tts-voice-name-test-15
+  id: MartinOsborne
+  name: Martin Osborne
   sex: Male
   speaker: z3kTTwYbQrmL7ckdGcJi
   roundStart: true
 
 - type: ttsVoice
-  id: 16
-  name: tts-voice-name-test-16
+  id: Brock
+  name: Brock
   sex: Male
   speaker: DGzg6RaUqxGRTHSBjfgF
   roundStart: true
 
 - type: ttsVoice
-  id: 17
-  name: tts-voice-name-test-17
+  id: LittleDude2
+  name: Little Dude 2
   sex: Male
   speaker: fBD19tfE58bkETeiwUoC
   roundStart: true
 
 - type: ttsVoice
-  id: 18
-  name: tts-voice-name-test-18
+  id: Acougueirao
+  name: Acougueirao
   sex: Male
   speaker: PSkrmGGNwoOIKXqzUWs9
   roundStart: true
 
 - type: ttsVoice
-  id: 19
-  name: tts-voice-name-test-19
+  id: KataCute
+  name: Kata Cute
   sex: Male
   speaker: v62z0VKKcUk8lLyqM042
   roundStart: true
+
+- type: ttsVoice
+  id: Aerisita
+  name: Aerisita
+  sex: Female
+  speaker: 03vEurziQfq3V8WZhQvn
+  roundStart: true
+
+- type: ttsVoice
+  id: Dorothy
+  name: Dorothy
+  sex: Female
+  speaker: vFLqXa8bgbofGarf6fZh
+  roundStart: true
+
+- type: ttsVoice
+  id: Elettra
+  name: Elettra
+  sex: Female
+  speaker: G0q9AYE8QsarSbMtaIEu
+  roundStart: true
+
+- type: ttsVoice
+  id: INDIA
+  name: НЕ ЮЗАТЬ
+  sex: Female
+  speaker: gh4KqQpuToGmra4sU2FJ
+  roundStart: false
+
+- type: ttsVoice
+  id: KellyKlein
+  name: Kelly Klein
+  sex: Female
+  speaker: 9sjP3TfMlzEjAa6uXh3A
+  roundStart: true
+
+- type: ttsVoice
+  id: Diana
+  name: Diana
+  sex: Female
+  speaker: UizRZo250FhTtKlJa6mo
+  roundStart: true
+
+- type: ttsVoice
+  id: SeyanaSeya
+  name: Seyana Seya
+  sex: Female
+  speaker: ugYcuAusTuWCSOpJD0Xd
+  roundStart: true
+
+- type: ttsVoice
+  id: RuthieJo
+  name: Ruthie Jo
+  sex: Female
+  speaker: MgqVq3OCTPeVHCEDr4HU
+  roundStart: true
+
+
+- type: ttsVoice
+  id: Tisha
+  name: Tisha
+  sex: Female
+  speaker: 4wSdtVjoBKPAQAXgUGZE
+  roundStart: true
+
+
+- type: ttsVoice
+  id: Jade
+  name: Jade
+  sex: Female
+  speaker: FCYF8vBfwu11whOhvb94
+  roundStart: true
+
+- type: ttsVoice
+  id: JenFrankie
+  name: Jen Frankie
+  sex: Female
+  speaker: a5zfmqTslZJBP0jutmVY
+  roundStart: true
+
+- type: ttsVoice
+  id: Kuon
+  name: Kuon
+  sex: Female
+  speaker: B8gJV1IhpuegLxdpXFOE
+  roundStart: true
+
+- type: ttsVoice
+  id: Chloe
+  name: Chloe
+  sex: Female
+  speaker: xNtG3W2oqJs0cJZuTyBc
+  roundStart: true
+
+- type: ttsVoice
+  id: Britney
+  name: Britney
+  sex: Female
+  speaker: esy0r39YPLQjOczyOib8
+  roundStart: true
+
+- type: ttsVoice
+  id: SamaraX
+  name: Samara X
+  sex: Female
+  speaker: 19STyYD15bswVz51nqLf
+  roundStart: true
+
+
+- type: ttsVoice
+  id: Fiona
+  name: Fiona
+  sex: Female
+  speaker: RXtWW6etvimS8QJ5nhVk
+  roundStart: true
+
+- type: ttsVoice
+  id: Aaron
+  name: Aaron
+  sex: Male
+  speaker: YKlogvnVogI4aFHoGIEw
+  roundStart: true
+
+- type: ttsVoice
+  id: RamonaArcher
+  name: Ramona Archer
+  sex: Unisex
+  speaker: Z9VxF84ucVtzvKlmYFhh
+  roundStart: true
+
+- type: ttsVoice
+  id: Luna
+  name: Luna
+  sex: Male
+  speaker: JjFExtCYfBGn1nn478bh
+  roundStart: true
+
+- type: ttsVoice
+  id: Sammy
+  name: Sammy
+  sex: Unisex
+  speaker: M563YhMmA0S8vEYwkgYa
+  roundStart: true
+
+- type: ttsVoice
+  id: Eleila
+  name: Eleila
+  sex: Male
+  speaker: e5LtAIHV5cnnDfMmCZYr
+  roundStart: true
+
+- type: ttsVoice
+  id: Cera
+  name: Cera
+  sex: Female
+  speaker: ucgJ8SdlW1CZr9MIm8BP
+  roundStart: true
+
+# - type: ttsVoice
+#   id: NameSirname
+#   name: Name Sirname
+#   sex: Male
+#   speaker: id
+#   roundStart: true

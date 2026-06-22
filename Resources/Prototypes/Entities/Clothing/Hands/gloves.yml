@@ -513,14 +513,13 @@
     tags:
     - Kangaroo
     - WhitelistChameleon
-      - type: Armor
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.95 #SN
         Slash: 0.95 #SN
         Piercing: 0.95 #SN
         Heat: 0.95 #SN
-
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
   id: ClothingHandsGlovesForensic
