@@ -7,7 +7,7 @@
 
 - type: ttsVoice
   id: EgorGadzhiev
-  name: Егор Гаджиев
+  name: EgorGadzhiev
   sex: Male
   speaker: 6A9D8WSMm4rFsg2DWFeE
   roundStart: true
@@ -21,15 +21,15 @@
 
 - type: ttsVoice
   id: CherryTwinkle
-  name: Cherry Twinkle
+  name: CherryTwinkle
   sex: Female
   speaker: XJ2fW4ybq7HouelYYGcL
   roundStart: true
 
 - type: ttsVoice
-  id: 1
-  name: Unknown 1
-  sex: idk
+  id: Unknown1
+  name: Unknown1
+  sex: Unsexed
   speaker: CYw3kZ02Hs0563khs1Fj
   roundStart: true
 
@@ -41,58 +41,58 @@
   roundStart: true
 
 - type: ttsVoice
-  id: 6
-  name: tts-voice-name-test-6
+  id: Unknown9
+  name: Unknown9
   sex: Female
   speaker: EXAVITQu4vr4xnSDxMaL
   roundStart: true
 
 - type: ttsVoice
   id: Unknown2
-  name: Unknown 2
-  sex: idk
+  name: Unknown2
+  sex: Unsexed
   speaker: ErXwobaYiN019PkySvjV
   roundStart: true
 
 - type: ttsVoice
   id: Unknown3
-  name: Unknown 3
-  sex: idk
+  name: Unknown3
+  sex: Unsexed
   speaker: GBv7mTt0atIp3Br8iCZE
   roundStart: true
 
 - type: ttsVoice
   id: Unknown4
-  name: Unknown 4
-  sex: idk
+  name: Unknown4
+  sex: Unsexed
   speaker: IKne3meq5aSn9XLyUdCD
   roundStart: true
 
 - type: ttsVoice
   id: Unknown5
-  name: Unknown 5
-  sex: idk
+  name: Unknown5
+  sex: Unsexed
   speaker: LcfcDJNUP1GQjkzn1xUU
   roundStart: true
 
 - type: ttsVoice
   id: Unknown6
-  name: Unknown 6
-  sex: idk
+  name: Unknown6
+  sex: Unsexed
   speaker: MF3mGyEYCl7XYWbV9V6O
   roundStart: true
 
 - type: ttsVoice
   id: Unknown7
-  name: Unknown 7
-  sex: idk
+  name: Unknown7
+  sex: Unsexed
   speaker: N2lVS1w4EtoT3dr4eOWO
   roundStart: true
 
 - type: ttsVoice
   id: Unknown8
-  name: Unknown 8
-  sex: idk
+  name: Unknown8
+  sex: Unsexed
   speaker: TuD65ndvjvZSIo4W751Y
   roundStart: true
 
@@ -119,7 +119,7 @@
 
 - type: ttsVoice
   id: LittleDude2
-  name: Little Dude 2
+  name: LittleDude2
   sex: Male
   speaker: fBD19tfE58bkETeiwUoC
   roundStart: true
@@ -133,7 +133,7 @@
 
 - type: ttsVoice
   id: KataCute
-  name: Kata Cute
+  name: KataCute
   sex: Male
   speaker: v62z0VKKcUk8lLyqM042
   roundStart: true
@@ -160,15 +160,15 @@
   roundStart: true
 
 - type: ttsVoice
-  id: INDIA
-  name: НЕ ЮЗАТЬ
+  id: India
+  name: India
   sex: Female
   speaker: gh4KqQpuToGmra4sU2FJ
-  roundStart: false
+  roundStart: true
 
 - type: ttsVoice
   id: KellyKlein
-  name: Kelly Klein
+  name: KellyKlein
   sex: Female
   speaker: 9sjP3TfMlzEjAa6uXh3A
   roundStart: true
@@ -182,18 +182,17 @@
 
 - type: ttsVoice
   id: SeyanaSeya
-  name: Seyana Seya
+  name: SeyanaSeya
   sex: Female
   speaker: ugYcuAusTuWCSOpJD0Xd
   roundStart: true
 
 - type: ttsVoice
   id: RuthieJo
-  name: Ruthie Jo
+  name: RuthieJo
   sex: Female
   speaker: MgqVq3OCTPeVHCEDr4HU
   roundStart: true
-
 
 - type: ttsVoice
   id: Tisha
@@ -201,7 +200,6 @@
   sex: Female
   speaker: 4wSdtVjoBKPAQAXgUGZE
   roundStart: true
-
 
 - type: ttsVoice
   id: Jade
@@ -212,7 +210,7 @@
 
 - type: ttsVoice
   id: JenFrankie
-  name: Jen Frankie
+  name: JenFrankie
   sex: Female
   speaker: a5zfmqTslZJBP0jutmVY
   roundStart: true
@@ -240,11 +238,10 @@
 
 - type: ttsVoice
   id: SamaraX
-  name: Samara X
+  name: SamaraX
   sex: Female
   speaker: 19STyYD15bswVz51nqLf
   roundStart: true
-
 
 - type: ttsVoice
   id: Fiona
@@ -262,8 +259,8 @@
 
 - type: ttsVoice
   id: RamonaArcher
-  name: Ramona Archer
-  sex: Unisex
+  name: RamonaArcher
+  sex: Unsexed
   speaker: Z9VxF84ucVtzvKlmYFhh
   roundStart: true
 
@@ -277,7 +274,7 @@
 - type: ttsVoice
   id: Sammy
   name: Sammy
-  sex: Unisex
+  sex: Unsexed
   speaker: M563YhMmA0S8vEYwkgYa
   roundStart: true
 
@@ -294,10 +291,3 @@
   sex: Female
   speaker: ucgJ8SdlW1CZr9MIm8BP
   roundStart: true
-
-# - type: ttsVoice
-#   id: NameSirname
-#   name: Name Sirname
-#   sex: Male
-#   speaker: id
-#   roundStart: true

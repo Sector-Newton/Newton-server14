@@ -21,7 +21,7 @@ public sealed partial class TTSManager
         "Timings of TTS API requests",
         new HistogramConfiguration()
         {
-            LabelNames = new[] {"type"},
+            LabelNames = new[] { "type" },
             Buckets = Histogram.ExponentialBuckets(.1, 1.5, 10),
         });
 
@@ -46,11 +46,11 @@ public sealed partial class TTSManager
     private string _apiModel = string.Empty;
 
     /// <summary>
-    /// ElevenLabs output format: signed 16-bit little-endian PCM at 8000 Hz.
+    /// ElevenLabs output format: signed 16-bit little-endian PCM at 22050 Hz.
     /// Fastest format for real-time TTS.
     /// </summary>
-    private const string OutputFormat = "pcm_16000";
-    private const int PcmSampleRate = 16000;
+    private const string OutputFormat = "pcm_22050";
+    private const int PcmSampleRate = 22050;
     private const int PcmBitsPerSample = 16;
     private const int PcmChannels = 1;
 
@@ -135,6 +135,8 @@ public sealed partial class TTSManager
                 return null;
             }
 
+            NormalizePcmVolume(pcmData);
+
             // Wrap raw PCM in a WAV header so the audio engine can play it
             var wavData = WrapPcmInWav(pcmData);
 
@@ -214,6 +216,36 @@ public sealed partial class TTSManager
         writer.Write(pcmData);
 
         return ms.ToArray();
+    }
+
+    /// <summary>
+    /// Нормализуем громкость PCM S16LE аудио, делая все голоса одинаково громкими.
+    /// </summary>
+    private static void NormalizePcmVolume(byte[] pcmData)
+    {
+        float maxAmplitude = 0;
+        for (int i = 0; i < pcmData.Length; i += 2)
+        {
+            // Собираем 16-битный сэмпл (Little Endian)
+            short sample = (short)(pcmData[i] | (pcmData[i + 1] << 8));
+            float abs = Math.Abs(sample);
+            if (abs > maxAmplitude) maxAmplitude = abs;
+        }
+
+        if (maxAmplitude < 1) return;
+
+        // 32767 - это физический максимум для 16-битного звука.
+        // Умножаем на 0.9 (90%), чтобы звук был громким, но не хрипел (без клиппинга).
+        float multiplier = (32767f * 0.9f) / maxAmplitude;
+
+        for (int i = 0; i < pcmData.Length; i += 2)
+        {
+            short sample = (short)(pcmData[i] | (pcmData[i + 1] << 8));
+            short newSample = (short)(sample * multiplier);
+            // Разбираем обратно на байты
+            pcmData[i] = (byte)(newSample & 0xFF);
+            pcmData[i + 1] = (byte)(newSample >> 8);
+        }
     }
 
     // --- ElevenLabs API DTOs ---
