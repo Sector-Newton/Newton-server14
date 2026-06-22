@@ -82,9 +82,21 @@ public sealed partial class TTSManager
             return;
         }
 
+        var proxyUri = new Uri(_apiProxy);
+        var proxy = new System.Net.WebProxy(proxyUri);
+        
+        if (!string.IsNullOrEmpty(proxyUri.UserInfo))
+        {
+            var credentials = proxyUri.UserInfo.Split(':', 2);
+            proxy.Credentials = new System.Net.NetworkCredential(
+                credentials[0], 
+                credentials.Length > 1 ? credentials[1] : ""
+            );
+        }
+
         var handler = new HttpClientHandler
         {
-            Proxy = new System.Net.WebProxy(_apiProxy),
+            Proxy = proxy,
             UseProxy = true
         };
         _httpClient = new HttpClient(handler);
