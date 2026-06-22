@@ -363,3 +363,9 @@
   speaker: 1QykRgkluVRz9xfOVUsh
   roundStart: true
 
+- type: ttsVoice
+  id: Quentin
+  name: Quentin
+  sex: Male
+  speaker: Aa6nEBJJMKJwJkCx8VU2
+  roundStart: true
