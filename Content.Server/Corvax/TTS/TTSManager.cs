@@ -50,7 +50,7 @@ public sealed partial class TTSManager
     /// Fastest format for real-time TTS.
     /// </summary>
     private const string OutputFormat = "pcm_16000";
-    private const int PcmSampleRate = 16000 ;
+    private const int PcmSampleRate = 16000;
     private const int PcmBitsPerSample = 16;
     private const int PcmChannels = 1;
 
