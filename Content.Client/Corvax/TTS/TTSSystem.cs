@@ -73,7 +73,7 @@ public sealed partial class TTSSystem : EntitySystem
     {
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
-        var filePath = new ResPath($"{_fileIdx++}.ogg");
+        var filePath = new ResPath($"{_fileIdx++}.wav");
         _contentRoot.AddOrUpdateFile(filePath, ev.Data);
 
         var audioResource = new AudioResource();
