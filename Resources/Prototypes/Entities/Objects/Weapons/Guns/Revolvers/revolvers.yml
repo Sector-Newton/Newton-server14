@@ -50,6 +50,21 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon #SN
+    attackRate: 0.5
+    wideAnimationRotation: -135 #SN
+    damage:
+      types: 
+        Blunt: 8 #SN
+    angle: 0
+  - type: StaminaDamageOnHit
+    damage: 15
+    animation: WeaponArcThrust #SN
+    soundHit: 
+      path: /Audio/Weapons/star_hit.ogg #SN
+  - type: MeleeRequiresWield #SN
+  - type: AltFireMelee #SN
+    attackType: Heavy #SN
 
 - type: entity
   name: Deckard
@@ -170,6 +185,21 @@
     storedOffset: 1,-5
   - type: Gun
     fireRate: 1
+  - type: MeleeWeapon #SN
+    attackRate: 0.5
+    wideAnimationRotation: -135 #SN
+    damage:
+      types: 
+        Blunt: 8 #SN
+    angle: 0
+  - type: StaminaDamageOnHit
+    damage: 15
+    animation: WeaponArcThrust #SN
+    soundHit: 
+      path: /Audio/Weapons/star_hit.ogg #SN
+  - type: MeleeRequiresWield #SN
+  - type: AltFireMelee #SN
+    attackType: Heavy #SN
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container

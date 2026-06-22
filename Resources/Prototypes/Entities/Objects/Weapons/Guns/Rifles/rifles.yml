@@ -52,6 +52,21 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon #SN
+    attackRate: 0.5
+    wideAnimationRotation: 90 #SN
+    damage:
+      types: 
+        Blunt: 12 #SN
+    angle: 0
+  - type: StaminaDamageOnHit
+    damage: 15
+    animation: WeaponArcThrust #SN
+    soundHit: 
+      path: /Audio/Weapons/star_hit.ogg #SN
+  - type: MeleeRequiresWield #SN
+  - type: AltFireMelee #SN
+    attackType: Heavy #SN
 
 - type: entity
   name: AKMS

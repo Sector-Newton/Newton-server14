@@ -14,6 +14,13 @@
     - HelmetEVA
     - WhitelistChameleon
     - CorgiWearable
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 #Large EVA Helmet
 - type: entity
@@ -31,6 +38,13 @@
     - HelmetEVA
     - WhitelistChameleon
     - CorgiWearable
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 #Syndicate EVA Helmet
 - type: entity
@@ -45,6 +59,13 @@
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
   - type: StaticPrice
     price: 500 # Suit is 1000
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.9 #SN
+        Slash: 0.9 #SN
+        Piercing: 0.9 #SN
+        Heat: 0.9 #SN
 
 #Cosmonaut Helmet
 - type: entity
@@ -57,6 +78,13 @@
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 #Ancient Void Helmet
 - type: entity
@@ -69,6 +97,13 @@
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 #Paramedic Void Helmet
 - type: entity
@@ -101,8 +136,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Heat: 0.90
-        Radiation: 0.75
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
   - type: PointLight
     radius: 5
     energy: 2

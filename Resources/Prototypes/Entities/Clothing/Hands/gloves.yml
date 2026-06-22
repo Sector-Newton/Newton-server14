@@ -345,10 +345,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 #SN
-        Slash: 0.6 #SN
-        Piercing: 0.5 #SN
-        Heat: 0.05
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
+        Shock: 0.8 #SN
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -513,7 +514,7 @@
     tags:
     - Kangaroo
     - WhitelistChameleon
-      - type: Armor
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.95 #SN

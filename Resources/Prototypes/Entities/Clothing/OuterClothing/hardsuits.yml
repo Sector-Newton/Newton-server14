@@ -42,6 +42,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,4,4 #SN
 
 #Engineering Hardsuit
 - type: entity
@@ -79,6 +83,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
 
 #Spationaut Hardsuit
 - type: entity
@@ -119,6 +127,10 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,2,3 #SN
 
 #Salvage Hardsuit
 - type: entity
@@ -158,6 +170,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
 
 #Goliath Hardsuit
 - type: entity
@@ -200,6 +216,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
 
 #Maxim Hardsuit
 - type: entity
@@ -236,6 +256,10 @@
     coolingCoefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,2,2 #SN
 
 #Security Hardsuit
 - type: entity
@@ -274,6 +298,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
 
 #Brigmedic Hardsuit
 - type: entity
@@ -310,6 +338,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,2,2 #SN
 
 #Warden's Hardsuit
 - type: entity
@@ -344,6 +376,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,4,4 #SN
 
 #Captain's Hardsuit
 - type: entity
@@ -381,6 +417,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -420,6 +460,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,4,4 #SN
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -455,6 +499,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,2,2 #SN
 
 #Research Director's Hardsuit
 - type: entity
@@ -536,6 +584,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,4,4 #SN
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -571,6 +623,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,2,2 #SN
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -685,6 +741,8 @@
         Caustic: 0.2 #SN
   - type: Item
     size: Huge
+    shape:
+    - 0,0,2,2 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.95 #SN
     sprintModifier: 0.95 #SN
@@ -733,6 +791,10 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,4,4 #SN
 
 
 #Cybersun Juggernaut Hardsuit
@@ -770,6 +832,10 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,5,5 #SN
 
 #Wizard Hardsuit
 - type: entity
@@ -789,6 +855,10 @@
     damageCoefficient: 0.5
   - type: StaminaResistance #SN
     damageCoefficient: 0.5 #SN
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
   - type: Armor
     modifiers:
       coefficients:
@@ -850,6 +920,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: Item
     size: Huge
+    shape:
+    - 0,0,3,3 #SN
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: ExplosionResistance
@@ -884,6 +956,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
   - type: Item
     size: Huge
+    shape:
+    - 0,0,2,2 #SN
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
   - type: PressureProtection
@@ -1104,7 +1178,9 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Caustic: 0.8
+        Heat: 0.9 #SN
+        Cold: 0.8 #SN
+        Radiation: 0.3 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1154,7 +1230,8 @@
         Blunt: 0.85
         Slash: 0.9
         Piercing: 0.85
-        Caustic: 0.8
+        Cold: 0.8 #SN
+        Radiation: 0.3 #SN
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

@@ -57,7 +57,7 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
-        Piercing: 0.95
+        Piercing: 0.9 #SN
         Heat: 0.95
 
 - type: entity
@@ -466,8 +466,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
+        Blunt: 0.9 #SN
+        Slash: 0.9 #SN
         Piercing: 0.95
         Heat: 0.95
 
@@ -744,6 +744,13 @@
     materialComposition:
       Steel: 200
       Glass: 100
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   - type: StaticPrice
     price: 100
   - type: Tag

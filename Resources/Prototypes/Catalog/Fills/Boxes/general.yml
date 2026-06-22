@@ -17,6 +17,10 @@
   - type: Tag
     tags:
     - BoxCardboard
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,2,1 #SN
 
 - type: entity
   parent: BoxBaseSmall

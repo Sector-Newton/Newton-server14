@@ -730,6 +730,13 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.9 #SN
+        Slash: 0.9 #SN
+        Piercing: 0.9 #SN
+        Heat: 0.9 #SN
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -985,6 +992,13 @@
     unequipSound: /Audio/Effects/Emotes/parp1.ogg
   - type: PointLight # Corvax-Resprite
     color: "#ff3399"
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 #Mime Hardsuit
 - type: entity
@@ -998,6 +1012,13 @@
     sprite: Clothing/Head/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/mime.rsi
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
 
 #Santas Hardsuit
 - type: entity
@@ -1015,3 +1036,10 @@
     color: "#f4ffad"
     radius: 5
     energy: 2
+  - type: Armor #SN
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
