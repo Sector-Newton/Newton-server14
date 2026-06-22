@@ -6,6 +6,13 @@
 #   roundStart: true
 
 - type: ttsVoice
+  id: Empty
+  name: ‎ Не выбран
+  sex: Unsexed
+  speaker: ""
+  roundStart: true
+
+- type: ttsVoice
   id: EgorGadzhiev
   name: EgorGadzhiev
   sex: Male
@@ -28,8 +35,8 @@
 
 - type: ttsVoice
   id: Unknown1
-  name: Unknown1
-  sex: Unsexed
+  name: Мужской 1
+  sex: Male
   speaker: CYw3kZ02Hs0563khs1Fj
   roundStart: true
 
@@ -42,57 +49,57 @@
 
 - type: ttsVoice
   id: Unknown9
-  name: Unknown9
+  name: Женский 1
   sex: Female
   speaker: EXAVITQu4vr4xnSDxMaL
   roundStart: true
 
 - type: ttsVoice
   id: Unknown2
-  name: Unknown2
-  sex: Unsexed
+  name: Мужской 2
+  sex: Male
   speaker: ErXwobaYiN019PkySvjV
   roundStart: true
 
 - type: ttsVoice
   id: Unknown3
-  name: Unknown3
-  sex: Unsexed
+  name: Мужской 3
+  sex: Male
   speaker: GBv7mTt0atIp3Br8iCZE
   roundStart: true
 
 - type: ttsVoice
   id: Unknown4
-  name: Unknown4
-  sex: Unsexed
+  name: Мужской 4
+  sex: Male
   speaker: IKne3meq5aSn9XLyUdCD
   roundStart: true
 
 - type: ttsVoice
   id: Unknown5
-  name: Unknown5
-  sex: Unsexed
+  name: Женский 2
+  sex: Female
   speaker: LcfcDJNUP1GQjkzn1xUU
   roundStart: true
 
 - type: ttsVoice
   id: Unknown6
-  name: Unknown6
-  sex: Unsexed
+  name: Женский 3
+  sex: Female
   speaker: MF3mGyEYCl7XYWbV9V6O
   roundStart: true
 
 - type: ttsVoice
   id: Unknown7
-  name: Unknown7
-  sex: Unsexed
+  name: Мужской 5
+  sex: Male
   speaker: N2lVS1w4EtoT3dr4eOWO
   roundStart: true
 
 - type: ttsVoice
   id: Unknown8
-  name: Unknown8
-  sex: Unsexed
+  name: Мужской 6
+  sex: Male
   speaker: TuD65ndvjvZSIo4W751Y
   roundStart: true
 
@@ -129,7 +136,8 @@
   name: Acougueirao
   sex: Male
   speaker: PSkrmGGNwoOIKXqzUWs9
-  roundStart: true
+  roundStart: false
+  # - слишком громкий, не использовать
 
 - type: ttsVoice
   id: KataCute
@@ -291,3 +299,67 @@
   sex: Female
   speaker: ucgJ8SdlW1CZr9MIm8BP
   roundStart: true
+
+- type: ttsVoice
+  id: Viraj
+  name: Viraj
+  sex: Feale
+  speaker: ZSNL4hPqCnqoMPaI4jGX
+  roundStart: true
+
+- type: ttsVoice
+  id: Robet
+  name: Robert
+  sex: Male
+  speaker: BtWabtumIemAotTjP5sk
+  roundStart: true
+
+- type: ttsVoice
+  id: Sadie
+  name: Sadie
+  sex: Female
+  speaker: bD9maNcCuQQS75DGuteM
+  roundStart: true
+
+- type: ttsVoice
+  id: Ivanna
+  name: Ivanna
+  sex: Female
+  speaker: 0S5oIfi8zOZixuSj8K6n
+  roundStart: true
+
+- type: ttsVoice
+  id: ShardulK
+  name: Shardul K
+  sex: Male
+  speaker: VOJAM4wNVKVzfDKsY4W2
+  roundStart: true
+
+- type: ttsVoice
+  id: Johny
+  name: Johny
+  sex: Male
+  speaker: HMCmDsbKeaSZp5LMOYKR
+  roundStart: true
+
+- type: ttsVoice
+  id: Ela
+  name: Ela
+  sex: Female
+  speaker: e3bIMyLemdwvh75g9Vpt
+  roundStart: true
+
+- type: ttsVoice
+  id: Guillermo
+  name: Guillermo
+  sex: Male
+  speaker: FFHOCNsj5TuX6tRgEswC
+  roundStart: true
+
+- type: ttsVoice
+  id: Julius
+  name: Julius
+  sex: Male
+  speaker: 1QykRgkluVRz9xfOVUsh
+  roundStart: true
+
