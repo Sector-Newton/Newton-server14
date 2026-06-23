@@ -848,6 +848,10 @@
     sprite: Clothing/OuterClothing/Hardsuits/wizard.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/wizard.rsi
+  - type: Item #SN
+    size: Huge
+    shape:
+    - 0,0,3,3 #SN
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -855,10 +859,6 @@
     damageCoefficient: 0.5
   - type: StaminaResistance #SN
     damageCoefficient: 0.5 #SN
-  - type: Item #SN
-    size: Huge
-    shape:
-    - 0,0,3,3 #SN
   - type: Armor
     modifiers:
       coefficients:
@@ -871,6 +871,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8 #SN
     sprintModifier: 0.8 #SN
+  - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
   - type: Tag
     tags:
