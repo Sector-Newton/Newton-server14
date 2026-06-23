@@ -44,6 +44,12 @@ public sealed class CCCVars
         CVarDef.Create("tts.api_model", "eleven_flash_v2_5", CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Proxy URL for ElevenLabs API requests (e.g. http://user:pass@proxy:8080). Leave empty for direct connection.
+    /// </summary>
+    public static readonly CVarDef<string> TTSApiProxy =
+        CVarDef.Create("tts.api_proxy", "", CVar.SERVERONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// Amount of seconds before timeout for TTS API requests.
     /// </summary>
     public static readonly CVarDef<int> TTSApiTimeout =

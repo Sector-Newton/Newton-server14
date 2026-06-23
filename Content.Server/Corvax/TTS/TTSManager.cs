@@ -35,7 +35,7 @@ public sealed partial class TTSManager
 
     [Dependency] private IConfigurationManager _cfg = default!;
 
-    private readonly HttpClient _httpClient = new();
+    private HttpClient _httpClient = new();
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<string, byte[]> _cache = new();
@@ -44,6 +44,7 @@ public sealed partial class TTSManager
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
     private string _apiModel = string.Empty;
+    private string _apiProxy = string.Empty;
 
     /// <summary>
     /// ElevenLabs output format: signed 16-bit little-endian PCM at 22050 Hz.
@@ -65,6 +66,40 @@ public sealed partial class TTSManager
         _cfg.OnValueChanged(CCCVars.TTSApiUrl, v => _apiUrl = v, true);
         _cfg.OnValueChanged(CCCVars.TTSApiToken, v => _apiToken = v, true);
         _cfg.OnValueChanged(CCCVars.TTSApiModel, v => _apiModel = v, true);
+        _cfg.OnValueChanged(CCCVars.TTSApiProxy, v =>
+        {
+            _apiProxy = v;
+            UpdateHttpClient();
+        }, true);
+    }
+
+    private void UpdateHttpClient()
+    {
+        _httpClient.Dispose();
+        if (string.IsNullOrWhiteSpace(_apiProxy))
+        {
+            _httpClient = new HttpClient();
+            return;
+        }
+
+        var proxyUri = new Uri(_apiProxy);
+        var proxy = new System.Net.WebProxy(proxyUri);
+        
+        if (!string.IsNullOrEmpty(proxyUri.UserInfo))
+        {
+            var credentials = proxyUri.UserInfo.Split(':', 2);
+            proxy.Credentials = new System.Net.NetworkCredential(
+                credentials[0], 
+                credentials.Length > 1 ? credentials[1] : ""
+            );
+        }
+
+        var handler = new HttpClientHandler
+        {
+            Proxy = proxy,
+            UseProxy = true
+        };
+        _httpClient = new HttpClient(handler);
     }
 
     /// <summary>
