@@ -296,6 +296,14 @@
   - type: ToggleClothing
     action: ActionToggleNinjaGloves
     disableOnUnequip: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 #SN
+        Slash: 0.95 #SN
+        Piercing: 0.95 #SN
+        Heat: 0.95 #SN
+        Shock: 0.8 #SN
   - type: NinjaGloves
     abilities:
     - components:
@@ -320,14 +328,6 @@
     - objective: MassArrestObjective
       components:
       - type: CriminalRecordsHacker
-      - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95 #SN
-        Slash: 0.95 #SN
-        Piercing: 0.95 #SN
-        Heat: 0.95 #SN
-        Shock: 0.8 #SN
 
 - type: entity
   parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]

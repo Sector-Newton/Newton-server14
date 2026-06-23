@@ -801,6 +801,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8 #SN
     sprintModifier: 0.8 #SN
+  - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
   - type: Tag
     tags:

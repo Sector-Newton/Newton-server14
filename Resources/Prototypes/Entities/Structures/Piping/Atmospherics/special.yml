@@ -54,3 +54,8 @@
   - type: Tag
     tags:
       - SpreaderIgnore
+  # SN-start
+  - type: Construction
+    graph: DirFan
+    node: littleDirectionalFan
+  # SN-end

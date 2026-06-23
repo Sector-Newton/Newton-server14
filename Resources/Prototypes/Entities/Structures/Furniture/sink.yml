@@ -69,6 +69,11 @@
       reagents:
       - ReagentId: Water
         Quantity: 480
+  # SN-start
+  - type: Construction
+    graph: SinkGraph
+    node: sinkWater
+  # SN-end
 
 - type: entity
   parent: Sink
@@ -86,6 +91,11 @@
       maxFillLevels: 1
       fillBaseName: sink_wide-fill-
       solutionName: drainBuffer
+    # SN-start
+    - type: Construction
+      graph: SinkWideGraph
+      node: sinkWide
+  # SN-end
 
 #Stemless Sink
 
@@ -113,3 +123,8 @@
       reagents:
       - ReagentId: Water
         Quantity: 480
+  # SN-start
+  - type: Construction
+    graph: SinkStemlessGraph
+    node: sinkStemlessWater
+  # SN-end

@@ -39,6 +39,11 @@
     damageModifierSet: StructuralMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
+  # SN-start
+  - type: Construction
+    graph: FloorDrainGraph
+    node: floorDrain
+  # SN-end
   - type: Destructible
     thresholds:
     - trigger:
