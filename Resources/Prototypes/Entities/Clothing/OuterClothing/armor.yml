@@ -159,6 +159,10 @@
         Slash: 0.6
         Piercing: 0.3
         Heat: 0.9
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,1,1 #SN
   - type: StaticPrice
     price: 1500
 
@@ -185,6 +189,10 @@
         Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
+  - type: Item #SN
+    size: Normal #SN
+    shape:
+    - 0,0,1,1 #SN
   - type: FireProtection
     reduction: 0.85
   - type: StaticPrice
@@ -208,6 +216,10 @@
         Slash: 0.7
         Piercing: 0.5
         Heat: 0.9
+  - type: Item #SN
+    size: Normal  #SN
+    shape:
+    - 0,0,1,1 #SN
 
 
 # Armor covering multiple body parts including limbs
