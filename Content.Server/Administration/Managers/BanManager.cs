@@ -53,6 +53,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     public const string DbTypeAntag = "Antag";
     public const string DbTypeJob = "Job";
     private string _webhook = string.Empty; // Newton-banwebhook
+    private string _serverName = string.Empty; // Newton-banwebhook
 
     private readonly Dictionary<ICommonSession, List<BanDef>> _cachedRoleBans = new();
     // Cached ban exemption flags are used to handle
@@ -73,6 +74,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _userDbData.AddOnPlayerDisconnect(ClearPlayerData);
 
         _cfg.OnValueChanged(NewtonCCVars.DiscordBanWebhook, OnWebhookChanged, true); // Newton-banwebhook
+        _cfg.OnValueChanged(CCVars.GameHostName, OnServerNameChanged, true); // Newton-banwebhook
     }
 
     private async Task CachePlayerData(ICommonSession player, CancellationToken cancel)
@@ -133,9 +135,12 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     #region Server Bans
     public async void CreateServerBan(CreateServerBanInfo banInfo)
     {
+        _systems.TryGetEntitySystem(out GameTicker? ticker); // Newton
+        int? roundIdTicker = ticker == null || ticker.RoundId == 0 ? null : ticker.RoundId; // Newton
+
         var (banDef, expires) = await CreateBanDef(banInfo, BanType.Server, null);
 
-        await _db.AddBanAsync(banDef);
+        var addBanAsync = await _db.AddBanAsync(banDef);
 
         if (_cfg.GetCVar(CCVars.ServerBanResetLastReadRules))
         {
@@ -145,7 +150,15 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 await _db.SetLastReadRules(userId, null);
             }
         }
+        // Newton-banwebhook-start
+        var banId = addBanAsync.Id == null
+            ? 0
+            : (int)addBanAsync.Id;
 
+        var roindId = roundIdTicker == null
+            ? 0
+            : (int)roundIdTicker;
+        // Newton-banwebhook-end
         var adminName = banInfo.BanningAdmin == null
             ? Loc.GetString("system-user")
             : (await _db.GetPlayerRecordByUserId(banInfo.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
@@ -179,7 +192,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
 
-        SendWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString)); // Newton-banwebhook
+        SendWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, banId.ToString(), roindId.ToString())); // Newton-banwebhook
         KickMatchingConnectedPlayers(banDef, "newly placed ban");
     }
 
@@ -236,6 +249,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
     public async void CreateRoleBan(CreateRoleBanInfo banInfo)
     {
+        _systems.TryGetEntitySystem(out GameTicker? ticker); // Newton
+        int? roundIdTicker = ticker == null || ticker.RoundId == 0 ? null : ticker.RoundId; // Newton
+
         ImmutableArray<BanRoleDef> roleDefs =
         [
             .. ToBanRoleDef(banInfo.JobPrototypes),
@@ -247,15 +263,27 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
         var (banDef, expires) = await CreateBanDef(banInfo, BanType.Role, roleDefs);
 
-        await AddRoleBan(banDef);
+        var addBanAsync = await AddRoleBan(banDef);
 
         var length = expires == null
             ? Loc.GetString("cmd-roleban-inf")
             : Loc.GetString("cmd-roleban-until", ("expires", expires));
         // Newton-banwebhook-start
+        var banId = addBanAsync.Id == null
+            ? 0
+            : (int)addBanAsync.Id;
+
+        var roindId = roundIdTicker == null
+            ? 0
+            : (int)roundIdTicker;
+            
         var adminName = banInfo.BanningAdmin == null
             ? Loc.GetString("system-user")
             : (await _db.GetPlayerRecordByUserId(banInfo.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
+
+        var rolesString = "";
+        foreach (var role in roleDefs)
+            rolesString += $"\n> `{role}`";
         // Newton-banwebhook-end
         var targetName = banInfo.Users.Count == 0
             ? "null"
@@ -276,7 +304,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 SendRoleBans(session);
         }
 
-        SendWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")),banInfo.Reason,banDef.Severity,expiresString,string.Join(", ", roleDefs))); // Newton-banwebhook
+        SendWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, rolesString, banId.ToString(), roindId.ToString())); // Newton-banwebhook
     }
 
     private async Task<(BanDef Ban, DateTimeOffset? Expires)> CreateBanDef(
@@ -364,7 +392,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         throw new ArgumentException($"Unknown prototype kind for role bans: {typeof(T)}");
     }
 
-    private async Task AddRoleBan(BanDef banDef)
+    private async Task<BanDef> AddRoleBan(BanDef banDef)
     {
         banDef = await _db.AddBanAsync(banDef);
 
@@ -376,6 +404,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 cachedBans.Add(banDef);
             }
         }
+
+        return banDef;
     }
 
     public async Task<string> PardonRoleBan(int banId, NetUserId? unbanningAdmin, DateTimeOffset unbanTime)
@@ -530,7 +560,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         }
     }
 
-    private async Task<WebhookPayload> GenerateBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires)
+    private async Task<WebhookPayload> GenerateBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires, string banId, string roundId)
     {
         var severity = "";
 
@@ -550,7 +580,14 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 break;
         }
 
-        var description = "**Администратор:** \n> " + adminName + "\n**Игрок:** \n> " + targetName + "\n**Причина:** \n> " + reason + "\n**Степень тяжести:** \n> " + severity + "\n**Истечёт:** \n> " + expires;
+        var title = Loc.GetString("ban-webhook-title", ("id", banId));
+        var description = Loc.GetString("ban-webhook-description",
+            ("adminName", adminName),
+            ("targetName", targetName),
+            ("reason", reason),
+            ("severity", severity),
+            ("expires", expires));
+        var footer = Loc.GetString("ban-webhook-footer", ("id", roundId), ("servername", _serverName));
 
         return new WebhookPayload
         {
@@ -560,15 +597,19 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             {
                 new()
                 {
-                    Title = "Серверный бан",
+                    Title = title,
                     Description = description,
+                    Footer = new EmbedFooter
+                    {
+                        Text = footer
+                    },
                     Color = 16711680
                 }
             }
         };
     }
 
-    private async Task<WebhookPayload> GenerateRoleBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires, string roles)
+    private async Task<WebhookPayload> GenerateRoleBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires, string roles, string banId, string roundId)
     {
         var severity = "";
 
@@ -588,7 +629,15 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 break;
         }
 
-        var description = "**Администратор:** \n> " + adminName + "\n**Игрок:** \n> " + targetName + "\n**Причина:** \n> " + reason + "\n**Роли:** \n> " + roles + "\n**Степень тяжести:** \n> " + severity + "\n**Истечёт:** \n> " + expires;
+        var title = Loc.GetString("jobban-webhook-title", ("id", banId));
+        var description = Loc.GetString("jobban-webhook-description",
+            ("adminName", adminName),
+            ("targetName", targetName),
+            ("reason", reason),
+            ("roles", roles),
+            ("severity", severity),
+            ("expires", expires));
+        var footer = Loc.GetString("jobban-webhook-footer", ("id", roundId), ("servername", _serverName));
 
         return new WebhookPayload
         {
@@ -598,8 +647,12 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             {
                 new()
                 {
-                    Title = "Бан ролей",
+                    Title = title,
                     Description = description,
+                    Footer = new EmbedFooter
+                    {
+                        Text = footer
+                    },
                     Color = 255
                 }
             }
@@ -612,6 +665,11 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
         if (url == string.Empty)
             return;
+    }
+
+    private void OnServerNameChanged(string name)
+    {
+        _serverName = name;
     }
 
     private struct WebhookPayload
@@ -642,7 +700,23 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         [JsonPropertyName("color")]
         public int Color { get; set; } = 0;
 
+        [JsonPropertyName("footer")]
+        public EmbedFooter? Footer { get; set; } = null;
+
         public Embed()
+        {
+        }
+    }
+
+    private struct EmbedFooter
+    {
+        [JsonPropertyName("text")]
+        public string Text { get; set; } = "";
+
+        [JsonPropertyName("icon_url")]
+        public string? IconUrl { get; set; }
+
+        public EmbedFooter()
         {
         }
     }
