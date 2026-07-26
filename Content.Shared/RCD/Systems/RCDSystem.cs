@@ -31,6 +31,7 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private INetManager _net = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private ITileDefinitionManager _tileDefMan = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private FloorTileSystem _floors = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedChargesSystem _sharedCharges = default!;
@@ -41,7 +42,6 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
@@ -90,7 +90,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!component.AvailablePrototypes.Contains(args.ProtoId))
             return;
 
-        if (!_protoManager.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
+        if (!ProtoMan.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
             return;
 
         // Set the current RCD prototype to the one supplied
@@ -106,7 +106,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         var msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", Loc.GetString(prototype.SetName)));
 
@@ -115,7 +115,7 @@ public sealed partial class RCDSystem : EntitySystem
             var name = Loc.GetString(prototype.SetName);
 
             if (prototype.Prototype != null &&
-                _protoManager.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
+                ProtoMan.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
                 name = proto.Name;
 
             msg = Loc.GetString("rcd-component-examine-build-details", ("name", name));
@@ -148,7 +148,7 @@ public sealed partial class RCDSystem : EntitySystem
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
-            _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
+            _popup.PopupEntity(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
             return;
         }
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
@@ -189,7 +189,7 @@ public sealed partial class RCDSystem : EntitySystem
                     var deconstructedTile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
                     var protoName = !_turf.IsSpace(deconstructedTile) ? _deconstructTileProto : _deconstructLatticeProto;
 
-                    if (_protoManager.Resolve(protoName, out var deconProto))
+                    if (ProtoMan.Resolve(protoName, out var deconProto))
                     {
                         cost = deconProto.Cost;
                         delay = deconProto.Delay;
@@ -373,7 +373,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (charges == 0)
         {
             if (popMsgs)
-                _popup.PopupClient(Loc.GetString("rcd-component-no-ammo-message"), uid, user);
+                _popup.PopupEntity(Loc.GetString("rcd-component-no-ammo-message"), uid, user);
 
             return false;
         }
@@ -381,7 +381,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (prototype.Cost > charges)
         {
             if (popMsgs)
-                _popup.PopupClient(Loc.GetString("rcd-component-insufficient-ammo-message"), uid, user);
+                _popup.PopupEntity(Loc.GetString("rcd-component-insufficient-ammo-message"), uid, user);
 
             return false;
         }
@@ -409,13 +409,13 @@ public sealed partial class RCDSystem : EntitySystem
 
     private bool IsConstructionLocationValid(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid user, bool popMsgs = true)
     {
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         // Check rule: Must build on empty tile
         if (prototype.ConstructionRules.Contains(RcdConstructionRule.MustBuildOnEmptyTile) && !tile.Tile.IsEmpty)
         {
             if (popMsgs)
-                _popup.PopupClient(Loc.GetString("rcd-component-must-build-on-empty-tile-message"), uid, user);
+                _popup.PopupEntity(Loc.GetString("rcd-component-must-build-on-empty-tile-message"), uid, user);
 
             return false;
         }
@@ -424,7 +424,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!prototype.ConstructionRules.Contains(RcdConstructionRule.CanBuildOnEmptyTile) && tile.Tile.IsEmpty)
         {
             if (popMsgs)
-                _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-empty-tile-message"), uid, user);
+                _popup.PopupEntity(Loc.GetString("rcd-component-cannot-build-on-empty-tile-message"), uid, user);
 
             return false;
         }
@@ -433,7 +433,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (prototype.ConstructionRules.Contains(RcdConstructionRule.MustBuildOnSubfloor) && !_turf.GetContentTileDefinition(tile).IsSubFloor)
         {
             if (popMsgs)
-                _popup.PopupClient(Loc.GetString("rcd-component-must-build-on-subfloor-message"), uid, user);
+                _popup.PopupEntity(Loc.GetString("rcd-component-must-build-on-subfloor-message"), uid, user);
 
             return false;
         }
@@ -445,7 +445,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (!_floors.CanPlaceTile(gridUid, mapGrid, tile.GridIndices, out var reason))
             {
                 if (popMsgs)
-                    _popup.PopupClient(reason, uid, user);
+                    _popup.PopupEntity(reason, uid, user);
 
                 return false;
             }
@@ -460,7 +460,7 @@ public sealed partial class RCDSystem : EntitySystem
                 if (replacementContentDef.BaseTurf != tileDef.ID && !replacementContentDef.BaseWhitelist.Contains(tileDef.ID))
                 {
                     if (popMsgs)
-                        _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-empty-tile-message"), uid, user);
+                        _popup.PopupEntity(Loc.GetString("rcd-component-cannot-build-on-empty-tile-message"), uid, user);
 
                     return false;
                 }
@@ -470,7 +470,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (tileDef.ID == prototype.Prototype)
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-identical-tile"), uid, user);
+                    _popup.PopupEntity(Loc.GetString("rcd-component-cannot-build-identical-tile"), uid, user);
 
                 return false;
             }
@@ -506,7 +506,7 @@ public sealed partial class RCDSystem : EntitySystem
                 if (isIdentical)
                 {
                     if (popMsgs)
-                        _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-identical-entity"), uid, user);
+                        _popup.PopupEntity(Loc.GetString("rcd-component-cannot-build-identical-entity"), uid, user);
 
                     return false;
                 }
@@ -518,7 +518,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (isCatwalk && _tags.HasTag(ent, CatwalkTag))
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
+                    _popup.PopupEntity(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
 
                 return false;
             }
@@ -538,7 +538,7 @@ public sealed partial class RCDSystem : EntitySystem
 
                     // Collision was detected
                     if (popMsgs)
-                        _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
+                        _popup.PopupEntity(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
 
                     return false;
                 }
@@ -557,7 +557,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (tile.Tile.IsEmpty)
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-nothing-to-deconstruct-message"), uid, user);
+                    _popup.PopupEntity(Loc.GetString("rcd-component-nothing-to-deconstruct-message"), uid, user);
 
                 return false;
             }
@@ -566,7 +566,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (_turf.IsTileBlocked(tile, CollisionGroup.MobMask))
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-tile-obstructed-message"), uid, user);
+                    _popup.PopupEntity(Loc.GetString("rcd-component-tile-obstructed-message"), uid, user);
 
                 return false;
             }
@@ -577,7 +577,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (tileDef.Indestructible)
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-tile-indestructible-message"), uid, user);
+                    _popup.PopupEntity(Loc.GetString("rcd-component-tile-indestructible-message"), uid, user);
 
                 return false;
             }
@@ -590,7 +590,7 @@ public sealed partial class RCDSystem : EntitySystem
             if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Deconstructable)
             {
                 if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+                    _popup.PopupEntity(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
 
                 return false;
             }
@@ -608,7 +608,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!_net.IsServer)
             return;
 
-        var prototype = _protoManager.Index(component.ProtoId);
+        var prototype = ProtoMan.Index(component.ProtoId);
 
         if (prototype.Prototype == null)
             return;
