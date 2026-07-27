@@ -155,7 +155,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             ? 0
             : (int)addBanAsync.Id;
 
-        var roindId = roundIdTicker == null
+        var roundId = roundIdTicker == null
             ? 0
             : (int)roundIdTicker;
         // Newton-banwebhook-end
@@ -192,7 +192,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
 
-        SendWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, banId.ToString(), roindId.ToString())); // Newton-banwebhook
+        SendWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, banId.ToString(), roundId.ToString())); // Newton-banwebhook
         KickMatchingConnectedPlayers(banDef, "newly placed ban");
     }
 
@@ -273,7 +273,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             ? 0
             : (int)addBanAsync.Id;
 
-        var roindId = roundIdTicker == null
+        var roundId = roundIdTicker == null
             ? 0
             : (int)roundIdTicker;
             
@@ -304,7 +304,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 SendRoleBans(session);
         }
 
-        SendWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, rolesString, banId.ToString(), roindId.ToString())); // Newton-banwebhook
+        SendWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, rolesString, banId.ToString(), roundId.ToString())); // Newton-banwebhook
     }
 
     private async Task<(BanDef Ban, DateTimeOffset? Expires)> CreateBanDef(
