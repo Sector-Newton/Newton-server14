@@ -1,0 +1,16 @@
+# Tier 1
+# Tier 2
+
+- type: technology
+  id: Silo
+  name: research-technology-silo
+  icon:
+    sprite: Structures/Machines/silo.rsi
+    state: silo
+  discipline: Industrial
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - MaterialSiloMachineCircuitboard
+
+# Tier 3

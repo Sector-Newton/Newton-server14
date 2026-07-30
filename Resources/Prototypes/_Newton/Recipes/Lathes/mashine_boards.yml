@@ -1,0 +1,10 @@
+#Silo
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
+  id: MaterialSiloMachineCircuitboard
+  result: MaterialSiloMachineCircuitboard
+  materials:
+    Steel: 100
+    Glass: 500
+    Silver: 100
+    Gold: 100
