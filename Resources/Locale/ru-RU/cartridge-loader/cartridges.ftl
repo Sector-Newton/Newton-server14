@@ -30,6 +30,8 @@ astro-nav-program-name = АстроНав
 
 med-tek-program-name = МедТек
 
+anom-scan-program-name = АномСкан
+
 # NanoTask cartridge
 
 nano-task-ui-heading-high-priority-tasks =

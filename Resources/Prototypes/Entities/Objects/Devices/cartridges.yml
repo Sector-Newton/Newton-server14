@@ -155,7 +155,25 @@
         sprite: Objects/Specific/Medical/healthanalyzer.rsi
         state: icon
     - type: MedTekCartridge
-
+# SN-anomscan-start
+- type: entity
+  parent: BasePDACartridge
+  id: AnomScanCartridge
+  name: AnomScan cartridge
+  description: A program that provides RND tools.
+  components:
+    - type: Sprite
+      state: cart-y
+    - type: Icon
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-y
+    - type: Cartridge
+      programName: anom-scan-program-name
+      icon:
+        sprite: Objects/Specific/Research/anomalyscanner.rsi
+        state: icon
+    - type: AnomScanCartridge
+# SN-anomscan-end
 - type: entity
   parent: BasePDACartridge
   id: AstroNavCartridge
