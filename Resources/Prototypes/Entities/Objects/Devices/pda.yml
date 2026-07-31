@@ -164,7 +164,22 @@
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
         - id: WantedListCartridge
-
+# SN-start
+- type: entity
+  parent: BasePDA
+  id: BaseSciencePDA
+  abstract: true
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AnomScanCartridge
+# SN-end
 - type: entity
   parent: BasePDA
   id: BaseMedicalPDA
@@ -252,7 +267,7 @@
     state: pda-interncadet
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA # SN
   id: ResearchAssistantPDA
   name: research assistant PDA
   description: Why isn't it purple?
@@ -829,7 +844,7 @@
     state: pda-chemistry
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA # SN
   id: RnDPDA
   name: research director PDA
   description: It appears surprisingly ordinary.
@@ -849,7 +864,7 @@
     state: pda-rd
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA # SN
   id: SciencePDA
   name: science PDA
   description: It's covered with an unknown gooey substance.
@@ -1456,7 +1471,7 @@
     state: pda-seniorengineer
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA # SN
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.
