@@ -212,6 +212,7 @@
     - Janitor
     - Instruments
     - Equipment
+    - HudsPack # SN
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo

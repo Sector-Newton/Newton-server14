@@ -4,3 +4,12 @@
   id: SiloBoard
   recipes:
   - MaterialSiloMachineCircuitboard
+
+- type: latheRecipePack
+  id: HudsPack
+  recipes:
+  - ClothingEyesHudMedical
+  - ClothingEyesHudSecurity
+  - ClothingEyesHudCommand
+  - ClothingEyesHudMedSec
+  - ClothingEyesHudDiagnostic

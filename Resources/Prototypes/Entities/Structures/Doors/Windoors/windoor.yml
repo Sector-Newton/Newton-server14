@@ -457,7 +457,18 @@
       board: [ DoorElectronicsResearch ]
   - type: Wires
     layoutId: AirlockScience
-
+# SN-start
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureSalvageScienceLocked
+  suffix: Salvage, Science, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvageResearch ]
+  - type: Wires
+    layoutId: AirlockScience
+# SN-end
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureScienceLocked
@@ -468,7 +479,18 @@
       board: [ DoorElectronicsResearch ]
   - type: Wires
     layoutId: AirlockScience
-
+# SN-start
+- type: entity
+  parent: WindoorSecurePlasma
+  id: PlasmaWindoorSecureSalvageScienceLocked
+  suffix: Salvage, Science, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvageResearch ]
+  - type: Wires
+    layoutId: AirlockScience
+# SN-end
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureServiceLocked

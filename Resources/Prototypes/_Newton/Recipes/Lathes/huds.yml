@@ -1,0 +1,50 @@
+# Medical Hud
+- type: latheRecipe
+  id: ClothingEyesHudMedical
+  result: ClothingEyesHudMedical
+  materials:
+    Steel: 500
+    Glass: 1000
+    Plastic: 500
+    Gold: 200
+
+# Security Hud
+- type: latheRecipe
+  id: ClothingEyesHudSecurity
+  result: ClothingEyesHudSecurity
+  materials:
+    Steel: 500
+    Glass: 1000
+    Plastic: 500
+    Silver: 200
+
+# Command Hud
+- type: latheRecipe
+  id: ClothingEyesHudCommand
+  result: ClothingEyesHudCommand
+  materials:
+    Steel: 500
+    Glass: 1000
+    Plastic: 500
+
+# MedSec Hud
+- type: latheRecipe
+  id: ClothingEyesHudMedSec
+  result: ClothingEyesHudMedSec
+  materials:
+    Steel: 500
+    Glass: 1000
+    Plastic: 500
+    Silver: 400
+    Gold: 400
+    Plasma: 200
+
+# Diagnostic Hud
+- type: latheRecipe
+  id: ClothingEyesHudDiagnostic
+  result: ClothingEyesHudDiagnostic
+  materials:
+    Steel: 500
+    Glass: 1000
+    Plastic: 500
+    Gold: 100

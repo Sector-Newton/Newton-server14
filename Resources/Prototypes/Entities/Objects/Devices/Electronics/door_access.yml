@@ -186,7 +186,15 @@
   components:
   - type: AccessReader
     access: [["Research"], ["Medical"]]
-
+# SN-start
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSalvageResearch
+  suffix: Salvage/Science, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"], ["Salvage"]]
+# SN-end
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsResearch

@@ -302,7 +302,16 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedicalResearch ]
-
+# SN-start
+- type: entity
+  parent: AirlockScience
+  id: AirlockSalvageScienceLocked
+  suffix: Salvage/Science, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvageResearch ]
+# SN-end
 - type: entity
   parent: AirlockCentralCommand
   id: AirlockCentralCommandLocked
@@ -716,7 +725,16 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedicalResearch ]
-
+# SN-start
+- type: entity
+  parent: AirlockScienceGlass
+  id: AirlockSalvageScienceGlassLocked
+  suffix: Salvage/Science, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvageResearch ]
+# SN-end
 - type: entity
   parent: AirlockCentralCommandGlass
   id: AirlockCentralCommandGlassLocked

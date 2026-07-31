@@ -13,4 +13,20 @@
   recipeUnlocks:
   - MaterialSiloMachineCircuitboard
 
+- type: technology
+  id: Huds
+  name: research-technology-huds
+  icon:
+    sprite: Clothing/Eyes/Hud/medsec.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ClothingEyesHudMedical
+  - ClothingEyesHudSecurity
+  - ClothingEyesHudCommand
+  - ClothingEyesHudMedSec
+  - ClothingEyesHudDiagnostic
+
 # Tier 3
