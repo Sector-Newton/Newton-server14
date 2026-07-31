@@ -73,6 +73,7 @@
   - PowerCageSmall
   - TelescopicShield
   - ClothingBackpackHarmpack
+  - ClothingHandsGlovesCombat # SN
 
 - type: latheRecipePack
   id: SecurityBoards

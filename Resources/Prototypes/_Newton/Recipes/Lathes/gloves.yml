@@ -1,0 +1,17 @@
+#Yellow gloves
+- type: latheRecipe
+  id: ClothingHandsGlovesColorYellow
+  result: ClothingHandsGlovesColorYellow
+  completetime: 1
+  materials:
+    Cloth: 800
+    
+    
+#Combat gloves
+- type: latheRecipe
+  id: ClothingHandsGlovesCombat
+  result: ClothingHandsGlovesCombat
+  completetime: 2
+  materials:
+    Cloth: 1000
+    Durathread: 500

@@ -98,6 +98,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - ClothingHandsGlovesCombat # SN
 
 - type: technology
   id: ExplosiveTechnology
