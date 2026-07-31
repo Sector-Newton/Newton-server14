@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Content.Server.Newton.Ports.Jukebox;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -142,6 +143,10 @@ namespace Content.Server.Entry
             _job.Initialize();
             _rateLimit.Initialize();
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
+
+            // Jukebox-port-edit
+            IoCManager.Resolve<ServerJukeboxSongsSyncManager>().Initialize();
+            // Jukebox-port-edit
         }
 
         public override void PostInit()

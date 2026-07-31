@@ -56,6 +56,12 @@ public sealed class CCCVars
         CVarDef.Create("tts.api_timeout", 3, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Jukebox volume
+    /// </summary>
+    public static readonly CVarDef<float> JukeboxMusicVolume =
+        CVarDef.Create("jukebox.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// Default volume setting of TTS sound
     /// </summary>
     public static readonly CVarDef<float> TTSVolume =

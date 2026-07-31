@@ -1,4 +1,5 @@
 using Content.Server.Administration;
+using Content.Server.Newton.Ports.Jukebox;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Notes;
@@ -84,5 +85,9 @@ internal static class ServerContentIoC
         deps.Register<ServerFeedbackManager>();
         deps.Register<ISharedFeedbackManager, ServerFeedbackManager>();
         IoCManager.Register<TTSManager>(); // Corvax-TTS
+
+        // Jukebox-port-edit
+        deps.Register<ServerJukeboxSongsSyncManager>();
+        // Jukebox-port-edit
     }
 }

@@ -36,6 +36,14 @@ public sealed partial class AudioTab : Control
             scale: ContentAudioSystem.TtsMultiplier);
         // Corvax-TTS-End
 
+
+        // Newton-Jukebox-Start
+        Control.AddOptionPercentSlider(
+            CCCVars.JukeboxMusicVolume,
+            SliderVolumeJukeboxMusic,
+            scale: ContentAudioSystem.JukeboxMusicMultiplier);
+        // Newton-Jukebox-End
+
         Control.AddOptionPercentSlider(
             CVars.MidiVolume,
             SliderVolumeMidi,

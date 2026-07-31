@@ -1,0 +1,19 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               x:Class="Content.Client.Newton.Ports.Jukebox.TapeCreatorMenu"
+               MinSize="200 300" Title="CD Burner">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SetHeight="30">
+            <Label Text="Осталось циклов записи: "></Label>
+            <Label Name="CoinsLabel" Text="0"></Label>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" SeparationOverride="5">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SetHeight="30">
+                <Label Text="Название"></Label>
+                <LineEdit Name="SongNameField" MinWidth="200"></LineEdit>
+                <Button Name="LoadSongButton" Access="Internal" Text="Загрузить трек"></Button>
+            </BoxContainer>
+            <Button Name="UploadSong" Access="Internal" Text="Записать трек" MinHeight="50" HorizontalExpand="True"></Button>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
