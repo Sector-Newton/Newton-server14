@@ -62,6 +62,7 @@
         - id: RubberStampApproved
         - id: RubberStampDenied
         - id: RubberStampHop
+        - id: RubberStampViceHop # SN
 
 - type: entity
   parent: ToteBase
@@ -104,6 +105,7 @@
         - id: RubberStampApproved
         - id: RubberStampDenied
         - id: RubberStampQm
+        - id: RubberStampViceQm
 
 - type: entity
   parent: ToteBase

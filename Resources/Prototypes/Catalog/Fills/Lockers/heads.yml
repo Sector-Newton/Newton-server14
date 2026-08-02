@@ -173,6 +173,7 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: RubberStampViceCE # SN
     - id: MetalFoamGrenade
     - id: PlushieLizardJobChiefengineer
       prob: 0.02
@@ -227,6 +228,7 @@
     - id: MedTekCartridge
     # Standard command gear
     - id: RubberStampCMO
+    - id: RubberStampViceCMO # SN
     - id: ClothingHeadsetAltMedical
     - id: DoorRemoteMedical
     - id: BoxEncryptionKeyMedical
@@ -283,6 +285,7 @@
     - id: DoorRemoteResearch
     - id: HandTeleporter
     - id: RubberStampRd
+    - id: RubberStampViceRd # SN
     - id: PlushieLizardJobResearchdirector
       prob: 0.02
     - id: PrinterDocFlatpack # Corvax-Printer
@@ -342,6 +345,7 @@
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
     - id: RubberStampHos
+    - id: RubberStampViceHos # SN
     - id: BoxHoSCircuitboards
     - id: WeaponDisabler
     - id: WantedListCartridge

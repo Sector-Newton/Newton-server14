@@ -1,0 +1,77 @@
+- type: entity
+  name: vice chief medical officer's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampViceCMO
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-vice-cmo
+    stampedColor: "#33ccff"
+    stampState: "paper_stamp-cmo"
+  - type: Sprite
+    state: stamp-cmo
+
+- type: entity
+  name: vice chief engineer's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampViceCE
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-vice-ce
+    stampedColor: "#c69b17"
+    stampState: "paper_stamp-ce"
+  - type: Sprite
+    state: stamp-ce
+
+- type: entity
+  name: vice quartermaster's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampViceQm
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-vice-qm
+    stampedColor: "#a23e3e"
+    stampState: "paper_stamp-qm"
+  - type: Sprite
+    state: stamp-qm
+
+- type: entity
+  name: vice research director's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampViceRd
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-vice-rd
+    stampedColor: "#1f66a0"
+    stampState: "paper_stamp-rd"
+  - type: Sprite
+    state: stamp-rd
+
+- type: entity
+  name: vice head of personnel's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampViceHop
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-vice-hop
+    stampedColor: "#6ec0ea"
+    stampState: "paper_stamp-hop"
+  - type: Sprite
+    state: stamp-hop
+
+- type: entity
+  name: vice head of security's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampViceHos
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-vice-hos
+    stampedColor: "#cc0000"
+    stampState: "paper_stamp-hos"
+  - type: Sprite
+    state: stamp-hos
