@@ -13,3 +13,11 @@
   - ClothingEyesHudCommand
   - ClothingEyesHudMedSec
   - ClothingEyesHudDiagnostic
+
+- type: latheRecipePack
+  id: MiningServerPack
+  recipes:
+  - MiningServerCircuitboard
+  - UpgraderDiskT1
+  - UpgraderDiskT2
+  - UpgraderDiskT3

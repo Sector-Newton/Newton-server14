@@ -270,6 +270,7 @@
     - MechBoards
     - ShuttleBoards
     - SiloBoard # SN
+    - MiningServerPack # SN
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards

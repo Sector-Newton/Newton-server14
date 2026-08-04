@@ -1,0 +1,38 @@
+# Upgrader disk T1
+- type: latheRecipe
+  id: UpgraderDiskT1
+  result: UpgraderDiskT1
+  materials:
+    Uranium: 3000
+    Plasma: 3000
+    Glass: 2000
+    Steel: 2000
+    Plasteel: 1000
+    Gold: 3000
+    Silver: 3000
+
+# Upgrader disk T2
+- type: latheRecipe
+  id: UpgraderDiskT2
+  result: UpgraderDiskT2
+  materials:
+    Uranium: 6000
+    Plasma: 6000
+    Glass: 2500
+    Steel: 2500
+    Plasteel: 2000
+    Gold: 3000
+    Silver: 3000
+
+# Upgrader disk T3
+- type: latheRecipe
+  id: UpgraderDiskT3
+  result: UpgraderDiskT3
+  materials:
+    Uranium: 9000
+    Plasma: 9000
+    Glass: 3000
+    Steel: 3000
+    Plasteel: 3000
+    Gold: 3000
+    Silver: 3000

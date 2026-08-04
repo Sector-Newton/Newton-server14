@@ -1,0 +1,119 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
+  id: MiningServer
+  name: base R&D point mining server
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/telecomms.rsi
+    snapCardinals: true
+    layers:
+    - state: telecom-nopower
+    - state: telecom-stripe
+    - state: telecom-on
+      shader: unshaded
+      visible: false
+      map: ["telecom-on"]
+    - state: variant-nokey
+      map: ["variant-nokey"]
+    - state: variant-default
+      map: ["variant-default"]
+    - state: telecom-open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: ItemMapper
+    sprite: Structures/Machines/telecomms.rsi
+    mapLayers:
+      variant-nokey:
+        whitelist:
+          components:
+          - UpgraderDisk
+        minCount: 0
+      variant-default:
+        whitelist:
+          components:
+          - UpgraderDisk
+        minCount: 1
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+    energy: 3.0
+    color: "#39b8ee"
+  - type: LitOnPowered
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        telecom-on:
+          True: { visible: true }
+          False: { visible: false }
+        variant-default:
+          True: { shader: unshaded }
+          False: { shader: shaded }
+        variant-nokey:
+          True: { shader: unshaded }
+          False: { shader: shaded }
+  - type: Appearance
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 15000
+  - type: PowerSwitch
+  - type: MiningServer
+    basepoints: 20
+    slot: "disk"
+  - type: ItemSlots
+    slots:
+        disk:
+          name: miningserver-slot-name
+          whitelist:
+            components:
+            - UpgraderDisk
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      collection: ServerFans
+  - type: WiresVisuals
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Machine
+    board: MiningServerCircuitboard
+  - type: WiresPanel
+  - type: ContainerContainer
+    containers:
+      item_slot: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+
+- type: entity
+  id: MiningServerCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mining server machine board
+  description: A machine printed circuit board for an mining server.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: MiningServer
+    stackRequirements:
+      Uranium: 20
+      Plasma: 30
+      Glass: 10
+      Steel: 20
+      Plasteel: 10
+      Manipulator: 10
+      Gold: 15
+      Silver: 15

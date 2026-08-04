@@ -1,4 +1,4 @@
-#Silo
+# Silo
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
   id: MaterialSiloMachineCircuitboard
@@ -8,3 +8,9 @@
     Glass: 500
     Silver: 100
     Gold: 100
+
+# Mining Server
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: MiningServerCircuitboard
+  result: MiningServerCircuitboard

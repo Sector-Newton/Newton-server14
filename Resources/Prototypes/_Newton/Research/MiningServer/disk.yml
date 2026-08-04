@@ -1,0 +1,78 @@
+- type: entity
+  parent: BaseItem
+  id: BaseUpgraderDisk
+  name: upgrader disk
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+    - state: datadisk_t2_marks
+      shader: unshaded
+      visible: false
+    - state: datadisk_t2_border
+      visible: false
+    - state: datadisk_t3_marks
+      shader: unshaded
+      visible: false
+    - state: datadisk_t3_border
+      visible: false
+  - type: Appearance
+  - type: UpgraderDisk
+    pointsadd: 10
+
+- type: entity
+  parent: BaseUpgraderDisk
+  id: UpgraderDiskT1
+  name: upgrader disk tier 1
+  components:
+  - type: Sprite
+    state: datadisk_base
+    layers:
+    - state: datadisk_base
+      color: "#9a6ef0"
+    - state: datadisk_label
+  - type: UpgraderDisk
+    pointsadd: 10
+    energyadd: 0
+
+- type: entity
+  parent: BaseUpgraderDisk
+  id: UpgraderDiskT2
+  name: upgrader disk tier 2
+  components:
+  - type: Sprite
+    state: datadisk_base
+    layers:
+    - state: datadisk_base
+      color: "#9a6ef0"
+    - state: datadisk_label
+    - state: datadisk_t2_marks
+      shader: unshaded
+      visible: true
+    - state: datadisk_t2_border
+      visible: true
+  - type: UpgraderDisk
+    pointsadd: 20
+    energyadd: 0
+
+- type: entity
+  parent: BaseUpgraderDisk
+  id: UpgraderDiskT3
+  name: upgrader disk tier 3
+  components:
+  - type: Sprite
+    state: datadisk_base
+    layers:
+    - state: datadisk_base
+      color: "#9a6ef0"
+    - state: datadisk_label
+    - state: datadisk_t3_marks
+      shader: unshaded
+      visible: true
+    - state: datadisk_t3_border
+      visible: true
+  - type: UpgraderDisk
+    pointsadd: 40
+    energyadd: 0

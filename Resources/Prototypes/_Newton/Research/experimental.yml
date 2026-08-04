@@ -1,0 +1,32 @@
+# Tier 1
+
+# Tier 2
+
+- type: technology
+  id: MiningServerTechnology
+  name: research-technology-mining-server
+  icon:
+    type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server-on
+  discipline: Experimental
+  tier: 2
+  cost: 20000
+  recipeUnlocks:
+  - MiningServerCircuitboard
+  - UpgraderDiskT1
+
+# Tier 3
+
+- type: technology
+  id: UpgraderDiskTechnology
+  name: research-technology-upgrader-disk
+  icon:
+    sprite: Objects/Specific/Research/researchdisk.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - UpgraderDiskT2
+  - UpgraderDiskT3
