@@ -14,15 +14,15 @@
     <File Path="Tools/generate_hashes.ps1" />
   </Folder>
   <Folder Name="/Corvax Interfaces/">
-    <Project Path="Corvax/Content.Corvax.Interfaces.Client/Content.Corvax.Interfaces.Client.csproj">
+    <Project Path="_Corvax/Content.Corvax.Interfaces.Client/Content.Corvax.Interfaces.Client.csproj">
       <BuildType Solution="DebugOpt|*" Project="Debug" />
       <BuildType Solution="Tools|*" Project="Debug" />
     </Project>
-    <Project Path="Corvax/Content.Corvax.Interfaces.Server/Content.Corvax.Interfaces.Server.csproj">
+    <Project Path="_Corvax/Content.Corvax.Interfaces.Server/Content.Corvax.Interfaces.Server.csproj">
       <BuildType Solution="DebugOpt|*" Project="Debug" />
       <BuildType Solution="Tools|*" Project="Debug" />
     </Project>
-    <Project Path="Corvax/Content.Corvax.Interfaces.Shared/Content.Corvax.Interfaces.Shared.csproj">
+    <Project Path="_Corvax/Content.Corvax.Interfaces.Shared/Content.Corvax.Interfaces.Shared.csproj">
       <BuildType Solution="DebugOpt|*" Project="Debug" />
       <BuildType Solution="Tools|*" Project="Debug" />
     </Project>
