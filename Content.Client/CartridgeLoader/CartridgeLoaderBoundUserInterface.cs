@@ -66,7 +66,7 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
     protected void ActivateCartridge(EntityUid cartridgeUid)
     {
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(cartridgeUid), CartridgeUiMessageAction.Activate);
-        SendPredictedMessage(message);
+        SendMessage(message); // Newton
     }
 
     protected void DeactivateActiveCartridge()
