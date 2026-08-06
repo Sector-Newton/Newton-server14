@@ -98,6 +98,10 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+  - type: Item #SN
+    size: Normal
+    shape:
+    - 0,0,1,1 #SN
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase

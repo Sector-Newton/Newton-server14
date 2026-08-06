@@ -365,12 +365,6 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     {
         await _db.MarkMessageAsSeen(id, dismissedToo);
     }
-
-    public void PostInject()
-    {
-        _sawmill = _logManager.GetSawmill(SawmillId);
-        Initialize();
-    }
     // Newton-noteswebhook-start
     #region "webhook"
 
@@ -506,4 +500,10 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
 
     #endregion
     // Newton-noteswebhook-end
+
+    public void PostInject()
+    {
+        _sawmill = _logManager.GetSawmill(SawmillId);
+        Initialize(); // Newton
+    }
 }
