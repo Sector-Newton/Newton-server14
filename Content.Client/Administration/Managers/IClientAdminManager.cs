@@ -20,6 +20,8 @@ namespace Content.Client.Administration.Managers
         /// </param>
         /// <returns><see langword="null" /> if the player is not an admin.</returns>
         AdminData? GetAdminData(bool includeDeAdmin = false);
+        void RequestAdminData(EntityUid targetUserId, bool skipCheck = false); // Newton
+        AdminData? GetCachedAdminData(EntityUid userId); // Newton
 
         /// <summary>
         ///     Checks whether the local player is an admin.

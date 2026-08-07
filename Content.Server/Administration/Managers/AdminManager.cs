@@ -7,6 +7,7 @@ using Content.Server.Database;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
+using Content.Shared.Newton.Administration; // Newton
 using Robust.Server.Console;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -34,6 +35,7 @@ namespace Content.Server.Administration.Managers
         [Dependency] private IChatManager _chat = default!;
         [Dependency] private ToolshedManager _toolshed = default!;
         [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private IEntityManager _EntityManager = default!; // Newton
 
         private readonly Dictionary<ICommonSession, AdminReg> _admins = new();
         private readonly HashSet<NetUserId> _promotedPlayers = new();
@@ -252,6 +254,8 @@ namespace Content.Server.Administration.Managers
             _sawmill = _logManager.GetSawmill("admin");
 
             _netMgr.RegisterNetMessage<MsgUpdateAdminStatus>();
+            _netMgr.RegisterNetMessage<MsgUpdateAdminData>(); // Newton
+            _netMgr.RegisterNetMessage<MsgRequestAdminData>(OnRequest); // Newton
 
             // Cache permissions for loaded console commands with the requisite attributes.
             foreach (var (cmdName, cmd) in _consoleHost.AvailableCommands)
@@ -341,6 +345,50 @@ namespace Content.Server.Administration.Managers
 
             _netMgr.ServerSendMessage(msg, session.Channel);
         }
+
+        // Newton-start
+        private void OnRequest(MsgRequestAdminData msg)
+        {
+
+            _EntityManager.TryGetEntity(msg.TargetUserId, out var netEntity);
+            EntityUid uid = netEntity ?? EntityUid.Invalid;
+
+            _playerManager.TryGetSessionByUsername(msg.MsgChannel.UserName, out var senderSession);
+            _playerManager.TryGetSessionByEntity(uid, out var targetSession);
+
+            if (senderSession == null)
+                return;
+
+            if (targetSession == null)
+                return;
+
+            // Проверяем, есть ли у запрашивающего права администратора (например, флаг Admin)
+            _admins.TryGetValue(senderSession, out var senderData);
+            if (senderData == null)
+                return;
+
+            // Получаем AdminData целевого игрока по его EntityUid
+            _admins.TryGetValue(targetSession, out var targetData);
+            if (targetData == null)
+                return;
+
+            // Отправляем ответ обратно клиенту
+
+            var newMessage = new MsgUpdateAdminData();
+
+            if (!senderData.Data.HasFlag(AdminFlags.Stealth))
+            {
+                targetData.Data.Stealth = false;
+
+                if (targetData.Data.Stealth)
+                    targetData.Data.Active = false;
+            }
+
+            newMessage.Admin = targetData.Data;
+            newMessage.TargetUserId = _EntityManager.GetNetEntity(uid);
+            _netMgr.ServerSendMessage(newMessage, msg.MsgChannel);
+        }
+        // Newton-end
 
         private void PlayerStatusChanged(object? sender, SessionStatusEventArgs e)
         {

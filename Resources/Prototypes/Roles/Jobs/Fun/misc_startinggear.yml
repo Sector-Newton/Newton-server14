@@ -157,6 +157,16 @@
     - trayScanner
     - AccessConfiguratorUniversal
     - Multitool
+    # SN-start
+    - JawsOfLife
+    - PowerDrill
+    - WelderExperimental
+    - RubberStampCentcom
+    - RubberStampApproved
+    - RubberStampDenied
+    - AdminHypo
+    - BluespaceBeaker
+    # SN-end
 
 #Gladiator with spear
 - type: startingGear

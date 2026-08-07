@@ -2,12 +2,14 @@ using System.Collections.Frozen;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Systems;
+using Content.Client.Administration.Managers; // Newton
 using Content.Client.Stylesheets;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Content.Shared.Administration.Managers; // Newton
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -26,6 +28,7 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly IUserInterfaceManager _userInterfaceManager;
     private readonly SharedRoleSystem _roles;
     private readonly IPrototypeManager _prototypeManager;
+    private readonly IClientAdminManager _adminManager; // Newton
     private readonly Font _font;
     private readonly Font _fontBold;
     private AdminOverlayAntagFormat _overlayFormat;
@@ -53,7 +56,8 @@ internal sealed class AdminNameOverlay : Overlay
         IUserInterfaceManager userInterfaceManager,
         IConfigurationManager config,
         SharedRoleSystem roles,
-        IPrototypeManager prototypeManager)
+        IPrototypeManager prototypeManager, // Newton
+        IClientAdminManager adminManager) // Newton
     {
         _system = system;
         _entityManager = entityManager;
@@ -62,6 +66,7 @@ internal sealed class AdminNameOverlay : Overlay
         _userInterfaceManager = userInterfaceManager;
         _roles = roles;
         _prototypeManager = prototypeManager;
+        _adminManager = adminManager; // Newton
         ZIndex = 200;
         // Setting these to a specific ttf would break the antag symbols
         _font = resourceCache.NotoStack();
@@ -266,6 +271,33 @@ internal sealed class AdminNameOverlay : Overlay
                 : text;
             args.ScreenHandle.DrawString(_fontBold, screenCoordinates + currentOffset, label, uiScale, color);
             currentOffset += lineoffset;
+
+            // Newton-start
+            // Draw admin status
+            _adminManager.RequestAdminData(info.Item3,true);
+            AdminData? data = _adminManager.GetCachedAdminData(info.Item3);
+            if (data != null)
+            {
+                string adminText;
+                if (data.Active)
+                {
+                    if (data.Stealth)
+                        adminText = "ADMIN (Stealth)";
+                    else
+                        adminText = "ADMIN (Readmin)";
+                }
+                else
+                {
+                    adminText = "ADMIN (Deadmin)";
+                }
+
+                color = Color.Yellow;
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, adminText, uiScale, playerInfo.Connected ? color : colorDisconnected);
+                currentOffset += lineoffset;
+            }
+
+            // Newton-end
 
             //Save the coordinates and size of the text block, for stack merge check
             drawnOverlays.Add((screenCoordinatesCenter, currentOffset));

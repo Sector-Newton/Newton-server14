@@ -1,5 +1,6 @@
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
+using Content.Shared.Newton.Administration; // Newton
 using Robust.Client.Console;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -19,8 +20,10 @@ namespace Content.Client.Administration.Managers
         [Dependency] private IResourceManager _res = default!;
         [Dependency] private ILogManager _logManager = default!;
         [Dependency] private IUserInterfaceManager _userInterface = default!;
+        [Dependency] private IEntityManager _EntityManager = default!; // Newton
 
-        private AdminData? _adminData;
+        private AdminData? _adminData; // Newton
+        private readonly Dictionary<EntityUid, AdminData?> _cachedData = new(); // Newton
         private readonly HashSet<string> _availableCommands = new();
 
         private readonly AdminCommandPermissions _localCommandPermissions = new();
@@ -76,6 +79,8 @@ namespace Content.Client.Administration.Managers
         public void Initialize()
         {
             _netMgr.RegisterNetMessage<MsgUpdateAdminStatus>(UpdateMessageRx);
+            _netMgr.RegisterNetMessage<MsgUpdateAdminData>(OnResponse); // Newton
+            _netMgr.RegisterNetMessage<MsgRequestAdminData>(); // Newton
 
             // Load flags for engine commands, since those don't have the attributes.
             if (_res.TryContentFileRead(new ResPath("/clientCommandPerms.yml"), out var efs))
@@ -148,5 +153,37 @@ namespace Content.Client.Administration.Managers
 
             return null;
         }
+
+        // Newton-start
+        public void RequestAdminData(EntityUid targetUserId, bool skipCheck = false)
+        {
+            if (!_cachedData.TryGetValue(targetUserId, out var value) || skipCheck)
+            {
+                var msg = new MsgRequestAdminData();
+                msg.TargetUserId = _EntityManager.GetNetEntity(targetUserId);
+
+                _netMgr.ClientSendMessage(msg);
+            }
+        }
+
+        private void OnResponse(MsgUpdateAdminData msg)
+        {
+            _EntityManager.TryGetEntity(msg.TargetUserId, out var netEntity);
+            EntityUid uid = netEntity ?? EntityUid.Invalid;
+
+            // Сохраняем в кеш
+            _cachedData[uid] = msg.Admin;
+
+            // Здесь можно обновить UI или выполнить другие действия
+        }
+
+        /// <summary>
+        /// Получить ранее полученные данные (синхронно).
+        /// </summary>
+        public AdminData? GetCachedAdminData(EntityUid userId)
+        {
+            return _cachedData.TryGetValue(userId, out var data) ? data : null;
+        }
+        // Newton-end
     }
 }

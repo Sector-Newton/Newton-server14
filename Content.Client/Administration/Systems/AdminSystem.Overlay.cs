@@ -1,4 +1,5 @@
 using Content.Client.Administration.Managers;
+using Content.Shared.Administration.Managers; // Newton
 using Content.Shared.Roles;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -34,7 +35,8 @@ namespace Content.Client.Administration.Systems
                 _userInterfaceManager,
                 _configurationManager,
                 _roles,
-                ProtoMan);
+                ProtoMan, // Newton
+                _adminManager); // Newton
             _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
         }
 
