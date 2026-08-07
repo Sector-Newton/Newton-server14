@@ -80,7 +80,6 @@ namespace Content.Client.Administration.Managers
         {
             _netMgr.RegisterNetMessage<MsgUpdateAdminStatus>(UpdateMessageRx);
             _netMgr.RegisterNetMessage<MsgUpdateAdminData>(OnResponse); // Newton
-            _netMgr.RegisterNetMessage<MsgRequestAdminData>(); // Newton
 
             // Load flags for engine commands, since those don't have the attributes.
             if (_res.TryContentFileRead(new ResPath("/clientCommandPerms.yml"), out var efs))
@@ -155,31 +154,13 @@ namespace Content.Client.Administration.Managers
         }
 
         // Newton-start
-        public void RequestAdminData(EntityUid targetUserId, bool skipCheck = false)
-        {
-            if (!_cachedData.TryGetValue(targetUserId, out var value) || skipCheck)
-            {
-                var msg = new MsgRequestAdminData();
-                msg.TargetUserId = _EntityManager.GetNetEntity(targetUserId);
-
-                _netMgr.ClientSendMessage(msg);
-            }
-        }
-
         private void OnResponse(MsgUpdateAdminData msg)
         {
             _EntityManager.TryGetEntity(msg.TargetUserId, out var netEntity);
             EntityUid uid = netEntity ?? EntityUid.Invalid;
 
-            // Сохраняем в кеш
             _cachedData[uid] = msg.Admin;
-
-            // Здесь можно обновить UI или выполнить другие действия
         }
-
-        /// <summary>
-        /// Получить ранее полученные данные (синхронно).
-        /// </summary>
         public AdminData? GetCachedAdminData(EntityUid userId)
         {
             return _cachedData.TryGetValue(userId, out var data) ? data : null;

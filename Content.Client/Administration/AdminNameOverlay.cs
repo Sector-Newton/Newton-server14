@@ -274,7 +274,6 @@ internal sealed class AdminNameOverlay : Overlay
 
             // Newton-start
             // Draw admin status
-            _adminManager.RequestAdminData(info.Item3,true);
             AdminData? data = _adminManager.GetCachedAdminData(info.Item3);
             if (data != null)
             {

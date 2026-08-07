@@ -131,6 +131,7 @@ namespace Content.Server.Administration.Managers
             _chat.DispatchServerMessage(session, Loc.GetString("admin-manager-stealthed-message"));
             _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-de-admin-message", ("exAdminName", session.Name)), AdminFlags.Stealth);
             _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-enable-stealth", ("stealthAdminName", session.Name)), flagWhitelist: AdminFlags.Stealth);
+            UpdateAdminData(); // Newton
         }
 
         public void UnStealth(ICommonSession session)
@@ -150,6 +151,7 @@ namespace Content.Server.Administration.Managers
             _chat.DispatchServerMessage(session, Loc.GetString("admin-manager-unstealthed-message"));
             _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-re-admin-message", ("newAdminName", session.Name)), flagBlacklist: AdminFlags.Stealth);
             _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-self-disable-stealth", ("exStealthAdminName", session.Name)), flagWhitelist: AdminFlags.Stealth);
+            UpdateAdminData(); // Newton
         }
 
         public void ReAdmin(ICommonSession session)
@@ -255,7 +257,6 @@ namespace Content.Server.Administration.Managers
 
             _netMgr.RegisterNetMessage<MsgUpdateAdminStatus>();
             _netMgr.RegisterNetMessage<MsgUpdateAdminData>(); // Newton
-            _netMgr.RegisterNetMessage<MsgRequestAdminData>(OnRequest); // Newton
 
             // Cache permissions for loaded console commands with the requisite attributes.
             foreach (var (cmdName, cmd) in _consoleHost.AvailableCommands)
@@ -344,49 +345,52 @@ namespace Content.Server.Administration.Managers
             msg.AvailableCommands = commands.ToArray();
 
             _netMgr.ServerSendMessage(msg, session.Channel);
+            UpdateAdminData(); // Newton
         }
 
         // Newton-start
-        private void OnRequest(MsgRequestAdminData msg)
+        private void UpdateAdminData()
         {
-
-            _EntityManager.TryGetEntity(msg.TargetUserId, out var netEntity);
-            EntityUid uid = netEntity ?? EntityUid.Invalid;
-
-            _playerManager.TryGetSessionByUsername(msg.MsgChannel.UserName, out var senderSession);
-            _playerManager.TryGetSessionByEntity(uid, out var targetSession);
-
-            if (senderSession == null)
-                return;
-
-            if (targetSession == null)
-                return;
-
-            // Проверяем, есть ли у запрашивающего права администратора (например, флаг Admin)
-            _admins.TryGetValue(senderSession, out var senderData);
-            if (senderData == null)
-                return;
-
-            // Получаем AdminData целевого игрока по его EntityUid
-            _admins.TryGetValue(targetSession, out var targetData);
-            if (targetData == null)
-                return;
-
-            // Отправляем ответ обратно клиенту
-
-            var newMessage = new MsgUpdateAdminData();
-
-            if (!senderData.Data.HasFlag(AdminFlags.Stealth))
+            foreach (var session in AllAdmins)
             {
-                targetData.Data.Stealth = false;
+                EntityUid attachedEntity = session.AttachedEntity ?? EntityUid.Invalid;
+                if (attachedEntity == EntityUid.Invalid)
+                    continue;
 
-                if (targetData.Data.Stealth)
-                    targetData.Data.Active = false;
+                _admins.TryGetValue(session, out var Data);
+
+                if (Data == null)
+                    continue;
+
+                foreach (var i in AllAdmins)
+                {
+                    _admins.TryGetValue(i, out var iData);
+
+                    if (iData == null)
+                        continue;
+
+                    var msg = new MsgUpdateAdminData();
+                    msg.Admin = new AdminData
+                    {
+                        Active = Data.Data.Active,
+                        Stealth = Data.Data.Stealth,
+                    };
+
+                    if (!iData.Data.HasFlag(AdminFlags.Stealth) && msg.Admin.Stealth)
+                    {
+                        msg.Admin.Stealth = false;
+                        msg.Admin.Active = false;
+                    }
+                    else if (!iData.Data.HasFlag(AdminFlags.Stealth))
+                    {
+                        msg.Admin.Stealth = false;
+                    }
+
+                    msg.TargetUserId = _EntityManager.GetNetEntity(attachedEntity);
+
+                    _netMgr.ServerSendMessage(msg, i.Channel);
+                }
             }
-
-            newMessage.Admin = targetData.Data;
-            newMessage.TargetUserId = _EntityManager.GetNetEntity(uid);
-            _netMgr.ServerSendMessage(newMessage, msg.MsgChannel);
         }
         // Newton-end
 

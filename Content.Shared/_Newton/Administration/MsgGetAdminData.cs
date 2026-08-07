@@ -45,23 +45,4 @@ namespace Content.Shared.Newton.Administration
 
         public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
     }
-
-    public sealed class MsgRequestAdminData : NetMessage
-    {
-        public override MsgGroups MsgGroup => MsgGroups.Command;
-
-        public NetEntity TargetUserId;
-
-        public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
-        {
-            TargetUserId = new NetEntity(buffer.ReadInt32());
-        }
-
-        public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
-        {
-            buffer.Write(TargetUserId.Id);
-        }
-
-        public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
-    }
 }
