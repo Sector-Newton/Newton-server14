@@ -30,6 +30,7 @@ namespace Content.Server.Database
         public DbSet<AdminLogPlayer> AdminLogPlayer { get; set; } = null!;
         public DbSet<Whitelist> Whitelist { get; set; } = null!;
         public DbSet<Blacklist> Blacklist { get; set; } = null!;
+        public DbSet<Media> Media { get; set; } = null!; // Newton
         public DbSet<Ban> Ban { get; set; } = default!;
         public DbSet<BanRound> BanRound { get; set; } = default!;
         public DbSet<BanPlayer> BanPlayer { get; set; } = default!;
@@ -487,6 +488,14 @@ namespace Content.Server.Database
 
         public Guid UserId { get; set; }
     }
+
+    // Newton-start
+    [Table("Media")]
+    public class Media
+    {
+        [Required, Key] public Guid UserId { get; set; }
+    }
+    // Newton-end
 
     [Table("player")]
     public class Player

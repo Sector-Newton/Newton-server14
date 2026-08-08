@@ -1003,7 +1003,48 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
 
         #endregion
+        // Newton-start
+        #region Media
 
+        public async Task<List<Guid>> GetAllMediaStatusAsync()
+        {
+            await using var db = await GetDb();
+
+            var list = new List<Guid> {};
+
+            foreach (var i in db.DbContext.Media)
+            {
+                list.Add(i.UserId);
+            }
+
+            return list;
+        }
+
+        public async Task<bool> GetMediaStatusAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Media.AnyAsync(w => w.UserId == player);
+        }
+
+        public async Task AddToMediaAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+
+            db.DbContext.Media.Add(new Media { UserId = player });
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveFromMediaAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+            var entry = await db.DbContext.Media.SingleAsync(w => w.UserId == player);
+            db.DbContext.Media.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        #endregion
+        // Newton-end
         #region Whitelist
 
         public async Task<bool> GetWhitelistStatusAsync(NetUserId player)

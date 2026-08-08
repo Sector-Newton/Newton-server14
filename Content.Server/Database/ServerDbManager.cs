@@ -221,7 +221,19 @@ namespace Content.Server.Database
         Task<int> CountAdminLogs(int round);
 
         #endregion
+        // Newton-start
+        #region Media
 
+        Task<List<Guid>> GetAllMediaStatusAsync();
+
+        Task<bool> GetMediaStatusAsync(NetUserId player);
+
+        Task AddToMediaAsync(NetUserId player);
+
+        Task RemoveFromMediaAsync(NetUserId player);
+
+        #endregion
+        // Newton-end
         #region Whitelist
 
         Task<bool> GetWhitelistStatusAsync(NetUserId player);
@@ -764,7 +776,31 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.CountAdminLogs(round));
         }
+        // Newton-start
+        public Task<List<Guid>> GetAllMediaStatusAsync()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllMediaStatusAsync());
+        }
 
+        public Task<bool> GetMediaStatusAsync(NetUserId player)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetMediaStatusAsync(player));
+        }
+
+        public Task AddToMediaAsync(NetUserId player)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddToMediaAsync(player));
+        }
+
+        public Task RemoveFromMediaAsync(NetUserId player)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveFromMediaAsync(player));
+        }
+        // Newton-end
         public Task<bool> GetWhitelistStatusAsync(NetUserId player)
         {
             DbReadOpsMetric.Inc();
