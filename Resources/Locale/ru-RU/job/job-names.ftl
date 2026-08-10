@@ -124,3 +124,23 @@ JobStationEngineer = инженер
 JobTechnicalAssistant = технический ассистент
 JobVisitor = посетитель
 JobWarden = смотритель
+JobCBURN = агент РХБЗЗ
+JobDeathSquad = агент эскадрона смерти
+
+# Antagonist
+AntagDragon = Дракон
+AntagHeadRev = Глава революции
+AntagInitialInfected = Нулевой пациент
+AntagMothershipCore = Ядро ксеноборгов
+AntagNukeops = Ядерный оперативник
+AntagNukeopsCommander = Командир ядерных оперативников
+AntagNukeopsMedic = Медик ядерных оперативников
+AntagParadoxClone = Парадоксальный клон
+AntagRev = Революционер
+AntagSpaceNinja = Космический ниндзя
+AntagThief = Вор
+AntagTraitor = Предатель
+AntagTraitorSleeper = Спящий предатель
+AntagWizard = Маг
+AntagXenoborg = Ксеноборг
+AntagZombie = Зомби

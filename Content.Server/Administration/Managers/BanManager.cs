@@ -26,6 +26,7 @@ using CCVars = Content.Shared.CCVar.CCVars;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace Content.Server.Administration.Managers;
 
@@ -281,9 +282,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             ? Loc.GetString("system-user")
             : (await _db.GetPlayerRecordByUserId(banInfo.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
 
-        var rolesString = "";
+        string rolesString = "";
         foreach (var role in roleDefs)
-            rolesString += $"\n> `{role}`";
+            rolesString += $"\n> `{Loc.GetString(role.ToString().Replace(":", ""))}`";
         // Newton-banwebhook-end
         var targetName = banInfo.Users.Count == 0
             ? "null"

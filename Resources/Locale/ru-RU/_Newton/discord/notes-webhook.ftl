@@ -7,7 +7,7 @@ notes-webhook-description =
     > ``{ $targetName }``
     
     > **Причина:** 
-    > ``{ $reason }``
+    > ```{ $reason }```
     
     > **Степень тяжести:** 
     > ``{ $severity }``

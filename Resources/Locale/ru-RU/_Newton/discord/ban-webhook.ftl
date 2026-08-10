@@ -7,7 +7,7 @@ ban-webhook-description =
     > ``{ $targetName }``
     
     > **Причина:** 
-    > ``{ $reason }``
+    > ```{ $reason }```
     
     > **Степень тяжести:** 
     > ``{ $severity }``
@@ -25,7 +25,7 @@ jobban-webhook-description =
     > ``{ $targetName }``
 
     > **Причина:** 
-    > ``{ $reason }``
+    > ```{ $reason }```
 
     > **Роли:** { $roles }
 
