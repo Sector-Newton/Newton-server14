@@ -37,7 +37,7 @@ public sealed partial class RCDAmmoSystem : EntitySystem
             return;
 
         if (args.Target is not { Valid: true } target ||
-            !HasComp<RCDComponent>(target) ||
+            !TryComp<RCDComponent>(target, out var targetComp) || // Newton
             !TryComp<LimitedChargesComponent>(target, out var charges))
             return;
 
@@ -47,11 +47,21 @@ public sealed partial class RCDAmmoSystem : EntitySystem
         var count = Math.Min(charges.MaxCharges - current, comp.Charges);
         if (count <= 0)
         {
-            _popup.PopupEntity(Loc.GetString("rcd-ammo-component-after-interact-full"), target, user);
+            // Newton-start
+            if (targetComp.IsRpd)
+                _popup.PopupEntity(Loc.GetString("rpd-ammo-component-after-interact-full"), target, user);
+            else
+                _popup.PopupEntity(Loc.GetString("rcd-ammo-component-after-interact-full"), target, user);
+            // Newton-end
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("rcd-ammo-component-after-interact-refilled"), target, user);
+        // Newton-start
+        if (targetComp.IsRpd)
+            _popup.PopupEntity(Loc.GetString("rpd-ammo-component-after-interact-refilled"), target, user);
+        else
+            _popup.PopupEntity(Loc.GetString("rcd-ammo-component-after-interact-refilled"), target, user);
+        // Newton-end   
         _sharedCharges.AddCharges(target, count);
         comp.Charges -= count;
         Dirty(uid, comp);

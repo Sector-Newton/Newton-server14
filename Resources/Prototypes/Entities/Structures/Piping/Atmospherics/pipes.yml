@@ -30,6 +30,13 @@
   - type: AtmosUnsafeUnanchor
   - type: AtmosPipeColor
   - type: AtmosMonitoringConsoleDevice
+  # SN-start
+  - type: RCDDeconstructable
+    cost: 1
+    delay: 1
+    fx: EffectRCDDeconstruct2
+    rpd: true
+  # SN-end
   - type: Tag
     tags:
     - Pipe

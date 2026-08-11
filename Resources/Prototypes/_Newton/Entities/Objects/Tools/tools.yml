@@ -1,0 +1,133 @@
+- type: entity
+  id: RPD
+  parent: RCD
+  name: RPD
+  description: A device used to rapidly pipe things.
+  components:
+  - type: RCD
+    isRpd: true
+    availablePrototypes:
+    - PipeFourway
+    - PipeStraight
+    - PipeBend
+    - PipeTJunction
+    - OutletInjector
+    - ManualValve
+    - VolumetricPump
+    - PressurePump
+    - VentScrubber
+    - PressureValve
+    - DualPortVent
+    - VentGas
+    - VentPassive
+    - MixerGas
+    - Radiator
+    - SignalValve
+    - CanisterPort
+    - FilterGas
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 60
+    charges: 60
+  - type: Sprite
+    sprite: _Newton/Objects/Tools/rpd.rsi
+
+- type: entity
+  name: compressed matter
+  parent: RCDAmmo
+  id: RPDAmmo
+  description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
+  components:
+  - type: RCDAmmo
+    charges: 60
+
+- type: entity
+  id: RPDEmpty
+  parent: RPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+
+- type: entity
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: Cyborg-mounted Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
+  id: RPDExperimental
+  parent: RPD
+  suffix: Admeme
+  name: experimental RPD
+  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 1
+
+- type: entity
+  id: RCDUpgraden
+  parent: RCD
+  name: RCD
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: RCD
+    deconstructTileProto: DeconstructTileUpgrader
+    deconstructLatticeProto: DeconstructLatticeUpgrader
+    availablePrototypes:
+    - WallSolidUpgrader
+    - FloorSteel
+    - Plating
+    - Catwalk
+    - GrilleUpgrader
+    - WindowUpgrader
+    - WindowDirectionalUpgrader
+    - WindowReinforcedDirectionalUpgrader
+    - ReinforcedWindowUpgrader
+    - AirlockUpgrader
+    - AirlockGlassUpgrader
+    - FirelockUpgrader
+    - TubeLightUpgrader
+    - BulbLightUpgrader
+    - LVCable
+    - MVCable
+    - HVCable
+    - CableTerminal
+    - DeconstructUpgrader
+  - type: LimitedCharges
+    maxCharges: 40
+    charges: 40
+
+- type: entity
+  id: RPDUpgraden
+  parent: RPD
+  name: RPD
+  description: A device used to rapidly pipe things.
+  components:
+  - type: LimitedCharges
+    maxCharges: 100
+    charges: 100
+
+- type: entity
+  name: compressed matter
+  parent: RCDAmmo
+  id: RCDAmmoUpgraden
+  description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
+  components:
+  - type: RCDAmmo
+    charges: 40
+
+- type: entity
+  name: compressed matter
+  parent: RCDAmmo
+  id: RPDAmmoUpgraden
+  description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
+  components:
+  - type: RCDAmmo
+    charges: 100

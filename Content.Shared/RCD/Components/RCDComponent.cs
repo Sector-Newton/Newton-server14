@@ -57,4 +57,14 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
+    // Newton-start
+    [DataField, AutoNetworkedField]
+    public bool IsRpd { get; set; } = false;
+
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<RCDPrototype> DeconstructTileProto { get; set; } = "DeconstructTile";
+
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<RCDPrototype> DeconstructLatticeProto { get; set; } = "DeconstructLattice";
+    // Newton-end
 }

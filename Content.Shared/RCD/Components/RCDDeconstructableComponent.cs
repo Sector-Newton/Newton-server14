@@ -31,4 +31,7 @@ public sealed partial class RCDDeconstructableComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Deconstructable = true;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)] // Newton
+    public bool Rpd = false; // Newton
 }

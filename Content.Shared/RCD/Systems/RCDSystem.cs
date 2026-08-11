@@ -48,8 +48,8 @@ public sealed partial class RCDSystem : EntitySystem
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
-    private readonly ProtoId<RCDPrototype> _deconstructTileProto = "DeconstructTile";
-    private readonly ProtoId<RCDPrototype> _deconstructLatticeProto = "DeconstructLattice";
+    // private readonly ProtoId<RCDPrototype> _deconstructTileProto = "DeconstructTile"; // Newton
+    // private readonly ProtoId<RCDPrototype> _deconstructLatticeProto = "DeconstructLattice"; // Newton
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
@@ -187,7 +187,7 @@ public sealed partial class RCDSystem : EntitySystem
                 else
                 {
                     var deconstructedTile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
-                    var protoName = !_turf.IsSpace(deconstructedTile) ? _deconstructTileProto : _deconstructLatticeProto;
+                    var protoName = !_turf.IsSpace(deconstructedTile) ? component.DeconstructTileProto : component.DeconstructLatticeProto; // Newton
 
                     if (ProtoMan.Resolve(protoName, out var deconProto))
                     {
@@ -401,7 +401,7 @@ public sealed partial class RCDSystem : EntitySystem
             case RcdMode.ConstructObject:
                 return IsConstructionLocationValid(uid, component, gridUid, mapGrid, tile, position, direction, user, popMsgs);
             case RcdMode.Deconstruct:
-                return IsDeconstructionStillValid(uid, tile, target, user, popMsgs);
+                return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs); // Newton
         }
 
         return false;
@@ -548,11 +548,20 @@ public sealed partial class RCDSystem : EntitySystem
         return true;
     }
 
-    private bool IsDeconstructionStillValid(EntityUid uid, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true)
+    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true) // Newton
     {
         // Attempt to deconstruct a floor tile
         if (target == null)
         {
+            // Newton-start
+            if (component.IsRpd)
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+
+                return false;
+            }
+            // Newton-end
             // The tile is empty
             if (tile.Tile.IsEmpty)
             {
@@ -586,8 +595,17 @@ public sealed partial class RCDSystem : EntitySystem
         // Attempt to deconstruct an object
         else
         {
+            // Newton-start
+            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Rpd && component.IsRpd)
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+
+                return false;
+            }
+            // Newton-end
             // The object is not in the whitelist
-            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Deconstructable)
+            if (!deconstructible.Deconstructable) // Newton
             {
                 if (popMsgs)
                     _popup.PopupEntity(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);

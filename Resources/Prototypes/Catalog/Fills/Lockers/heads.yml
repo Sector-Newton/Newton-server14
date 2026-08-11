@@ -170,8 +170,10 @@
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards
-    - id: RCD
-    - id: RCDAmmo
+    - id: RCDUpgraden
+    - id: RCDAmmoUpgraden # SN
+    - id: RPDUpgraden # SN
+    - id: RPDAmmoUpgraden # SN
     - id: RubberStampCE
     - id: RubberStampViceCE # SN
     - id: MetalFoamGrenade

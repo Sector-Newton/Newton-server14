@@ -154,8 +154,8 @@
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
     - id: HolofanProjector
-    - id: RCD
-    - id: RCDAmmo
+    - id: RPD # SN
+    - id: RPDAmmo # SN
     - id: AirGrenade
     - id: PlushieLizardJobAtmospherictechnician
       prob: 0.02

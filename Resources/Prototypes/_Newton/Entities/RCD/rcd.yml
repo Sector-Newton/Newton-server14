@@ -1,0 +1,174 @@
+- type: rcd
+  id: DeconstructUpgrader
+  name: rcd-component-deconstruct
+  category: Main
+  sprite: /Textures/Interface/Radial/RCD/deconstruct.png
+  mode: Deconstruct
+  prototype: EffectRCDDeconstructPreview
+  rotation: Camera
+
+- type: rcd
+  id: DeconstructLatticeUpgrader   # Hidden prototype - do not add to RCDs
+  name: rcd-component-deconstruct
+  mode: Deconstruct
+  cost: 1
+  delay: 0
+  rotation: Camera
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DeconstructTileUpgrader      # Hidden prototype - do not add to RCDs
+  name: rcd-component-deconstruct
+  mode: Deconstruct
+  cost: 2
+  delay: 4
+  rotation: Camera
+  fx: EffectRCDDeconstruct4
+
+- type: rcd
+  id: WallSolidUpgrader
+  category: WallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: WallSolid
+  cost: 2
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: GrilleUpgrader
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/grille.png
+  mode: ConstructObject
+  prototype: Grille
+  cost: 2
+  delay: 2
+  collisionMask: Impassable
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: WindowUpgrader
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/window.png
+  mode: ConstructObject
+  prototype: Window
+  cost: 2
+  delay: 2
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: WindowDirectionalUpgrader
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/directional.png
+  mode: ConstructObject
+  prototype: WindowDirectional
+  cost: 1
+  delay: 1
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+  allowMultiDirection: true
+
+- type: rcd
+  id: ReinforcedWindowUpgrader
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/window_reinforced.png
+  mode: ConstructObject
+  prototype: ReinforcedWindow
+  cost: 2
+  delay: 3
+  collisionMask: Impassable
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: WindowReinforcedDirectionalUpgrader
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/directional_reinforced.png
+  mode: ConstructObject
+  prototype: WindowReinforcedDirectional
+  cost: 2
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+  allowMultiDirection: true
+
+- type: rcd
+  id: AirlockUpgrader
+  category: Airlocks
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: Airlock
+  cost: 2
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockGlassUpgrader
+  category: Airlocks
+  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  mode: ConstructObject
+  prototype: AirlockGlass
+  cost: 2
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: FirelockUpgrader
+  category: Airlocks
+  sprite: /Textures/Interface/Radial/RCD/firelock.png
+  mode: ConstructObject
+  prototype: Firelock
+  cost: 2
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: TubeLightUpgrader
+  category: Lighting
+  sprite: /Textures/Interface/Radial/RCD/tube_light.png
+  mode: ConstructObject
+  prototype: Poweredlight
+  cost: 1
+  delay: 1
+  collisionMask: TabletopMachineMask
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct1
+  allowMultiDirection: true
+
+- type: rcd
+  id: BulbLightUpgrader
+  category: Lighting
+  sprite: /Textures/Interface/Radial/RCD/bulb_light.png
+  mode: ConstructObject
+  prototype: PoweredSmallLight
+  cost: 1
+  delay: 1
+  collisionMask: TabletopMachineMask
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct1
+  allowMultiDirection: true
