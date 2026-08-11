@@ -213,6 +213,7 @@
     - Instruments
     - Equipment
     - HudsPack # SN
+    - RCDandRPD # SN
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo

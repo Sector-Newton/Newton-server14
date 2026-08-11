@@ -1,0 +1,16 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RPD
+  result: RPDEmpty
+  completetime: 4
+  materials:
+    Steel: 1500
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RPDAmmo
+  result: RPDAmmo
+  materials:
+    Steel: 1000
+    Plastic: 500

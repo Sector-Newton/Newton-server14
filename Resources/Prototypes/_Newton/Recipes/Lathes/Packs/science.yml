@@ -21,3 +21,11 @@
   - UpgraderDiskT1
   - UpgraderDiskT2
   - UpgraderDiskT3
+
+- type: latheRecipePack
+  id: RCDandRPD
+  recipes:
+  - RCD
+  - RPD
+  - RCDAmmo
+  - RPDAmmo
