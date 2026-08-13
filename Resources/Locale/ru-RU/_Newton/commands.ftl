@@ -15,3 +15,12 @@ cmd-removemedia-arg-player = [player]
 cmd-medialist-line-seeall = C-Key: { $username } ({ $guid })
 cmd-medialist-line = C-Key: { $username }
 cmd-medialist-notfound = Список пуст
+
+cmd-forcedeadmin-succeed = Player { $username } deadmined
+cmd-forcedeadmin-non-admin = Игрок { $username } не является администратором
+cmd-forcedeadmin-in-deadmin = Игрок { $username } уже в deadmin
+cmd-forcedeadmin-has-flags = Вы не можете убрать права администратора у этого игрока
+cmd-forcedeadmin-arg-user = <user name>
+cmd-forcedeadmin-error-args = Должен быть ровно 1 аргумент
+cmd-forcedeadmin-desc = Насильно убирает права администратора у игрока
+cmd-forcedeadmin-help = Использование: { $command } <user name>

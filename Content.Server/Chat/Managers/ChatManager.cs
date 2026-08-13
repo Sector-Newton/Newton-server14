@@ -325,22 +325,28 @@ internal sealed partial class ChatManager : IChatManager
             return;
         }
 
-        var clients = _adminManager.ActiveAdmins.Select(p => p.Channel);
+        var clients = _adminManager.ActiveAdmins; // newton
         var wrappedMessage = Loc.GetString("chat-manager-send-admin-chat-wrap-message",
                                         ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
                                         ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
 
         foreach (var client in clients)
         {
-            var isSource = client != player.Channel;
+            // Newton-start
+            var channel = client.Channel;
+
+            if (!_adminManager.HasAdminFlag(client, AdminFlags.Adminchat))
+                continue;
+            // Newton-end
+            var isSource = channel != player.Channel; // newton
             ChatMessageToOne(ChatChannel.AdminChat,
                 message,
                 wrappedMessage,
                 default,
                 false,
-                client,
-                audioPath: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundPath) : default,
-                audioVolume: isSource ? _netConfigManager.GetClientCVar(client, CCVars.AdminChatSoundVolume) : default,
+                channel, // newton
+                audioPath: isSource ? _netConfigManager.GetClientCVar(channel, CCVars.AdminChatSoundPath) : default, // newton
+                audioVolume: isSource ? _netConfigManager.GetClientCVar(channel, CCVars.AdminChatSoundVolume) : default, // newton
                 author: player.UserId);
         }
 
