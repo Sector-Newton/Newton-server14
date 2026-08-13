@@ -124,6 +124,12 @@ namespace Content.Shared.Administration
         /// </summary>
         NameColor = 1 << 21,
 
+        // Newton
+        /// <summary>
+        ///     Shield for bans and another blocks
+        /// </summary>
+        Bypass = 1 << 22,
+
         // Corvax-DiscordRoles
         /// <summary>
         ///     Allows you to edit players playtime.

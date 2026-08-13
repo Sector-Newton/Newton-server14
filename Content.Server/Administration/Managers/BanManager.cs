@@ -3,9 +3,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.Administration.Managers; // Newton
+using Content.Server.Administration; // Newton
 using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.GameTicking;
+using Content.Shared.Administration; // Newton
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Players;
@@ -44,6 +47,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     [Dependency] private IEntitySystemManager _systems = default!;
     [Dependency] private ITaskManager _taskManager = default!;
     [Dependency] private UserDbDataManager _userDbData = default!;
+    [Dependency] private IAdminManager _adminManager = default!; // Newton
 
     private ISawmill _sawmill = default!;
     // Newton-banwebhook-start
@@ -136,8 +140,20 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     #region Server Bans
     public async void CreateServerBan(CreateServerBanInfo banInfo)
     {
-        _systems.TryGetEntitySystem(out GameTicker? ticker); // Newton
-        int? roundIdTicker = ticker == null || ticker.RoundId == 0 ? null : ticker.RoundId; // Newton
+        // Newton-start
+        bool blockBan = false;
+        var clients = banInfo.Users.Select(u => u.UserName);
+
+        foreach (var client in clients)
+        {
+            if (!_playerManager.TryGetSessionByUsername(client, out var player)) continue;
+            if (_adminManager.HasAdminFlag(player, AdminFlags.Bypass)) { blockBan = true; break; }
+        }
+        if (blockBan) return;
+
+        _systems.TryGetEntitySystem(out GameTicker? ticker);
+        int? roundIdTicker = ticker == null || ticker.RoundId == 0 ? null : ticker.RoundId;
+        // Newton-end
 
         var (banDef, expires) = await CreateBanDef(banInfo, BanType.Server, null);
 

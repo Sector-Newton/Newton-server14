@@ -31,7 +31,7 @@ public sealed partial class PlayTimeAddOverallCommand : IConsoleCommand
             return;
         }
 
-        if (_adminManager.HasAdminFlag(player, AdminFlags.Permissions) || _adminManager.HasAdminFlag(player, AdminFlags.Host))
+        if (_adminManager.HasAdminFlag(player, AdminFlags.Bypass))
         {
             shell.WriteError(Loc.GetString("cmd-forcedeadmin-has-flags"));
             return;
