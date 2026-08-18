@@ -443,13 +443,33 @@
       unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
+      dynamicPacks: # SN
+      - SecurityAmmo # SN
     - type: EmagLatheRecipes
       emagStaticPacks:
       - SyndicateAmmoStatic
     - type: MaterialStorage
       whitelist: *StandardMaterialWhitelist
     - type: OreSiloClient
-
+    - type: LatheAnnouncing # SN
+      channels: [Security] # SN
+# SN-start
+- type: entity
+  id: AmmoTechFabAlternative
+  parent: AmmoTechFab
+  name: ammo techfab
+  description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
+  suffix: CBURN
+  components:
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      unlitIdleState: unlit
+      unlitRunningState: unlit-building
+      staticPacks:
+      - SecurityAmmoStatic
+      - SecurityAmmo
+# SN-end
 - type: entity
   id: MedicalTechFab
   parent: BaseLatheLube

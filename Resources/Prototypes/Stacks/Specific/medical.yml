@@ -34,7 +34,14 @@
   name: stack-bloodpack
   icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
   spawn: Bloodpack
-
+# SN-start
+- type: stack
+  parent: BaseSmallStack
+  id: Tourniquet
+  name: stack-tourniquet
+  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: Tourniquet }
+  spawn: Tourniquet
+# SN-end
 - type: stack
   parent: BaseSmallStack
   id: MedicatedSuture

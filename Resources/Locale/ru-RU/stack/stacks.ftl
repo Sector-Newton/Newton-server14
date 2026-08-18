@@ -244,6 +244,7 @@ stack-aloe-cream = алоэ крем
 stack-gauze = марлевый бинт
 stack-brutepack = набор от ушибов
 stack-bloodpack = пакет крови
+stack-tourniquet = жгут-турникет
 stack-medicated-suture = медицинская нить
 stack-regenerative-mesh = регенеративная сеть
 stack-micro-manipulator = модульная машинная часть
