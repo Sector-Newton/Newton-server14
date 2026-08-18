@@ -120,6 +120,7 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
+    slots: [belt, neck] # SN
   - type: Storage
     grid:
     - 0,0,3,1
@@ -138,6 +139,7 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
     sprite: Clothing/Belt/syndieholster.rsi
+    slots: [belt, neck] # SN
   - type: Storage
     maxItemSize: Huge
     grid:

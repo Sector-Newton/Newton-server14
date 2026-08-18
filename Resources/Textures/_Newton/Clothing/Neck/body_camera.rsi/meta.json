@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from SUNRISE (https://github.com/makura-games/sunrise-station) on commit 5c5d97f282ac3e031b4b01a4b1ef0d6bacd07869",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [
+            0.2,
+            0.1,
+            0.1,
+            1.0
+        ]
+      ]
+    },
+    {
+      "name": "equipped-NECK",
+      "directions": 4,
+      "delays": [
+        [
+            0.2,
+            1.2
+        ],
+        [
+            0.2,
+            1.2
+        ],
+        [
+            0.2,
+            1.2
+        ],
+        [
+            0.2,
+            1.2
+        ]
+      ]
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}
+

@@ -15,6 +15,12 @@
           Slash: 0.7
           Piercing: 0.4
           Heat: 0.7
+    # SN-start
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,1,2
+    # SN-end
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout

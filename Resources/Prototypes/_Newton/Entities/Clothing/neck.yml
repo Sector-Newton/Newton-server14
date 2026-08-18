@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseItem
+  id: ClothingBodyCamera
+  name: Body camera
+  description: ...
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Newton/Clothing/Neck/body_camera.rsi
+    state: icon
+  - type: Eye
+  - type: WiredNetworkConnection
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraSetupUiKey.Camera:
+        type: SurveillanceCameraSetupBoundUi
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: StationAiVision
+    range: 2
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - BodyCamera
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
