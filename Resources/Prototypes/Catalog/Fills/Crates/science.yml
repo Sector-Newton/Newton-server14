@@ -45,3 +45,21 @@
         - id: CableApcStack1
         - id: SheetRGlass1
           amount: 2
+# SN-start
+- type: entity
+  parent: CrateScienceSecure
+  id: CrateResearchAndDevelopmentServer
+  name: Research And Development Server crate
+  description: Contains the components for constructing a Research And Development Server. Requires Science access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ResearchAndDevelopmentServerMachineCircuitboard
+        - id: SheetSteel1
+          amount: 5
+        - id: SheetPlasma1
+          amount: 5
+        - id: CableApcStack1
+# SN-end

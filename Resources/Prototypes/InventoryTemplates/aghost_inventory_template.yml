@@ -42,3 +42,17 @@
       strippingWindowPos: 0,0
       displayName: Eyes
     # Corvax aghost-MLG end
+    # SN-start
+    - name: neck
+      slotTexture: neck
+      slotFlags: NECK
+      uiWindowPos: 1,2
+      strippingWindowPos: 0,0
+      displayName: Neck
+    - name: outerClothing
+      slotTexture: suit
+      slotFlags: OUTERCLOTHING
+      uiWindowPos: 1,1
+      strippingWindowPos: 0,0
+      displayName: Suit
+    # SN-end

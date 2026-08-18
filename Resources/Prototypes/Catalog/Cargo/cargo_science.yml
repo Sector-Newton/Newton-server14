@@ -57,3 +57,14 @@
   cost: 10000
   category: cargoproduct-category-name-science
   group: market
+# SN-start
+- type: cargoProduct
+  id: ResearchAndDevelopmentServer
+  icon:
+    sprite: Structures/Machines/server.rsi
+    state: server
+  product: CrateResearchAndDevelopmentServer
+  cost: 50000
+  category: cargoproduct-category-name-science
+  group: market
+# SN-end

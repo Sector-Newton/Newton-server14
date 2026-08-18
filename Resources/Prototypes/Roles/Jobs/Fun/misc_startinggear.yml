@@ -168,6 +168,11 @@
     - BluespaceBeaker
     - RCDExperimental
     - RPDExperimental
+    - ClothingOuterChameleon
+    - ClothingNeckChameleon
+    - ClothingHeadHatChameleon
+    - ClothingEyesChameleon
+    - ClothingMaskGasChameleon
     # SN-end
 
 #Gladiator with spear

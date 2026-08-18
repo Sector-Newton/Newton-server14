@@ -7,3 +7,6 @@ ent-CrateCrewMonitoring = ящик мониторинга экипажа
 ent-CrateStationAiCore = ящик ядра станционного ИИ
     .desc = Содержит компоненты для постройки ядра станционного ИИ. Позитронный мозг не входит в комплект. Чтобы открыть, необходим уровень доступа Научный.
     .suffix = { ent-CrateScienceSecure.suffix }
+ent-CrateResearchAndDevelopmentServer = ящик сервера РНД
+    .desc = Содержит компоненты для постройки сервера РНД. Чтобы открыть, необходим уровень доступа Научный.
+    .suffix = { ent-CrateScienceSecure.suffix }
