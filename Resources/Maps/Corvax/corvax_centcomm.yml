@@ -11453,7 +11453,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 23.5,106.5
     - type: GridFill
-      path: /Maps/Corvax/Shuttles/cburn_corvaxcentcomm.yml
+      path: /Maps/Newton/Shuttles/cburn_centcomm.yml # SN
       addComponents: []
   - uid: 153
     components:

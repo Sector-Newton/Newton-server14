@@ -110,11 +110,11 @@
             inherent: true
           protos:
           - VGRoid
-        # Corvax-Mapping-Start
+        # SN-Start
         mining: !type:GridSpawnGroup
           paths:
-          - /Maps/Corvax/Shuttles/Tara NT-KA.yml
-        # Corvax-Mapping-End
+          - /Maps/Newton/Shuttles/Cargon.yml
+        # SN-End
 
 - type: entity
   id: BaseStationCentcomm

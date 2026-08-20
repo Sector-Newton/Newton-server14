@@ -201,6 +201,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  #- ClothingBeltHolding # SN
 
 - type: technology
   id: OptimizedMicrogalvanism

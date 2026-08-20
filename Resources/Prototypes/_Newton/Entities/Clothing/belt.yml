@@ -1,0 +1,24 @@
+- type: entity
+  abstract: true
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltHoldingBase
+  components:
+  - type: Item
+    size: Colossal
+    shape:
+      - 0,0,4,4
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,9,1
+
+- type: entity
+  parent: ClothingBeltHoldingBase
+  id: ClothingBeltHolding
+  name: belt of holding
+  description: A belt that opens into a localized pocket of bluespace.
+  components:
+  - type: Sprite
+    sprite: _Newton/Clothing/Belt/UtilityScience.rsi
+  - type: Clothing
+    sprite: _Newton/Clothing/Belt/UtilityScience.rsi
