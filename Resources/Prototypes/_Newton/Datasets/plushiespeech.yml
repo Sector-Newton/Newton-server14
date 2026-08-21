@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: PlushieHabarovSpeech
+  values:
+    prefix: plushies-habarov-
+    count: 7
+
+- type: localizedDataset
+  id: PlushieAmataSpeech
+  values:
+    prefix: plushies-amata-
+    count: 5

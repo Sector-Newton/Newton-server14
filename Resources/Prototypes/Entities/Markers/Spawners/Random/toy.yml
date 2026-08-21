@@ -80,6 +80,10 @@
       children:
       - id: PlushieThrongler
       - id: PlushieGhostRevenant # You got the god roll, and failed
+    # SN-start
+    - !type:NestedSelector # Newton plushies! :3
+      tableId: AllNewtonPlushieTable
+    # SN-end
 
 # Weh!
 - type: entityTable

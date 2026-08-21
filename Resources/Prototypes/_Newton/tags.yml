@@ -1,2 +1,5 @@
 - type: Tag
   id: BodyCamera
+
+- type: Tag
+  id: NewtonPlushie

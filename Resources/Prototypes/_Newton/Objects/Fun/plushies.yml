@@ -1,0 +1,71 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseStash ]
+  id: BaseNewtonPlushie
+  components:
+  - type: Sprite
+    sprite: _Newton/Objects/Fun/Plushies.rsi
+  - type: EmitSoundOnActivate
+    sound: &BaseNewtonPlushieSound
+      collection: ToySqueak
+      params:
+        volume: -4
+  - type: EmitSoundOnCollide
+    sound: *BaseNewtonPlushieSound
+  - type: EmitSoundOnLand
+    sound: *BaseNewtonPlushieSound
+  - type: MeleeWeapon
+    attackRate: 1
+    wideAnimationRotation: 180
+    soundHit: *BaseNewtonPlushieSound
+    damage:
+      types:
+        Blunt: 0
+    hidden: true
+  - type: UseDelay
+    delay: 1
+  - type: TriggerOnActivate
+  - type: TriggerOnSignal
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 100
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: Speech
+  - type: Tag
+    tags:
+    - NewtonPlushie
+    - Payload
+    - ClothMade
+
+- type: entity
+  parent: BaseNewtonPlushie
+  id: PlushieHabarov
+  name: плюшевый Тимофей Хабаров
+  description: Плюшевый человек с серыми волосами, в форме офицера "синий щит". От него веет запахом крепкого алкогольного напитка - чёрный русский. С суровым, но при этом добрым видом смотрит на вас.
+  components:
+  - type: Sprite
+    state: habarov
+  - type: SpeakOnTrigger
+    pack: PlushieHabarovSpeech
+
+- type: entity
+  parent: BaseNewtonPlushie
+  id: PlushieAmata
+  name: плюшевая Амата Хабарова
+  description: Плюшевый феленид в форме бригмедика.
+  components:
+  - type: Sprite
+    state: amata
+  - type: SpeakOnTrigger
+    pack: PlushieAmataSpeech
+
+- type: entityTable
+  id: AllNewtonPlushieTable
+  table: !type:GroupSelector
+    children:
+    - id: PlushieHabarov
+    - id: PlushieAmata
