@@ -32,6 +32,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
             ["AtmosphericUtility"] = ("rcd-component-atmosphericutility", new SpriteSpecifier.Texture(new ResPath("/Textures/_Newton/Interface/Radial/RPD/port.png"))), // Newton
             ["PumpsValves"] = ("rcd-component-pumpsvalves", new SpriteSpecifier.Texture(new ResPath("/Textures/_Newton/Interface/Radial/RPD/pump_volume.png"))), // Newton
             ["Vents"] = ("rcd-component-vents", new SpriteSpecifier.Texture(new ResPath("/Textures/_Newton/Interface/Radial/RPD/vent_passive.png"))), // Newton
+            ["FloorPlatingDiagonaly"] = ("rcd-component-floorplatingdiagonaly", new SpriteSpecifier.Texture(new ResPath("/Textures/_Mono/Tiles/plating/se.png"))), // Newton
         };
 
     private SimpleRadialMenu? _menu;

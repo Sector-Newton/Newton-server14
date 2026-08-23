@@ -43,6 +43,7 @@ rcd-component-piping = Трубы
 rcd-component-atmosphericutility = Атмосферная Утилита
 rcd-component-pumpsvalves = Насосы и Клапаны
 rcd-component-vents = Вентиляция
+rcd-component-floorplatingdiagonaly = Угловые покрытия
 
 
 ### Prototype names (note: constructable items will be puralized)
@@ -50,3 +51,8 @@ rcd-component-vents = Вентиляция
 rcd-component-deconstruct = демонтаж
 rcd-component-floor-steel = стальной пол
 rcd-component-plating = корпусное покрытие
+
+rcd-component-PlatingRCDNE = угловое корпусное покрытие Северо Восток
+rcd-component-PlatingRCDNW = угловое корпусное покрытие Северо Запад
+rcd-component-PlatingRCDSW = угловое корпусное покрытие Юго Запад
+rcd-component-PlatingRCDSE = угловое корпусное покрытие Юго Восток

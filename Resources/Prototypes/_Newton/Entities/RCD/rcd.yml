@@ -172,3 +172,59 @@
   rotation: User
   fx: EffectRCDConstruct1
   allowMultiDirection: true
+
+- type: rcd
+  id: PlatingRCDSE
+  name: rcd-component-PlatingRCDSE
+  category: FloorPlatingDiagonaly
+  sprite: /Textures/_Mono/Tiles/plating/se.png
+  mode: ConstructTile
+  prototype: PlatingRCDSE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingRCDNE
+  name: rcd-component-PlatingRCDNE
+  category: FloorPlatingDiagonaly
+  sprite: /Textures/_Mono/Tiles/plating/ne.png
+  mode: ConstructTile
+  prototype: PlatingRCDNE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingRCDNW
+  name: rcd-component-PlatingRCDNW
+  category: FloorPlatingDiagonaly
+  sprite: /Textures/_Mono/Tiles/plating/nw.png
+  mode: ConstructTile
+  prototype: PlatingRCDNW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingRCDSW
+  name: rcd-component-PlatingRCDSW
+  category: FloorPlatingDiagonaly
+  sprite: /Textures/_Mono/Tiles/plating/sw.png
+  mode: ConstructTile
+  prototype: PlatingRCDSW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1

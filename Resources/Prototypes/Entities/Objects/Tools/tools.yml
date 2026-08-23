@@ -330,6 +330,10 @@
     - HVCable
     - CableTerminal
     - Deconstruct
+    - PlatingRCDSE # SN
+    - PlatingRCDNE # SN
+    - PlatingRCDNW # SN
+    - PlatingRCDSW # SN
   - type: LimitedCharges
     maxCharges: 30
   - type: Sprite

@@ -1,0 +1,95 @@
+- type: tile
+  id: PlatingRCDNE
+  parent: Plating
+  name: tiles-PlatingRCDNE
+  sprite: /Textures/_Mono/Tiles/plating/ne.png
+  vertices:
+  - 1,0
+  - 1,1
+  - 0,1
+  baseWhitelist:
+    - Space
+    - TrainLattice
+    - FloorPlanetDirt
+    - FloorDesert
+    - FloorLowDesert
+    - FloorPlanetGrass
+    - FloorSnow
+    - FloorDirt
+    - FloorAsteroidIronsand
+    - FloorAsteroidSand
+    - FloorAsteroidSandBorderless
+    - FloorAsteroidIronsandBorderless
+    - FloorAsteroidSandRedBorderless
+
+- type: tile
+  id: PlatingRCDNW
+  parent: Plating
+  name: tiles-PlatingRCDNW
+  sprite: /Textures/_Mono/Tiles/plating/nw.png
+  vertices: 
+  - 0,0
+  - 1,1
+  - 0,1
+  baseWhitelist:
+    - Space
+    - TrainLattice
+    - FloorPlanetDirt
+    - FloorDesert
+    - FloorLowDesert
+    - FloorPlanetGrass
+    - FloorSnow
+    - FloorDirt
+    - FloorAsteroidIronsand
+    - FloorAsteroidSand
+    - FloorAsteroidSandBorderless
+    - FloorAsteroidIronsandBorderless
+    - FloorAsteroidSandRedBorderless
+
+- type: tile
+  id: PlatingRCDSW
+  parent: Plating
+  name: tiles-PlatingRCDSW
+  sprite: /Textures/_Mono/Tiles/plating/sw.png
+  vertices:
+  - 0,0
+  - 1,0
+  - 0,1
+  baseWhitelist:
+    - Space
+    - TrainLattice
+    - FloorPlanetDirt
+    - FloorDesert
+    - FloorLowDesert
+    - FloorPlanetGrass
+    - FloorSnow
+    - FloorDirt
+    - FloorAsteroidIronsand
+    - FloorAsteroidSand
+    - FloorAsteroidSandBorderless
+    - FloorAsteroidIronsandBorderless
+    - FloorAsteroidSandRedBorderless
+
+- type: tile
+  id: PlatingRCDSE
+  parent: Plating
+  name: tiles-PlatingRCDSE
+  sprite: /Textures/_Mono/Tiles/plating/se.png
+  vertices:
+  - 0,0
+  - 1,0
+  - 1,1
+  baseWhitelist:
+    - Space
+    - TrainLattice
+    - FloorPlanetDirt
+    - FloorDesert
+    - FloorLowDesert
+    - FloorPlanetGrass
+    - FloorSnow
+    - FloorDirt
+    - FloorAsteroidIronsand
+    - FloorAsteroidSand
+    - FloorAsteroidSandBorderless
+    - FloorAsteroidIronsandBorderless
+    - FloorAsteroidSandRedBorderless
