@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseMentalAction
+  id: ActionObserverShowRadar
+  name: Mass Scanner Interface
+  description: View a Mass Scanner Interface.
+  components:
+  - type: Action
+    keywords: [ "AI", "console", "interface" ]
+    priority: -6
+  - type: Sprite
+    sprite: Corvax/Interface/adminactions.rsi
+    layers:
+    - state: mass_scanner
+      map: ["enum.ActionVisuals.Icon"]
+    - state: comms_console
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
