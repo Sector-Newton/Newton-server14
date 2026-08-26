@@ -23,7 +23,7 @@ namespace Content.Client.Shuttles.UI;
 public partial class BaseShuttleControl : MapGridControl
 {
     [Dependency] private IParallelManager _parallel = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!; // Mono
+    [Dependency] private ITileDefinitionManager _tileDef = default!; // Mono
     protected readonly SharedMapSystem Maps;
 
     protected readonly Font Font;

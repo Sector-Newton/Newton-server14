@@ -1,6 +1,7 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Newton.Administration.Managers; // Newton
 using Content.Server.Administration.Notes;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
@@ -56,6 +57,7 @@ internal static class ServerContentIoC
         deps.Register<IGameMapManager, GameMapManager>();
         deps.Register<RulesManager, RulesManager>();
         deps.Register<IBanManager, BanManager>();
+        deps.Register<IWebhookManager, WebhookManager>(); // Newton
         deps.Register<ContentNetworkResourceManager>();
         deps.Register<IAdminNotesManager, AdminNotesManager>();
         deps.Register<GhostKickManager>();

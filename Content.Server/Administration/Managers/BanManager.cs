@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers; // Newton
+using Content.Server.Newton.Administration.Managers; // Newton
 using Content.Server.Administration; // Newton
 using Content.Server.Chat.Managers;
 using Content.Server.Database;
@@ -48,6 +49,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     [Dependency] private ITaskManager _taskManager = default!;
     [Dependency] private UserDbDataManager _userDbData = default!;
     [Dependency] private IAdminManager _adminManager = default!; // Newton
+    [Dependency] private IWebhookManager _webhookManager = default!; // Newton
 
     private ISawmill _sawmill = default!;
     // Newton-banwebhook-start
@@ -57,7 +59,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     public const string SawmillId = "admin.bans";
     public const string DbTypeAntag = "Antag";
     public const string DbTypeJob = "Job";
-    private string _webhook = string.Empty; // Newton-banwebhook
     private string _serverName = string.Empty; // Newton-banwebhook
 
     private readonly Dictionary<ICommonSession, List<BanDef>> _cachedRoleBans = new();
@@ -78,7 +79,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _userDbData.AddOnLoadPlayer(CachePlayerData);
         _userDbData.AddOnPlayerDisconnect(ClearPlayerData);
 
-        _cfg.OnValueChanged(NewtonCCVars.DiscordBanWebhook, OnWebhookChanged, true); // Newton-banwebhook
         _cfg.OnValueChanged(CCVars.GameHostName, OnServerNameChanged, true); // Newton-banwebhook
     }
 
@@ -209,7 +209,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
 
-        SendWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, banId.ToString(), roundId.ToString())); // Newton-banwebhook
+        await _webhookManager.SendBanWebhook(await GenerateBanPayload(adminName, string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, banId.ToString(), roundId.ToString())); // Newton-banwebhook
         KickMatchingConnectedPlayers(banDef, "newly placed ban");
     }
 
@@ -321,7 +321,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 SendRoleBans(session);
         }
 
-        SendWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, rolesString, banId.ToString(), roundId.ToString())); // Newton-banwebhook
+        await _webhookManager.SendBanWebhook(await GenerateRoleBanPayload(adminName,string.Join(", ", banInfo.Users.Select(u => $"{u.UserName}")), banInfo.Reason, banDef.Severity, expiresString, rolesString, banId.ToString(), roundId.ToString())); // Newton-banwebhook
     }
 
     private async Task<(BanDef Ban, DateTimeOffset? Expires)> CreateBanDef(
@@ -558,24 +558,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     // Newton-banwebhook-start
     #region "WEBHOOK"
 
-    private async void SendWebhook(WebhookPayload payload)
-    {
-        if (_webhook == string.Empty) return;
-
-        var client = new HttpClient();
-
-        var json = JsonSerializer.Serialize(payload);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        
-        var request = await client.PostAsync(_webhook, content);
-        var requestContent = await request.Content.ReadAsStringAsync();
-
-        if (!request.IsSuccessStatusCode)
-        {
-            _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {requestContent}");
-            return;
-        }
-    }
+    
 
     private async Task<WebhookPayload> GenerateBanPayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires, string banId, string roundId)
     {
@@ -676,66 +659,9 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         };
     }
 
-    private void OnWebhookChanged(string url)
-    {
-        _webhook = url;
-
-        if (url == string.Empty)
-            return;
-    }
-
     private void OnServerNameChanged(string name)
     {
         _serverName = name;
-    }
-
-    private struct WebhookPayload
-    {
-        [JsonPropertyName("username")]
-        public string Username { get; set; } = "";
-
-        [JsonPropertyName("avatar_url")]
-        public string? AvatarUrl { get; set; } = "";
-
-        [JsonPropertyName("embeds")]
-        public List<Embed>? Embeds { get; set; } = null;
-
-        public WebhookPayload()
-        {
-            
-        }
-    }
-
-    private struct Embed
-    {
-        [JsonPropertyName("title")]
-        public string Title { get; set; } = "";
-
-        [JsonPropertyName("description")]
-        public string Description { get; set; } = "";
-
-        [JsonPropertyName("color")]
-        public int Color { get; set; } = 0;
-
-        [JsonPropertyName("footer")]
-        public EmbedFooter? Footer { get; set; } = null;
-
-        public Embed()
-        {
-        }
-    }
-
-    private struct EmbedFooter
-    {
-        [JsonPropertyName("text")]
-        public string Text { get; set; } = "";
-
-        [JsonPropertyName("icon_url")]
-        public string? IconUrl { get; set; }
-
-        public EmbedFooter()
-        {
-        }
     }
 
     #endregion

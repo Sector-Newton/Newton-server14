@@ -1,6 +1,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
+using Content.Server.Newton.Administration.Managers; // Newton
 using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
@@ -29,13 +30,13 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     [Dependency] private EuiManager _euis = default!;
     [Dependency] private IEntitySystemManager _systems = default!;
     [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IWebhookManager _webhookManager = default!;
 
     public const string SawmillId = "admin.notes";
 
     // Newton-noteswebhook-start
     private string _webhookName = "Newton";
     private string _webhookAvatarUrl = "https://media.istockphoto.com/id/1393248253/ru/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F/%D0%B1%D1%83%D0%BA%D0%B2%D0%B0-n-%D0%BA%D0%BE%D1%80%D0%BE%D0%BD%D0%B0-%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%BA%D0%BE%D1%80%D0%BE%D0%BD%D1%8B-%D0%BD%D0%B0-%D0%B1%D1%83%D0%BA%D0%B2%D0%B5-n-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B9-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD-%D0%B4%D0%BB%D1%8F-%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B-%D0%BC%D0%BE%D0%B4%D1%8B-%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D1%8B.jpg?s=170667a&w=0&k=20&c=vY0HzM7NdIdv0cfO6chFTTGDEty9rQmAjIl09mT2rpo=";
-    private string _webhook = string.Empty;
     private string _serverName = string.Empty;
     // Newton-noteswebhook-end
 
@@ -44,13 +45,7 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     public event Action<SharedAdminNote>? NoteDeleted;
 
     private ISawmill _sawmill = default!;
-    // Newton-noteswebhook-start
-    public void Initialize()
-    {
-        _config.OnValueChanged(NewtonCCVars.DiscordNotesWebhook, OnWebhookChanged, true);
-        _config.OnValueChanged(CCVars.GameHostName, OnServerNameChanged, true);
-    }
-    // Newton-noteswebhook-end
+
     public bool CanCreate(ICommonSession admin)
     {
         return CanEdit(admin);
@@ -200,7 +195,7 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
             severityWebhook = severity.Value;
         
         if (type == NoteType.Note && !secret)
-            SendWebhook(await GenerateNotePayload(createdBy.Name, playerRecord.LastSeenUserName, message, severityWebhook, expiresString, roundIdWebhook.ToString()));
+            await _webhookManager.SendNotesWebhook(await GenerateNotePayload(createdBy.Name, playerRecord.LastSeenUserName, message, severityWebhook, expiresString, roundIdWebhook.ToString()));
         // Newton-noteswebhook-end
     }
 
@@ -368,25 +363,6 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     // Newton-noteswebhook-start
     #region "webhook"
 
-    private async void SendWebhook(WebhookPayload payload)
-    {
-        if (_webhook == string.Empty) return;
-
-        var client = new HttpClient();
-
-        var json = JsonSerializer.Serialize(payload);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        
-        var request = await client.PostAsync(_webhook, content);
-        var requestContent = await request.Content.ReadAsStringAsync();
-
-        if (!request.IsSuccessStatusCode)
-        {
-            _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {requestContent}");
-            return;
-        }
-    }
-
     private async Task<WebhookPayload> GenerateNotePayload(string adminName, string targetName, string reason, NoteSeverity noteSeverity, string expires, string roundId)
     {
         var severity = "";
@@ -436,66 +412,9 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
         };
     }
 
-    private void OnWebhookChanged(string url)
-    {
-        _webhook = url;
-
-        if (url == string.Empty)
-            return;
-    }
-
     private void OnServerNameChanged(string name)
     {
         _serverName = name;
-    }
-
-    private struct WebhookPayload
-    {
-        [JsonPropertyName("username")]
-        public string Username { get; set; } = "";
-
-        [JsonPropertyName("avatar_url")]
-        public string? AvatarUrl { get; set; } = "";
-
-        [JsonPropertyName("embeds")]
-        public List<Embed>? Embeds { get; set; } = null;
-
-        public WebhookPayload()
-        {
-            
-        }
-    }
-
-    private struct Embed
-    {
-        [JsonPropertyName("title")]
-        public string Title { get; set; } = "";
-
-        [JsonPropertyName("description")]
-        public string Description { get; set; } = "";
-
-        [JsonPropertyName("color")]
-        public int Color { get; set; } = 0;
-
-        [JsonPropertyName("footer")]
-        public EmbedFooter? Footer { get; set; } = null;
-
-        public Embed()
-        {
-        }
-    }
-
-    private struct EmbedFooter
-    {
-        [JsonPropertyName("text")]
-        public string Text { get; set; } = "";
-
-        [JsonPropertyName("icon_url")]
-        public string? IconUrl { get; set; }
-
-        public EmbedFooter()
-        {
-        }
     }
 
     #endregion
@@ -504,6 +423,5 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     public void PostInject()
     {
         _sawmill = _logManager.GetSawmill(SawmillId);
-        Initialize(); // Newton
     }
 }
