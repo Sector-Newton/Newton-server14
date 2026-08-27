@@ -41,7 +41,7 @@
 
 - type: entity
   abstract: true
-  parent: UnsensoredClothingUniformBase
+  parent: [ UnsensoredClothingUniformBase, AllowSuitStorageClothingGasTanks ] # SN
   id: ClothingUniformBase
   components:
   - type: SuitSensor

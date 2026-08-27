@@ -87,8 +87,9 @@
       stripTime: 3
       uiWindowPos: 2,0
       strippingWindowPos: 2,5
-      dependsOnComponents:
-      - type: AllowSuitStorage
+      dependsOn: jumpsuit # SN
+      # dependsOnComponents:
+      # - type: AllowSuitStorage
       displayName: Suit Storage
     - name: id
       slotTexture: id
