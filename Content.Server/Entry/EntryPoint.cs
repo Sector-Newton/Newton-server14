@@ -2,6 +2,7 @@ using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Administration.Notes; // Newton
 using Content.Server.Newton.Administration.Managers; // Newton
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
@@ -54,6 +55,7 @@ namespace Content.Server.Entry
         [Dependency] private EuiManager _euiManager = default!;
         [Dependency] private GhostKickManager _ghostKick = default!;
         [Dependency] private IAdminManager _admin = default!;
+        [Dependency] private IAdminNotesManager _notes = default!; // Newton
         [Dependency] private IAdminLogManager _adminLog = default!;
         [Dependency] private IAfkManager _afk = default!;
         [Dependency] private IBanManager _ban = default!;
@@ -140,6 +142,7 @@ namespace Content.Server.Entry
             _rateLimit.Initialize();
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
             IoCManager.Resolve<IWebhookManager>().Initialize(); // Newton
+            _notes.Initialize(); // Newton
         }
 
         public override void PostInit()

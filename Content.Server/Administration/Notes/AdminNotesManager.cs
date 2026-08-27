@@ -45,7 +45,12 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     public event Action<SharedAdminNote>? NoteDeleted;
 
     private ISawmill _sawmill = default!;
-
+    // Newton-start
+    public void Initialize()
+    {
+        _config.OnValueChanged(CCVars.GameHostName, OnServerNameChanged, true);
+    }
+    // Newton-end
     public bool CanCreate(ICommonSession admin)
     {
         return CanEdit(admin);

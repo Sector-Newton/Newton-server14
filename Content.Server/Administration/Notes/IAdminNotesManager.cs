@@ -9,6 +9,8 @@ namespace Content.Server.Administration.Notes;
 
 public interface IAdminNotesManager
 {
+    public void Initialize(); // Newton
+
     event Action<SharedAdminNote>? NoteAdded;
     event Action<SharedAdminNote>? NoteModified;
     event Action<SharedAdminNote>? NoteDeleted;
