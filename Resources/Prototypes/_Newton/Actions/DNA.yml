@@ -1,0 +1,14 @@
+- type: entity
+  id: ActionSaveDNA
+  name: Сохранить ДНК
+  description: Устройство сохранит ваше ДНК
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    priority: -10
+    useDelay: 2
+  - type: Sprite
+    sprite: _Newton/Interface/Actions/icons.rsi
+    state: action_save_dna
+  - type: InstantAction
+    event: !type:SaveDNAActionEvent

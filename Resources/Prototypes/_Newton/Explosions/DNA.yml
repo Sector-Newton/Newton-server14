@@ -1,0 +1,9 @@
+# - type: entity
+#   id: DNAExplosiveEffect
+#   category: [ HideSpawnMenu ]
+#   components:
+#   - type: Explosive
+#     explosionType: DefaultExplosion
+#     totalIntensity: 50              
+#     maxIntensity: 10                
+#     intensitySlope: 1.5             
