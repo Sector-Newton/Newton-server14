@@ -27,7 +27,6 @@ public sealed class IdentificationSystem : EntitySystem
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private ExplosionSystem _explosionSystem = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
-    [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private GibbingSystem _gibbing = default!;
 
     public override void Initialize()
@@ -81,6 +80,9 @@ public sealed class IdentificationSystem : EntitySystem
         if (comp.DNA == String.Empty || comp.EmaggedLater == true) return;
 
         if (TryComp(args.EquipTarget, out DnaComponent? dna) && comp.DNA == dna.DNA) return;
+
+        _adminLogger.Add(LogType.Trigger, LogImpact.Medium,
+            $"{ToPrettyString(args.EquipTarget):user} activated acidification system of {ToPrettyString(uid):target}");
 
         EnsureComp<UnremoveableComponent>(uid);
         EnsureComp<SpeechComponent>(uid);

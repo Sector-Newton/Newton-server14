@@ -6,16 +6,16 @@
   defaultSkinTone: "#ffc9a6"
   dollPrototype: ADTAppearanceDemon
   skinColoration: Hues
-  maleFirstNames: names_first_male
-  femaleFirstNames: names_first_female
-  maleLastNames: NamesHumanLastMale
-  femaleLastNames: NamesHumanLastFemale
-  naming: firstlast
-  pros:
-  - Получают на 30% меньше урона обморожением.
-  - Получают на 15% меньше урона ожогами.
-  - Получают на 20% меньше урона ядом.
-  cons:
-  - Получают на 10% больше тупого и колотого урона.
-  - Получают на 5% больше урона порезами.
-  - Получают на 50% больше урона клеточными.
+  # maleFirstNames: names_first_male
+  # femaleFirstNames: names_first_female
+  # maleLastNames: NamesHumanLastMale
+  # femaleLastNames: NamesHumanLastFemale
+  # naming: firstlast
+  # pros:
+  # - Получают на 30% меньше урона обморожением.
+  # - Получают на 15% меньше урона ожогами.
+  # - Получают на 20% меньше урона ядом.
+  # cons:
+  # - Получают на 10% больше тупого и колотого урона.
+  # - Получают на 5% больше урона порезами.
+  # - Получают на 50% больше урона клеточными.
