@@ -230,7 +230,7 @@
     - Critical
     - Dead
   - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+    voice: Empty # SN-fix
 
 - type: entity
   abstract: true

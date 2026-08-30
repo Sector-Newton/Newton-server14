@@ -39,7 +39,7 @@
   parent: BaseSmallStack
   id: Tourniquet
   name: stack-tourniquet
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: Tourniquet }
+  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: tourniquet }
   spawn: Tourniquet
 # SN-end
 - type: stack

@@ -69,7 +69,7 @@
   - type: TypingIndicator
     proto: robot
   - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+    voice: Empty # SN-fix
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending

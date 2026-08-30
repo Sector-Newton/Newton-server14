@@ -84,7 +84,7 @@
   - type: Machine
     board: HydroponicsTrayMachineCircuitboard
   - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+    voice: Empty # SN-fix
   - type: WiresPanel
   - type: AmbientSound
     volume: -9

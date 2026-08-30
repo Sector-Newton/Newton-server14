@@ -97,12 +97,12 @@
   ruleEntry: true
   text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule4.xml"
 
-- type: guideEntry
-  id: NewtonDefaultRule5
-  name: guide-entry-newton-rule5
-  priority: 12
-  ruleEntry: true
-  text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule5.xml"
+# - type: guideEntry
+#   id: NewtonDefaultRule5
+#   name: guide-entry-newton-rule5
+#   priority: 12
+#   ruleEntry: true
+#   text: "/ServerInfo/_Newton/Guidebook/ServerRules/NewtonDefaultRule5.xml"
 
 - type: guideEntry
   id: NewtonDefaultRule6

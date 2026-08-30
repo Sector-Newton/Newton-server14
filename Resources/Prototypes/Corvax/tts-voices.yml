@@ -7,7 +7,7 @@
 
 - type: ttsVoice
   id: Empty
-  name: ‎ Не выбран
+  name: Не выбран
   sex: Unsexed
   speaker: ""
   roundStart: true

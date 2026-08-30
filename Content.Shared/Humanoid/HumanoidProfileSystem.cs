@@ -13,12 +13,12 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
     [Dependency] private GrammarSystem _grammar = default!;
 
     // Corvax-TTS-Start
-    public const string DefaultVoice = "Garithos";
+    public const string DefaultVoice = "Empty"; // Newton
     public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
     {
-        {Sex.Male, "Garithos"},
-        {Sex.Female, "Maiev"},
-        {Sex.Unsexed, "Myron"},
+        {Sex.Male, "Empty"}, // Newton
+        {Sex.Female, "Empty"}, // Newton
+        {Sex.Unsexed, "Empty"}, // Newton
     };
     // Corvax-TTS-End
 

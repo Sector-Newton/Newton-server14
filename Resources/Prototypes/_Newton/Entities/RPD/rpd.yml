@@ -182,7 +182,6 @@
   sprite: /Textures/_Newton/Interface/Radial/RPD/gas_mixer.png
   mode: ConstructObject
   prototype: GasMixer
-  mirrorPrototype: GasMixerFlipped
   cost: 1
   delay: 0 
   collisionMask: Impassable
@@ -195,7 +194,6 @@
   sprite: /Textures/_Newton/Interface/Radial/RPD/gas_filter.png
   mode: ConstructObject
   prototype: GasFilter
-  mirrorPrototype: GasFilterFlipped
   cost: 1
   delay: 0 
   collisionMask: Impassable

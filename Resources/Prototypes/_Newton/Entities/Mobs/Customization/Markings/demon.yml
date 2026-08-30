@@ -1,8 +1,7 @@
 - type: marking
   id: DemonTail1
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail
@@ -12,8 +11,7 @@
 - type: marking
   id: DemonTailLong
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail
@@ -23,8 +21,7 @@
 - type: marking
   id: DemonTailUp
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail
@@ -34,8 +31,7 @@
 - type: marking
   id: DemonTailColor
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
     - sprite: _ADT/Mobs/Species/Demon/parts.rsi
       state: tail
@@ -43,8 +39,7 @@
 - type: marking
   id: DemonTail1Animated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -54,8 +49,7 @@
 - type: marking
   id: DemonTailLongAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -65,8 +59,7 @@
 - type: marking
   id: DemonTailUpAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -76,8 +69,7 @@
 - type: marking
   id: DemonTailColorAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
   - sprite: _ADT/Mobs/Species/Demon/parts.rsi
     state: tail_waggin
@@ -86,7 +78,7 @@
   id: DemonCowEars
   bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: cow_ears
@@ -95,7 +87,7 @@
   id: DemonEars
   bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: demon_ears
@@ -104,7 +96,7 @@
   id: DemonCowHorns
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: cow_horns
@@ -113,7 +105,7 @@
   id: DemonHornsDeer
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: deer_antlers_horns
@@ -122,7 +114,7 @@
   id: DemonHornsSmall
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: small_horns
@@ -131,7 +123,7 @@
   id: DemonChestCowSpots
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: cow_spots
@@ -140,7 +132,7 @@
   id: DemonChestGuard
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: guards_stripes
@@ -149,7 +141,7 @@
   id: DemonChestLinesEmperos
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: lines_emperos
@@ -158,7 +150,7 @@
   id: DemonChestQueenLines
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: queen_lines
@@ -167,7 +159,7 @@
   id: DemonChestTreeLines
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: tree_lines
@@ -176,7 +168,7 @@
   id: DemonChestTrinitySpots
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Demon]
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: trinity_spots
