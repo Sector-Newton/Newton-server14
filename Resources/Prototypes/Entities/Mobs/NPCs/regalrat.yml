@@ -130,7 +130,7 @@
   - type: Tool
     qualities: Slicing
   - type: TTS # Corvax-TTS
-    voice: Rat
+    voice: Empty # SN-fix
 
 - type: entity
   id: MobRatKingBuff

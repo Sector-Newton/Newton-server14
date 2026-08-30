@@ -27,7 +27,7 @@
     damageContainer: ManifestedSpirit
   - type: NoSlip
   - type: TTS # Corvax-TTS
-    voice: Kelthuzad
+    voice: Empty # SN-fix
   - type: Eye
     drawFov: false
     visMask:

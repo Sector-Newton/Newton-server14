@@ -28,7 +28,6 @@
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 60
-    charges: 60
   - type: Sprite
     sprite: _Newton/Objects/Tools/rpd.rsi
 
@@ -102,7 +101,6 @@
     - DeconstructUpgrader
   - type: LimitedCharges
     maxCharges: 40
-    charges: 40
 
 - type: entity
   id: RPDUpgraden
@@ -112,7 +110,6 @@
   components:
   - type: LimitedCharges
     maxCharges: 100
-    charges: 100
 
 - type: entity
   name: compressed matter

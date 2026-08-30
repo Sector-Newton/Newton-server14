@@ -9,9 +9,6 @@ public sealed partial class DNAIdentificationComponent : Component
     public EntProtoId Action = "ActionSaveDNA";
 
     [DataField]
-    public EntProtoId Explosion = "DNAExplosive";
-
-    [DataField]
     public EntityUid? ActionEntity;
 
     [DataField]
