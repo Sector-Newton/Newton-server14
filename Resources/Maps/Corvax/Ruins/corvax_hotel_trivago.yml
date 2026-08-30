@@ -3189,8 +3189,6 @@ entities:
     - type: Transform
       pos: 8.5,-0.5
       parent: 1
-    - type: Gateway
-      enabled: True
 - proto: GeneratorBasic
   entities:
   - uid: 462

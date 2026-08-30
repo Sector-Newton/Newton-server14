@@ -24,6 +24,7 @@ public sealed class CargoTest : GameTest
     [
         // This is ignored because it is explicitly intended to be able to sell for more than it costs.
         new("FunCrateGambling"),
+        new("EmergencyEVA"), // Newton
     ];
 
     [SidedDependency(Side.Server)]

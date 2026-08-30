@@ -191378,8 +191378,6 @@ entities:
     - type: Transform
       pos: 4.5,32.5
       parent: 10755
-    - type: Gateway
-      enabled: True
 - proto: Gauze
   entities:
   - uid: 46722

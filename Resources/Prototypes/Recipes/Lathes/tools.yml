@@ -120,7 +120,7 @@
   result: RCDEmpty
   completetime: 4
   materials:
-    Steel: 1000
+    Steel: 1200 # SN
     Plastic: 500 # SN
 
 - type: latheRecipe
