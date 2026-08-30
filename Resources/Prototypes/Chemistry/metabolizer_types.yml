@@ -44,3 +44,9 @@
 - type: metabolizerType
   id: Arachnid
   name: metabolizer-type-arachnid
+
+# SN-start
+- type: metabolizerType
+  id: Demon
+  name: metabolizer-type-demon
+# SN-end

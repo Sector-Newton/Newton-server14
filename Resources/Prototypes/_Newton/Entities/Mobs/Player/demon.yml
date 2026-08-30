@@ -48,9 +48,8 @@
   - type: Wagging
   - type: Speech
     speechSounds: Lizard
-  - type: Vocal
-    sounds:
-      emoteSounds: MaleHuman
+  # - type: Vocal
+  #   emoteSounds: MaleDemon
   - type: Damageable
     damageModifierSet: Demon
   - type: Injurable
