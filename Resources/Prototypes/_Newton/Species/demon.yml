@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobDemon
   defaultSkinTone: "#ffc9a6"
-  dollPrototype: ADTAppearanceDemon
+  dollPrototype: AppearanceDemon
   skinColoration: Hues
   # maleFirstNames: names_first_male
   # femaleFirstNames: names_first_female

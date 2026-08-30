@@ -1,5 +1,5 @@
 - type: typingIndicator
-  id: ADTdemon
+  id: demon
   spritePath: "/Textures/_ADT/Effects/speech.rsi"
   typingState: demon0
   idleState: demon3
