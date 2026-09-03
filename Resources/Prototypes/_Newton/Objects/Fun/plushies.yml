@@ -63,9 +63,33 @@
   - type: SpeakOnTrigger
     pack: PlushieAmataSpeech
 
+- type: entity
+  parent: BaseNewtonPlushie
+  id: PlushieKarl
+  name: плюшевый Карл Шлемоломов
+  description: Плюшевый... Ай, мне лень.
+  components:
+  - type: Sprite
+    state: karl
+  - type: SpeakOnTrigger
+    pack: PlushieKarlSpeech
+
+- type: entity
+  parent: BaseNewtonPlushie
+  id: PlushieRaisa
+  name: плюшевая Раиса Логинцева
+  description: Плюшевый... Ай, мне лень.
+  components:
+  - type: Sprite
+    state: raisa
+  - type: SpeakOnTrigger
+    pack: PlushieRaisaSpeech
+
 - type: entityTable
   id: AllNewtonPlushieTable
   table: !type:GroupSelector
     children:
     - id: PlushieHabarov
     - id: PlushieAmata
+    - id: PlushieKarl
+    - id: PlushieRaisa

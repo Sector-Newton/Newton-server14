@@ -9,3 +9,15 @@
   values:
     prefix: plushies-amata-
     count: 5
+
+- type: localizedDataset
+  id: PlushieKarlSpeech
+  values:
+    prefix: plushies-karl-
+    count: 2
+
+- type: localizedDataset
+  id: PlushieRaisaSpeech
+  values:
+    prefix: plushies-raisa-
+    count: 3
