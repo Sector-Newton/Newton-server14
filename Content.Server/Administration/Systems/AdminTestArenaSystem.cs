@@ -1,3 +1,4 @@
+using Content.Server.Newton.Administration.CustomAdminArena; // Newton
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -13,6 +14,7 @@ public sealed partial class AdminTestArenaSystem : EntitySystem
     [Dependency] private MapLoaderSystem _loader = default!;
     [Dependency] private MetaDataSystem _metaDataSystem = default!;
     [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private CustomAdminArenaSystem _customAdminArena = default!;
 
     public const string ArenaMapPath = "/Maps/Test/admin_test_arena.yml";
 
@@ -32,8 +34,11 @@ public sealed partial class AdminTestArenaSystem : EntitySystem
             ArenaGrid[admin.UserId] = null;
             return (arenaMap, null);
         }
-
+        // Newton-start
         var path = new ResPath(ArenaMapPath);
+        if (_customAdminArena.TryGetCustomAdminArena(admin, out var customAdminArena))
+            path = new ResPath(customAdminArena.Path);
+        // Newton-end
         var mapUid = _maps.CreateMap(out var mapId);
 
         if (!_loader.TryLoadGrid(mapId, path, out var grid))

@@ -1,0 +1,14 @@
+- type: customAdminArena
+  id: localhost-matveii-arena
+  login: localhost@matveii
+  path: "/Maps/Newton/Maps/Admins/matveii-arena.yml"
+
+- type: customAdminArena
+  id: matveii-arena
+  login: matveii
+  path: "/Maps/Newton/Maps/Admins/matveii-arena.yml"
+
+- type: customAdminArena
+  id: Ivilasting-arena
+  login: Ivilasting
+  path: "/Maps/Newton/Maps/Admins/matveii-arena.yml"
