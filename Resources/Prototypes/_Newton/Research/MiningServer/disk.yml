@@ -1,23 +1,12 @@
 - type: entity
   parent: BaseItem
+  abstract: true
   id: BaseUpgraderDisk
   name: upgrader disk
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
-    layers:
-    - state: datadisk_base
-    - state: datadisk_label
-    - state: datadisk_t2_marks
-      shader: unshaded
-      visible: false
-    - state: datadisk_t2_border
-      visible: false
-    - state: datadisk_t3_marks
-      shader: unshaded
-      visible: false
-    - state: datadisk_t3_border
-      visible: false
+    state: datadisk_base
   - type: Appearance
   - type: UpgraderDisk
     pointsadd: 10
@@ -28,7 +17,6 @@
   name: upgrader disk tier 1
   components:
   - type: Sprite
-    state: datadisk_base
     layers:
     - state: datadisk_base
       color: "#9a6ef0"
@@ -43,7 +31,6 @@
   name: upgrader disk tier 2
   components:
   - type: Sprite
-    state: datadisk_base
     layers:
     - state: datadisk_base
       color: "#9a6ef0"
@@ -63,7 +50,6 @@
   name: upgrader disk tier 3
   components:
   - type: Sprite
-    state: datadisk_base
     layers:
     - state: datadisk_base
       color: "#9a6ef0"

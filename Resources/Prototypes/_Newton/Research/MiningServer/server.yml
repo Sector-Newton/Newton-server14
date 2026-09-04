@@ -94,9 +94,9 @@
   - type: WiresPanel
   - type: ContainerContainer
     containers:
-      item_slot: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      disk: !type:ContainerSlot { }
 
 - type: entity
   id: MiningServerCircuitboard
