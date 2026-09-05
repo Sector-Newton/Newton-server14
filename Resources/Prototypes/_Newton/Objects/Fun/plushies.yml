@@ -78,12 +78,23 @@
   parent: BaseNewtonPlushie
   id: PlushieRaisa
   name: плюшевая Раиса Логинцева
-  description: Плюшевый... Ай, мне лень.
+  description: Плюшевая... Ай, мне лень.
   components:
   - type: Sprite
     state: raisa
   - type: SpeakOnTrigger
     pack: PlushieRaisaSpeech
+
+- type: entity
+  parent: BaseNewtonPlushie
+  id: PlushieIvi
+  name: плюшевая Иви Райна
+  description: Плюшевая... Ай, мне лень.
+  components:
+  - type: Sprite
+    state: ivi
+  - type: SpeakOnTrigger
+    pack: PlushieIviSpeech
 
 - type: entityTable
   id: AllNewtonPlushieTable
@@ -93,3 +104,4 @@
     - id: PlushieAmata
     - id: PlushieKarl
     - id: PlushieRaisa
+    - id: PlushieIvi

@@ -21,3 +21,9 @@
   values:
     prefix: plushies-raisa-
     count: 3
+
+- type: localizedDataset
+  id: PlushieIviSpeech
+  values:
+    prefix: plushies-ivi-
+    count: 5

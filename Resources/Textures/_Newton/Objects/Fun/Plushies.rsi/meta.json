@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Plushies Habarov, Amata, Raisa and Karl made by habarov (discord)/ Habarov (c-key) for sector newton",
+  "copyright": "Plushies Habarov, Amata, Ivi, Raisa and Karl made by habarov (discord)/ Habarov (c-key) for sector newton",
   "size": {
     "x": 32,
     "y": 32
@@ -18,6 +18,9 @@
     },
     {
       "name": "karl"
+    },
+    {
+      "name": "ivi"
     }
   ]
 }
