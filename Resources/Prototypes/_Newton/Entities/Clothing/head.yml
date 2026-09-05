@@ -1,0 +1,44 @@
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFoxyOrange
+  name: foxy ears
+  suffix: Оранжевые
+  components:
+  - type: Sprite
+    sprite: _LW/Clothing/Head/Hats/foxyears_orange.rsi
+  - type: Clothing
+    sprite: _LW/Clothing/Head/Hats/foxyears_orange.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFoxyWhite
+  name: foxy ears
+  suffix: Белые
+  components:
+  - type: Sprite
+    sprite: _LW/Clothing/Head/Hats/foxyears_white.rsi
+  - type: Clothing
+    sprite: _LW/Clothing/Head/Hats/foxyears_white.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFoxyBlack
+  name: foxy ears
+  suffix: Чёрные
+  components:
+  - type: Sprite
+    sprite: _LW/Clothing/Head/Hats/foxyears_black.rsi
+  - type: Clothing
+    sprite: _LW/Clothing/Head/Hats/foxyears_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFoxyBlue
+  name: foxy ears
+  suffix: Синие
+  components:
+  - type: Sprite
+    sprite: _LW/Clothing/Head/Hats/foxyears_blue.rsi
+  - type: Clothing
+    sprite: _LW/Clothing/Head/Hats/foxyears_blue.rsi
