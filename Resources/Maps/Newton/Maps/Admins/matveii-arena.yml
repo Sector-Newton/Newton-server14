@@ -909,6 +909,13 @@ entities:
     - type: Transform
       parent: 104
       pos: 1.4062209,-2.4706538
+- proto: PlushieIvi
+  entities:
+  - uid: 270
+    components:
+    - type: Transform
+      parent: 104
+      pos: -0.5699783,1.4861307
 - proto: Rack
   entities:
   - uid: 168
