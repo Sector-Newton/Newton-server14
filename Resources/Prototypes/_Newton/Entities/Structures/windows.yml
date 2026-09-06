@@ -1,0 +1,164 @@
+- type: entity
+  abstract: true
+  parent: [BaseDeltaPressureGlass, BaseStructure]
+  id: BaseWindowStructureIndestructible
+  name: window
+  description: Don't smudge up the glass down there.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmack
+  - type: WallMount
+    arc: 360 # interact despite grilles
+  - type: Tag
+    tags:
+    - ForceFixRotations
+    - Window
+  - type: Sprite
+    drawdepth: WallTops
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+  - type: Airtight
+  - type: IconSmooth
+    key: walls  # Corvax-Resprite
+    base: window
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
+  - type: Construction
+    graph: Window
+    node: window
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+  - type: BlockWeather
+
+- type: entity
+  parent: [BaseDeltaPressureReinforcedGlass, BaseWindowStructureIndestructible]
+  id: ReinforcedWindowIndestructible
+  name: reinforced window
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/reinforced_window.rsi
+  - type: Icon
+    sprite: Structures/Windows/reinforced_window.rsi
+    state: full
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 2
+  - type: Damageable
+    damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: IconSmooth
+    base: rwindow
+  - type: Construction
+    graph: Window
+    node: reinforcedWindow
+  - type: Appearance
+
+- type: entity
+  parent: BaseWindowStructureIndestructible
+  id: WindowIndestructible
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/window.rsi
+  - type: Icon
+    sprite: Structures/Windows/window.rsi
+    state: full
+  - type: Damageable
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
+
+- type: entity
+  parent: WindowIndestructible
+  id: TintedWindowIndestructible
+  name: tinted window
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: Structures/Windows/tinted_window.rsi
+  - type: Icon
+    sprite: Structures/Windows/tinted_window.rsi
+  - type: IconSmooth
+    base: twindow
+  - type: Construction
+    graph: Window
+    node: tintedWindow
+  - type: Occluder
+  - type: StaticPrice
+    price: 70
+
+- type: entity
+  id: PlasmaWindowIndestructible
+  name: plasma window
+  parent: [BaseDeltaPressurePlasma, BaseWindowStructureIndestructible, BaseRCDResistant]
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/plasma_window.rsi
+  - type: Icon
+    sprite: Structures/Windows/plasma_window.rsi
+    state: full
+  - type: Damageable
+    damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: IconSmooth
+    base: pwindow
+  - type: Construction
+    graph: Window
+    node: plasmaWindow
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+  - type: RadiationBlocker
+    resistance: 2
+
+- type: entity
+  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructureIndestructible, BaseRCDResistant]
+  id: ReinforcedPlasmaWindowIndestructible
+  name: reinforced plasma window
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/reinforced_plasma_window.rsi
+  - type: Icon
+    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    state: full
+  - type: Damageable
+    damageModifierSet: RGlass
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: RadiationBlocker
+    resistance: 4
+  - type: IconSmooth
+    base: rpwindow
+  - type: Construction
+    graph: Window
+    node: reinforcedPlasmaWindow
+  - type: Appearance
+  - type: StaticPrice
+    price: 132

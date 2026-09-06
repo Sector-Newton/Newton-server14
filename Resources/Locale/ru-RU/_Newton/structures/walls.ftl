@@ -1,0 +1,15 @@
+ent-WallWoodIndestructible = { ent-WallWood }
+    .desc = { ent-WallWood.desc }
+    .suffix = Неразрушимый
+ent-WallSolidIndestructible = { ent-WallSolid }
+    .desc = { ent-WallSolid.desc }
+    .suffix = Неразрушимый
+ent-WallReinforcedIndestructible = { ent-WallReinforced }
+    .desc = { ent-WallReinforced.desc }
+    .suffix = Неразрушимый
+ent-WallMiningIndestructible = { ent-WallMining }
+    .desc = { ent-WallMining.desc }
+    .suffix = Неразрушимый
+ent-WallShuttleIndestructible = { ent-WallShuttle }
+    .desc = { ent-WallShuttle.desc }
+    .suffix = Неразрушимый

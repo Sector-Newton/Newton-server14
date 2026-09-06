@@ -1,0 +1,15 @@
+ent-ReinforcedWindowIndestructible = { ent-ReinforcedWindow }
+    .desc = { ent-ReinforcedWindow.desc }
+    .suffix = Неразрушимый
+ent-WindowIndestructible = { ent-Window }
+    .desc = { ent-Window.desc }
+    .suffix = Неразрушимый
+ent-TintedWindowIndestructible = { ent-TintedWindow }
+    .desc = { ent-TintedWindow.desc }
+    .suffix = Неразрушимый
+ent-PlasmaWindowIndestructible = { ent-PlasmaWindow }
+    .desc = { ent-PlasmaWindow.desc }
+    .suffix = Неразрушимый
+ent-ReinforcedPlasmaWindowIndestructible = { ent-ReinforcedPlasmaWindow }
+    .desc = { ent-ReinforcedPlasmaWindow.desc }
+    .suffix = Неразрушимый
