@@ -5,8 +5,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentReportOnEliminationOfViolationsRecipe
@@ -15,8 +13,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentReporDepartmentRecipe
@@ -25,8 +21,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentReportEmployeePerformanceRecipe
@@ -35,8 +29,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentReportOnTheChaptersMeetingRecipe
@@ -45,8 +37,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentInternalAffairsAgentsReportRecipe
@@ -55,8 +45,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentConditionReportRecipe
@@ -65,8 +53,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentReportStudyObjectRecipe
@@ -75,8 +61,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentExperimentReportRecipe
@@ -85,8 +69,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentDisposalReportRecipe
@@ -95,8 +77,6 @@
   - Reports
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentApplicationAppointmentInterimRecipe
@@ -105,8 +85,6 @@
   - Statements
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentApplicationAppointmentInterimCaptainRecipe
@@ -115,8 +93,6 @@
   - Statements
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentApplicationEmploymentRecipe
@@ -125,8 +101,6 @@
   - Statements
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentLetterResignationRecipe
@@ -135,8 +109,6 @@
   - Statements
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentApplicationAccessRecipe
@@ -145,8 +117,6 @@
   - Statements
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentApplicationEquipmentRecipe
@@ -155,8 +125,6 @@
   - Statements
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentAppealRecipe
@@ -165,8 +133,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentEvacuationShuttleRequestRecipe
@@ -175,8 +141,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentShuttleRegistrationRequestRecipe
@@ -185,8 +149,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestCallMembersCentralCommitteeDSORecipe
@@ -195,8 +157,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestRequestToEstablishThreatLevelRecipe
@@ -205,8 +165,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestChangeSalaryRecipe
@@ -215,8 +173,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestForNonlistedEmploymentRecipe
@@ -225,8 +181,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestForPromotionRecipe
@@ -235,8 +189,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestDocumentsRecipe
@@ -245,8 +197,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestEuthanasiaRecipe
@@ -255,8 +205,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestConstructionWorkRecipe
@@ -265,8 +213,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentRequestModernizationRecipe
@@ -275,8 +221,6 @@
   - InquiriesAndAppeals
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentComplaintViolationLaborRulesRecipe
@@ -285,8 +229,6 @@
   - Complaintst
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentComplaintOffenseRecipe
@@ -295,8 +237,6 @@
   - Complaintst
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentPermissionEquipmentRecipe
@@ -305,8 +245,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentPermissionToTravelInCaseOfThreatRecipe
@@ -315,8 +253,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentSearchPermissionRecipe
@@ -325,8 +261,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentPermissionToCarryWeaponsRecipe
@@ -335,8 +269,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentPrescriptionDrugAuthorizationRecipe
@@ -345,8 +277,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentPermissionDisposeBodyRecipe
@@ -355,8 +285,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentConstructionPermitRecipe
@@ -365,8 +293,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentPermissionToExtendMarriageRecipe
@@ -375,8 +301,6 @@
   - Permissions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderDismissalRecipe
@@ -385,8 +309,6 @@
   - OrdersAndInstructions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderDeprivationAccessRecipe
@@ -395,8 +317,6 @@
   - OrdersAndInstructions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderEncouragementRecipe
@@ -405,8 +325,6 @@
   - OrdersAndInstructions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderParolePrisonerRecipe
@@ -415,8 +333,6 @@
   - OrdersAndInstructions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderRecognizingSentienceCreatureRecipe
@@ -425,8 +341,6 @@
   - OrdersAndInstructions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderMedicalInterventionRecipe
@@ -435,8 +349,6 @@
   - OrdersAndInstructions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentProductManufacturingOrderRecipe
@@ -445,8 +357,6 @@
   - Orders
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderPurchaseResourcesEquipmentRecipe
@@ -455,8 +365,6 @@
   - Orders
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderingSpecialEquipmentRecipe
@@ -465,8 +373,6 @@
   - Orders
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentOrderPurchaseWeaponsRecipe
@@ -475,8 +381,6 @@
   - Orders
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentCertificateRecipe
@@ -485,8 +389,6 @@
   - Evidence
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentCertificateAdvancedTrainingRecipe
@@ -495,8 +397,6 @@
   - Evidence
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentCertificateOffenseRecipe
@@ -505,8 +405,6 @@
   - Evidence
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentDeathCertificateRecipe
@@ -515,8 +413,6 @@
   - Evidence
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentMarriageCertificateRecipe
@@ -525,8 +421,6 @@
   - Evidence
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentDivorceCertificateRecipe
@@ -535,8 +429,6 @@
   - Evidence
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentClosingIndictmentRecipe
@@ -545,8 +437,6 @@
   - ConclusionsAndDecisions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentSentenceRecipe
@@ -555,8 +445,6 @@
   - ConclusionsAndDecisions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentJudgmentRecipe
@@ -565,8 +453,6 @@
   - ConclusionsAndDecisions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentStatementHealtheRecipe
@@ -575,8 +461,6 @@
   - ConclusionsAndDecisions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentDecisionToStartTrialRecipe
@@ -585,8 +469,6 @@
   - ConclusionsAndDecisions
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentErrorLoadingFormHeaderRecipe
@@ -595,8 +477,6 @@
   - ErrorDocument
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentNoticeOfLiquidationRecipe
@@ -605,8 +485,6 @@
   - ErrorDocument
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentBusinessDealRecipe
@@ -615,8 +493,6 @@
   - ErrorDocument
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentNoteBeginningMilitaryActionsRecipe
@@ -625,8 +501,6 @@
   - ErrorDocument
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100
 
 - type: latheRecipe
   id: PrintedDocumentReportAccomplishmentGoalsRecipe
@@ -635,5 +509,3 @@
   - ErrorDocument
   completetime: 2
   applyMaterialDiscount: false
-  materials:
-    PrinterPaper: 100

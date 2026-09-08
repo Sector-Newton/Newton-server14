@@ -6,9 +6,9 @@
   suffix: Оранжевые
   components:
   - type: Sprite
-    sprite: _LW/Clothing/Head/Hats/foxyears_orange.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_orange.rsi
   - type: Clothing
-    sprite: _LW/Clothing/Head/Hats/foxyears_orange.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_orange.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -17,9 +17,9 @@
   suffix: Белые
   components:
   - type: Sprite
-    sprite: _LW/Clothing/Head/Hats/foxyears_white.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_white.rsi
   - type: Clothing
-    sprite: _LW/Clothing/Head/Hats/foxyears_white.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_white.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -28,9 +28,9 @@
   suffix: Чёрные
   components:
   - type: Sprite
-    sprite: _LW/Clothing/Head/Hats/foxyears_black.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_black.rsi
   - type: Clothing
-    sprite: _LW/Clothing/Head/Hats/foxyears_black.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_black.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -39,6 +39,6 @@
   suffix: Синие
   components:
   - type: Sprite
-    sprite: _LW/Clothing/Head/Hats/foxyears_blue.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_blue.rsi
   - type: Clothing
-    sprite: _LW/Clothing/Head/Hats/foxyears_blue.rsi
+    sprite: _Lua/Clothing/Head/Hats/foxyears_blue.rsi

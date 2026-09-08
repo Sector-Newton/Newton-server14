@@ -34,3 +34,16 @@ Space Station 14 это ремейк SS13, который работает на 
 Большинство ассетов лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
 Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если вы хотите использовать этот проект в коммерческих целях.
+
+## Атрибуция
+
+При заимствовании контента из других форков мы либо переносим его в соответствующие подкаталоги, либо указываем авторство в файлах, в нашем пространстве.
+
+| Подкаталог | Название форка | Репозиторий форка | Лицензия |
+|--------------|-----------|-----------------|---------|
+| `_Corvax`/`Corvax` | Corvax | https://github.com/space-syndicate/space-station-14 | MIT |
+| `_ADT` | AdventureTimeSS14 | https://github.com/AdventureTimeSS14/space_station_ADT | AGPL 3.0 |
+| `_Mono` | Monolith | https://github.com/Monolith-Station/Monolith | AGPL 3.0 |
+| `_Lua` | LuaCorp | https://github.com/Lua-Frontier/sector-frontier-14 | AGPL 3.0 |
+
+Контент может быть изменён, это выделено соответствующими комментариями.

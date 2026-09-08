@@ -94,6 +94,24 @@
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
     # DO NOT ADD MORE, USE UNIFORM DYING
+    # SN-start
+    ClothingNeckCloakPan: 3
+    ClothingNeckCloakEnby: 3
+    ClothingNeckCloakGay: 3
+    ClothingNeckCloakLesbian: 3
+    ClothingNeckCloakIntersex: 3
+    ClothingNeckCloakBi: 3
+    ClothingNeckCloakAroace: 3
+    ClothingNeckCloakAro: 3
+    ClothingNeckCloakAce: 3
+    ClothingNeckCloakVoid: 2
+    ClothingNeckCloakMoth: 2
+    ClothingNeckCloakGoliathCloak: 2
+    ClothingNeckCloakTrans: 3
+    ClothingNeckCloakAdmin: 2
+    ClothingNeckCloakNanotrasen: 3
+    ClothingNeckCloakHerald: 2
+    # SN-end
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
