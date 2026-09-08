@@ -55,8 +55,6 @@
   - type: Item
     size: Tiny
   - type: PhysicalComposition
-  - type: StaticPrice # SN
-    price: 0 # SN
 
 - type: entity
   parent: BasePaper
