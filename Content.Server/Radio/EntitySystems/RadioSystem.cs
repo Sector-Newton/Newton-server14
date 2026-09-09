@@ -11,6 +11,7 @@ using Content.Shared.Speech;
 using Content.Shared.Inventory; // Newton
 using Content.Shared.Access.Components; // Newton
 using Content.Shared.PDA; // Newton
+using Content.Shared.Humanoid; // Newton
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -18,7 +19,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using System.Data.Common;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -122,17 +122,17 @@ public sealed partial class RadioSystem : EntitySystem
         {
             if (TryComp<IdCardComponent>(idSlotUid, out var idCard))
             {
-                if (!string.IsNullOrWhiteSpace(idCard.JobTitle)) jobID = String.Format("({0})", Loc.GetString(idCard.JobTitle));
+                if (!string.IsNullOrWhiteSpace(idCard.LocalizedJobTitle)) jobID = String.Format("({0})", idCard.LocalizedJobTitle);
             }
             else if (TryComp<PdaComponent>(idSlotUid, out var idPDA)) {
                 if (TryComp<IdCardComponent>(idPDA.ContainedId, out var idPDACard))
                 {
-                    if (!string.IsNullOrWhiteSpace(idPDACard.JobTitle)) jobID = String.Format("({0})", Loc.GetString(idPDACard.JobTitle));
+                    if (!string.IsNullOrWhiteSpace(idPDACard.LocalizedJobTitle)) jobID = String.Format("({0})", idPDACard.LocalizedJobTitle);
                 }
             }
         }
 
-        if (TryComp<WearingHeadsetComponent>(messageSource, out var wearingHeadset) && TryComp<EncryptionKeyHolderComponent>(wearingHeadset.Headset, out var EKHcomp))
+        if (HasComp<HumanoidProfileComponent>(messageSource) && TryComp<WearingHeadsetComponent>(messageSource, out var wearingHeadset) && TryComp<EncryptionKeyHolderComponent>(wearingHeadset.Headset, out var EKHcomp))
         {
             ProtoId<RadioChannelPrototype> channelKeyProtoId = string.IsNullOrWhiteSpace(EKHcomp.DefaultChannel) ? "common" : EKHcomp.DefaultChannel;
             RadioChannelPrototype channelKey = ProtoMan.Index(channelKeyProtoId);

@@ -4,8 +4,8 @@ meta:
   engineVersion: 284.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/09/2026 21:01:55
-  entityCount: 9280
+  time: 09/09/2026 22:30:23
+  entityCount: 9298
 maps:
 - 1
 grids:
@@ -6076,7 +6076,7 @@ entities:
       pos: 11.5,80.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -87866.47
+      secondsUntilStateChange: -90268.35
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -24045,6 +24045,20 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 10.5,78.5
+- proto: ComputerSurveillanceCameraMonitor
+  entities:
+  - uid: 9297
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 9.5,3.5
+  - uid: 9298
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 6.5,12.5
 - proto: ConveyorBelt
   entities:
   - uid: 5895
@@ -50175,6 +50189,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 5.4546757,100.72617
+- proto: PlushieIvi
+  entities:
+  - uid: 4917
+    components:
+    - type: Transform
+      parent: 2
+      pos: -3.5542157,-9.44832
 - proto: PlushieKarl
   entities:
   - uid: 8349
@@ -50182,13 +50203,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 10.473898,14.84735
-- proto: PlushieIvi
-  entities:
-  - uid: 8983
-    components:
-    - type: Transform
-      parent: 2
-      pos: -3.5350988,-9.406562
 - proto: PlushieLizardJobLawyer
   entities:
   - uid: 3072
@@ -53654,6 +53668,43 @@ entities:
       parent: 6508
     - type: Physics
       canCollide: False
+- proto: Screen
+  entities:
+  - uid: 9285
+    components:
+    - type: Transform
+      parent: 2
+      pos: 7.5,39.5
+  - uid: 9286
+    components:
+    - type: Transform
+      parent: 2
+      pos: 2.5,63.5
+  - uid: 9287
+    components:
+    - type: Transform
+      parent: 2
+      pos: 3.5,92.5
+  - uid: 9288
+    components:
+    - type: Transform
+      parent: 2
+      pos: 11.5,25.5
+  - uid: 9289
+    components:
+    - type: Transform
+      parent: 2
+      pos: 11.5,17.5
+  - uid: 9290
+    components:
+    - type: Transform
+      parent: 2
+      pos: 4.5,0.5
+  - uid: 9291
+    components:
+    - type: Transform
+      parent: 2
+      pos: 0.5,-9.5
 - proto: ScreenTimer
   entities:
   - uid: 8987
@@ -54600,6 +54651,18 @@ entities:
     - type: Transform
       parent: 2
       pos: 5.5,11.5
+- proto: SpawnMobMedibot
+  entities:
+  - uid: 6717
+    components:
+    - type: Transform
+      parent: 2
+      pos: -4.5,4.5
+  - uid: 6718
+    components:
+    - type: Transform
+      parent: 2
+      pos: -1.5,4.5
 - proto: SpawnMobMonkeyPunpun
   entities:
   - uid: 7740
@@ -54865,6 +54928,18 @@ entities:
     - type: Transform
       parent: 2
       pos: -10.5,38.5
+- proto: SpawnPointObserver
+  entities:
+  - uid: 8983
+    components:
+    - type: Transform
+      parent: 2
+      pos: 2.5,30.5
+  - uid: 9221
+    components:
+    - type: Transform
+      parent: 2
+      pos: 2.5,17.5
 - proto: SpawnPointParamedic
   entities:
   - uid: 8418
@@ -55260,6 +55335,11 @@ entities:
     - type: Transform
       parent: 2
       pos: 0.5,-8.5
+  - uid: 9292
+    components:
+    - type: Transform
+      parent: 2
+      pos: 0.5,-12.5
 - proto: StationRecordsComputerCircuitboard
   entities:
   - uid: 7876
@@ -55636,87 +55716,152 @@ entities:
       pos: 19.5,-2.5
 - proto: SurveillanceCameraCommand
   entities:
+  - uid: 6713
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 5.5,99.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта капитана)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9214
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -2.5,55.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта СИ)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9215
     components:
     - type: Transform
       parent: 2
       pos: -2.5,74.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта КМа)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9219
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -0.5,92.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Хранилище)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9220
     components:
     - type: Transform
       parent: 2
       pos: 6.5,90.5
-  - uid: 9221
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: 5.5,99.5
   - uid: 9222
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 3.5,99.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Зона отыда мост)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9223
     components:
     - type: Transform
       parent: 2
       pos: 1.5,102.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Мост)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9224
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 8.5,101.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Мост космос восток)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9225
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -3.5,101.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Мост космос запад)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9240
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 7.5,33.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (ВКД)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9241
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 2.5,25.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта ГП)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9242
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 3.5,22.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Стойка ГП)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9244
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 9.5,14.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта ГСБ)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9260
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -7.5,9.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта ГВ)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
     - type: DeviceNetwork
       configurators:
       - invalid
@@ -55726,23 +55871,54 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 8.5,-21.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Каюта НРа)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9272
     components:
     - type: Transform
       parent: 2
       pos: 1.5,-25.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Ции Вход)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9273
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -1.5,-27.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Гениратор гравитации)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
   - uid: 9274
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 6.5,-27.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Якорь)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+  - uid: 9293
+    components:
+    - type: Transform
+      parent: 2
+      rot: 1.5707963267948966 rad
+      pos: 7.5,92.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Зона совещаний)
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 593
@@ -55751,53 +55927,98 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -9.5,68.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (ДАМ)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 7170
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 9.5,68.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (ТЭГ)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 7172
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -4.5,67.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Инж Раздевалка)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 7173
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -13.5,63.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Инж СМЭСы)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 7218
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -2.5,72.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Инженерный вход север)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 7674
     components:
     - type: Transform
       parent: 2
       pos: -12.5,55.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Инж РИТЭГи
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 8360
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -4.5,61.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Стойка инж)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 8952
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 3.5,62.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Хран канистр атмос)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 9209
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 8.5,55.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Раздевалка атмос)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 9210
     components:
     - type: Transform
@@ -55809,38 +56030,68 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 14.5,68.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Атмос зона отдыха)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 9212
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 14.5,57.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Атмос хранилище)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
   - uid: 9239
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -2.5,32.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Инструментальная)
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
 - proto: SurveillanceCameraGeneral
   entities:
-  - uid: 4917
+  - uid: 6714
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 1.5,-13.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Коридор НИО)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9275
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 1.5,0.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Коридор Мед-СБ)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9276
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -3.5,-5.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Врата юг)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9277
     components:
     - type: Transform
@@ -55853,30 +56104,55 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -1.5,23.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Прибытие)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9279
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 6.5,23.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Отбытие)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9280
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -0.5,55.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Коридор Инж - Атмос)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9281
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 0.5,74.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Коридор Карго)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
   - uid: 9282
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 1.5,87.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Вход на мост)
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 9256
@@ -55885,41 +56161,76 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -2.5,6.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Палаты)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
   - uid: 9257
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -1.5,10.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Психолог)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
   - uid: 9258
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -4.5,10.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Парамедик)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
   - uid: 9259
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -3.5,15.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Морг)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
   - uid: 9261
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -14.5,4.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Вирусология)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
   - uid: 9262
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -7.5,0.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Раздевалка мед)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
   - uid: 9263
     components:
     - type: Transform
       parent: 2
       pos: -3.5,-3.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Химка)
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
 - proto: SurveillanceCameraRouterCommand
   entities:
   - uid: 3160
@@ -55990,36 +56301,66 @@ entities:
     - type: Transform
       parent: 2
       pos: -2.5,-11.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Стойка НИО)
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
   - uid: 9265
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 5.5,-8.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Робототехника)
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
   - uid: 9266
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 8.5,-13.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Генератор аномалий)
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
   - uid: 9267
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 16.5,-16.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Химка НИО)
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
   - uid: 9268
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -0.5,-17.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Археология)
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
   - uid: 9269
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -2.5,-21.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Раздевалка НИО)
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
   - uid: 9270
     components:
     - type: Transform
@@ -56033,35 +56374,65 @@ entities:
     - type: Transform
       parent: 2
       pos: -14.5,42.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Офис АВД)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9243
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 6.5,12.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Офис смотрителя)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9245
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 12.5,10.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Оружейная)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9246
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 8.5,7.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Брифрум СБ)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9247
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 6.5,-2.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Камера 2)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9248
     components:
     - type: Transform
       parent: 2
       pos: 12.5,4.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Камера 1)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9249
     components:
     - type: Transform
@@ -56074,36 +56445,76 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 11.5,-1.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Раздевалка СБ)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9251
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 11.5,-5.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Бригмед)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9252
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 18.5,-4.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Пилот)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9253
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 20.5,-0.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Карцер)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9254
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 19.5,8.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Перма)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
   - uid: 9255
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 22.5,2.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Стык СБ)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+  - uid: 9294
+    components:
+    - type: Transform
+      parent: 2
+      pos: 4.5,54.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Детектив)
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
 - proto: SurveillanceCameraService
   entities:
   - uid: 9226
@@ -56136,53 +56547,120 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 6.5,40.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Стойка бара)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9231
     components:
     - type: Transform
       parent: 2
       pos: 7.5,35.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Бар аркады)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9232
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 16.5,45.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Коморка уборщиков)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9233
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 16.5,38.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Переработчик мусора)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9234
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: 8.5,46.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Бар север)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9235
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -3.5,46.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Криосон)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9236
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -9.5,44.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Библиотека)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9237
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -9.5,38.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Сервис кладовая)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
   - uid: 9283
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -11.5,51.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Репортёрская)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+  - uid: 9295
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: 18.5,53.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Церковь)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+  - uid: 9296
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: 19.5,47.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Коморка священника)
+      setupAvailableNetworks:
+      - SurveillanceCameraService
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 7917
@@ -56191,24 +56669,44 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -5.5,91.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Утилизаторская космос)
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
   - uid: 9216
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: -5.5,81.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Карго запад)
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
   - uid: 9217
     components:
     - type: Transform
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 10.5,81.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Карго восток)
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
   - uid: 9218
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -2.5,86.5
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Камера (Утилизаторская)
+      setupAvailableNetworks:
+      - SurveillanceCameraSupply
 - proto: SurveillanceCameraWirelessRouterConstructed
   entities:
   - uid: 3168
