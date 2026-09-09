@@ -159,8 +159,6 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: FoodSnackNutribrick # SN
-        - id: DrinkWaterBottleFull # SN
         - id: ClothingMaskBreath
         - id: EmergencyFunnyOxygenTankFilled
         - id: EmergencyMedipen
@@ -174,8 +172,6 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: FoodSnackNutribrick # SN
-        - id: DrinkWaterBottleFull # SN
         - id: ClothingMaskBreath
         - id: EmergencyNitrogenTankFilled # This should probably be replaced by an equivalent to the funny emergency oxygen tank, once that exists
         - id: EmergencyMedipen
