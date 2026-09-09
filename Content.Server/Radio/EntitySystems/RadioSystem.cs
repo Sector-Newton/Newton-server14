@@ -8,6 +8,9 @@ using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
+using Content.Shared.Inventory; // Newton
+using Content.Shared.Access.Components; // Newton
+using Content.Shared.PDA; // Newton
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -15,6 +18,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using System.Data.Common;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -31,6 +35,7 @@ public sealed partial class RadioSystem : EntitySystem
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private GhostSystem _ghost = default!;
     [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!; // Newton
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -109,14 +114,52 @@ public sealed partial class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
-            ("message", content));
+        // Newton-start
+        string jobID = String.Format("({0})", Loc.GetString("chat-radio-no-id"));
+        string wrappedMessage = String.Empty;
+
+        if (_inventorySystem.TryGetSlotEntity(messageSource, "id", out var idSlotUid))
+        {
+            if (TryComp<IdCardComponent>(idSlotUid, out var idCard))
+            {
+                if (!string.IsNullOrWhiteSpace(idCard.JobTitle)) jobID = String.Format("({0})", Loc.GetString(idCard.JobTitle));
+            }
+            else if (TryComp<PdaComponent>(idSlotUid, out var idPDA)) {
+                if (TryComp<IdCardComponent>(idPDA.ContainedId, out var idPDACard))
+                {
+                    if (!string.IsNullOrWhiteSpace(idPDACard.JobTitle)) jobID = String.Format("({0})", Loc.GetString(idPDACard.JobTitle));
+                }
+            }
+        }
+
+        if (TryComp<WearingHeadsetComponent>(messageSource, out var wearingHeadset) && TryComp<EncryptionKeyHolderComponent>(wearingHeadset.Headset, out var EKHcomp))
+        {
+            ProtoId<RadioChannelPrototype> channelKeyProtoId = string.IsNullOrWhiteSpace(EKHcomp.DefaultChannel) ? "common" : EKHcomp.DefaultChannel;
+            RadioChannelPrototype channelKey = ProtoMan.Index(channelKeyProtoId);
+            wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold-id" : "chat-radio-message-wrap-id",
+                ("color", channel.Color),
+                ("fontType", speech.FontId),
+                ("fontSize", speech.FontSize),
+                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+                ("channel", $"\\[{channel.LocalizedName}\\]"),
+                ("name", name),
+                ("message", content),
+                ("colorAlt", channelKey.Color),
+                ("ID", jobID));
+        }
+        else
+        {
+            wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
+                ("color", channel.Color),
+                ("fontType", speech.FontId),
+                ("fontSize", speech.FontSize),
+                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+                ("channel", $"\\[{channel.LocalizedName}\\]"),
+                ("name", name),
+                ("message", content));
+        }
+
+        // Newton-end
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         var chat = new ChatMessage(

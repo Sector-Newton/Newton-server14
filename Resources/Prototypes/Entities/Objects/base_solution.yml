@@ -222,7 +222,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 60
+      maxVol: 50 # SN
 
 - type: entity
   abstract: true
@@ -254,7 +254,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 120
+      maxVol: 100 # SN
 
 - type: entity
   abstract: true
@@ -286,7 +286,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 240
+      maxVol: 200 # SN
 
 - type: entity
   parent: Solution
@@ -295,7 +295,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 120
+      maxVol: 100 # SN
 
 ## Huge
 
@@ -322,7 +322,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 960
+      maxVol: 1000 # SN
 
 - type: entity
   parent: Solution
@@ -331,7 +331,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 480
+      maxVol: 500 # SN
 
 ## Below sizes are for solutions attached to entities bigger than Ginormous, aka not items or maybe two handed?
 

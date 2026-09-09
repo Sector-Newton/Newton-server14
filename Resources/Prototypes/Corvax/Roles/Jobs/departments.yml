@@ -6,4 +6,5 @@
   roles:
   - Magistrate
   - IAA
+  - Lawyer # SN
   weight: 90

@@ -2,6 +2,9 @@
 chat-radio-message-wrap = [color={ $color }]{ $channel } [bold]{ $name }[/bold] { $verb }, [font={ $fontType } size={ $fontSize }]{ chat-manager-speech-double-quote-begin }{ $message }{ chat-manager-speech-double-quote-end }[/font][/color]
 chat-radio-message-wrap-bold = [color={ $color }]{ $channel } [bold]{ $name }[/bold] { $verb }, [font={ $fontType } size={ $fontSize }][bold]{ chat-manager-speech-double-quote-begin }{ $message }{ chat-manager-speech-double-quote-end }[/bold][/font][/color]
 
+chat-radio-message-wrap-id = [color={ $color }]{ $channel } [color={ $colorAlt }]{ $ID } [bold]{ $name }[/bold][/color] [color={ $color }]{ $verb }, [font={ $fontType } size={ $fontSize }]{ chat-manager-speech-double-quote-begin }{ $message }{ chat-manager-speech-double-quote-end }[/font][/color]
+chat-radio-message-wrap-bold-id = [color={ $color }]{ $channel } [color={ $colorAlt }]{ $ID } [bold]{ $name }[/bold][/color] [color={ $color }]{ $verb }, [font={ $fontType } size={ $fontSize }][bold]{ chat-manager-speech-double-quote-begin }{ $message }{ chat-manager-speech-double-quote-end }[/bold][/font][/color]
+
 examine-headset-default-channel = Канал по умолчанию этой гарнитуры [color={ $color }]{ $channel }[/color].
 
 chat-radio-common = Общий
@@ -21,3 +24,5 @@ chat-radio-handheld = Портативный
 chat-radio-binary = Двоичный
 chat-radio-xenoborg = Ксеноборг
 chat-radio-mothership = Материнский корабль
+
+chat-radio-no-id = Нет ID

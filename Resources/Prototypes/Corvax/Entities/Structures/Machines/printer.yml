@@ -46,7 +46,7 @@
       tags:
       - Document
     storage:
-      PrinterPaper: 300
+      PrinterPaper: 300 # SN
   - type: DocumentPrinter 
   - type: ContainerContainer
     containers:
