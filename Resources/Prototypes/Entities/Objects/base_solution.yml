@@ -222,7 +222,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 50 # SN
+      maxVol: 60
 
 - type: entity
   abstract: true
@@ -254,7 +254,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 100 # SN
+      maxVol: 120
 
 - type: entity
   abstract: true
@@ -286,7 +286,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 200 # SN
+      maxVol: 240
 
 - type: entity
   parent: Solution
@@ -295,7 +295,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 100 # SN
+      maxVol: 120
 
 ## Huge
 

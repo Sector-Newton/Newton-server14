@@ -193,8 +193,6 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: FoodSnackNutribrick # SN
-        - id: DrinkWaterBottleFull # SN
         - id: ClothingMaskBreath
         - id: ExtendedEmergencyOxygenTankFilled
         - id: EmergencyMedipen
@@ -216,8 +214,6 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: FoodSnackNutribrick # SN
-        - id: DrinkWaterBottleFull # SN
         - id: ClothingMaskBreath
         - id: ExtendedEmergencyNitrogenTankFilled
         - id: EmergencyMedipen
@@ -242,12 +238,11 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: FoodSnackNutribrick # SN
         - id: DrinkWaterBottleFull # SN
         - id: ClothingMaskGasSyndicate
         - id: ExtendedEmergencyOxygenTankFilled
         - id: EmergencyMedipen
-        - id: Flare
+        # - id: Flare # SN
         - id: FoodSnackNutribrick
   - type: Sprite
     layers:
@@ -264,12 +259,11 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: FoodSnackNutribrick # SN
         - id: DrinkWaterBottleFull # SN
         - id: ClothingMaskGasSyndicate
         - id: ExtendedEmergencyNitrogenTankFilled
         - id: EmergencyMedipen
-        - id: Flare
+        # - id: Flare # SN
         - id: FoodSnackNutribrick
   - type: Sprite
     layers:
