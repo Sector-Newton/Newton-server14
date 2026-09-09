@@ -83,7 +83,8 @@ namespace Content.IntegrationTests.Tests
         {
             "/Maps/centcomm.yml",
             "/Maps/Shuttles/AdminSpawn/**", // admin gaming
-            "/Maps/Corvax/corvax_centcomm.yml" // Corvax edit
+            "/Maps/Corvax/corvax_centcomm.yml", // Corvax edit
+            "/Maps/Newton/Maps/Admins/**" // Newton
         };
 
         /// <summary>
