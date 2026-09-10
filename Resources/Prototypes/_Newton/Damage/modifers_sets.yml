@@ -3,3 +3,8 @@
   coefficients:
     Cold: 0.9
     Heat: 0.85
+
+# Later
+# - type: damageModifierSet
+#   id: Felinid
+#   coefficients:

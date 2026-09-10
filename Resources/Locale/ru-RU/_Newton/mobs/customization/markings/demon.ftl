@@ -35,12 +35,6 @@ marking-DemonChestTrinitySpots-trinity_spots = Пятна
 # Борода
 marking-DemonGoatee = Аркана, Козлиная бородка
 
-# Глаза
-marking-ADTDemonrigth_eye = Аркана, Правый глаз
-marking-ADTDemonrigth_eye-tattoo_eye_r = Глаз
-marking-ADTDemonleft_eye = Аркана, Левый глаз
-marking-ADTDemonleft_eye-tattoo_eye_l = Глаз
-
 # Рога
 marking-DemonCowHorns = Аркана, рога (Коровьи)
 marking-DemonCowHorns-cow_horns = Рога
@@ -48,35 +42,9 @@ marking-DemonHornsDeer = Аркана, рога (Оленьи)
 marking-DemonHornsDeer-deer_antlers_horns = Рога
 marking-DemonHornsSmall = Аркана, рога (Маленькие)
 marking-DemonHornsSmall-small_horns = Рога
-marking-DemonHornsBuffalo = Аркана, рога (Бычьи)
-marking-DemonHornsBuffalo-horns_buffalo = Рога
-marking-DemonHornsCarpicorn = Аркана, рога (Козерожьи)
-marking-DemonHornsCarpicorn-horns_capricorn = Рога
-marking-DemonHornsDevilOne = Аркана, рога (Дьявольское Одно)
-marking-DemonHornsDevil = Аркана, рога (Дьявольские)
-marking-DemonHornsDevil-horns_devil = Рога
-marking-DemonHornsDevil2 = Аркана, рога (Дьявольские, 2)
-marking-DemonHornsDevil2-horns_devil2 = Рога
-marking-DemonHornsDevil3 = Аркана, рога (Дьявольские, 3)
-marking-DemonHornsDevil3-horns_devil3 = Рога
-marking-DemonHornsDevil4 = Аркана, рога (Дьявольские, 4)
-marking-DemonHornsDevil4-horns_devil4 = Рога
-marking-DemonHornsRam = Аркана, рога (Бараньи)
-marking-DemonHornsRam-horns_ram = Рога
-marking-DemonHornsUnicorn = Аркана, рога (Единорожьи)
-marking-DemonHornsUnicorn-horns_unicorn = Рога
-
-# Рога 32х64
-marking-DemonHornsBackwardHorns = Аркана, рога (Обратные)
-marking-DemonHornsBackwardHorns-backward_horns = Рога
-marking-DemonHornsDarkCrown = Аркана, рога (Тёмная корона)
-marking-DemonHornsDarkCrown-dark_crown = Рога
-marking-DemonHornsDevilPrimeSi1 = Аркана, рога (Прайм, зловещие)
-marking-DemonHornsDevilPrimeSi1-devil_prime1_s = Рога
-marking-DemonHornsDevilPrime1 = Аркана, рога (Прайм, 1)
-marking-DemonHornsDevilPrime1-devil_prime1 = Рога
-marking-DemonHornsDevilPrime2 = Аркана, рога (Прайм, 2)
-marking-DemonHornsDevilPrime2-devil_prime2 = Рога
-marking-DemonHornsFat_Horn = Аркана, рога (Толстые)
-marking-DemonHornsFat_Horn-fat_horn = Рога
-marking-MobDemonTailColorAnimated = Демон, хвост (цвет, анимированный)
+marking-Demonhorn1 = Дьявол
+marking-Demonhorn2 = Лукавый
+marking-Demonhorn3 = Чёрт
+marking-Demonhorn4 = Бес
+marking-Demonhorn5 = Шайтан
+marking-Demonhorn6 = Окаянный

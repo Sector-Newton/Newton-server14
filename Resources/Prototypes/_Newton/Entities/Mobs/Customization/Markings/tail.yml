@@ -1,3 +1,4 @@
+# Markings taken from ADT https://github.com/AdventureTimeSS14/space_station_ADT
 - type: marking
   id: DemonTail1
   bodyPart: Tail
@@ -89,30 +90,6 @@
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: demon_ears
-
-- type: marking
-  id: DemonCowHorns
-  bodyPart: HeadTop
-  groupWhitelist: [Demon]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/demon.rsi
-    state: cow_horns
-
-- type: marking
-  id: DemonHornsDeer
-  bodyPart: HeadTop
-  groupWhitelist: [Demon]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/demon.rsi
-    state: deer_antlers_horns
-
-- type: marking
-  id: DemonHornsSmall
-  bodyPart: HeadTop
-  groupWhitelist: [Demon]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/demon.rsi
-    state: small_horns
 
 - type: marking
   id: DemonChestCowSpots

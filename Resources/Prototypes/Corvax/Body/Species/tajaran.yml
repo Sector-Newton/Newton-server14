@@ -63,6 +63,7 @@
   parent: BaseSpeciesAppearance
   id: AppearanceTajaran
   name: Tajaran appearance
+  categories: [ HideSpawnMenu ] # SN
   components:
   - type: InitialBody
     organs:

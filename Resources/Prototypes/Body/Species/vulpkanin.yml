@@ -231,7 +231,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: SulfurBlood
+      - ReagentId: Blood # SN - I hate Sulfur blood
         Quantity: 600
   - type: CreamPied
     sprite:

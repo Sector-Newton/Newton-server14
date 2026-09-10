@@ -53,6 +53,7 @@
   parent: BaseSpeciesAppearance
   id: AppearanceIpc
   name: Ipc appearance
+  categories: [ HideSpawnMenu ] # SN
   components:
   - type: Inventory
     femaleDisplacements:

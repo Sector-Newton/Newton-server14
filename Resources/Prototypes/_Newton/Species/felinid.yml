@@ -1,0 +1,8 @@
+# Base taken from ADT https://github.com/AdventureTimeSS14/space_station_ADT
+- type: species
+  id: Felinid
+  name: species-name-felinid
+  roundStart: true
+  prototype: MobFelinid
+  dollPrototype: AppearanceFelinid
+  skinColoration: HumanToned

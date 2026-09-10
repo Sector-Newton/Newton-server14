@@ -1,3 +1,4 @@
+# Base taken from ADT https://github.com/AdventureTimeSS14/space_station_ADT
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceDemon
@@ -27,7 +28,7 @@
       Liver: OrganAnimalLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
-    species: DemonSpecies
+    species: Demon
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -36,7 +37,6 @@
             sprite: _ADT/Mobs/Species/Demon/displacement.rsi
             state: jumpsuit-female
 
-# Demon mob (upstream PR#42476). Appearance/body/sprite come from AppearanceDemon.
 - type: entity
   save: false
   name: Urisst' Mzhand Demon
