@@ -19,6 +19,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes; // Newton
 
 namespace Content.Server.Radio.EntitySystems;
 

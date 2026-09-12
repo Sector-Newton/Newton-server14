@@ -1,4 +1,4 @@
-
+# Base taken from LUA https://github.com/Lua-Frontier/sector-frontier-14
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFoxyOrange

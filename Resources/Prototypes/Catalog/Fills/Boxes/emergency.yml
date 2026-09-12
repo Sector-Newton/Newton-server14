@@ -14,14 +14,14 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
   - type: Sprite
     layers:
     - state: internals
     - state: emergencytank
 
 - type: entity
-  parent: BaseBoxSurvival
+  parent: BoxSurvival
   id: BoxSurvivalNitrogen
   name: N2 survival box
   description: A small box containing a breath mask, an emergency nitrogen tank, and an emergency medipen. Standard-issue for most nitrogen-breathing crew.
@@ -36,7 +36,7 @@
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
   - type: Sprite
     layers:
     - state: internals
@@ -58,7 +58,7 @@
         - id: ExtendedEmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
   - type: Sprite
     layers:
     - state: internals
@@ -80,7 +80,7 @@
         - id: ExtendedEmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
   - type: Sprite
     layers:
     - state: internals
@@ -102,7 +102,7 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
 
 - type: entity
   parent: BoxSurvivalNitrogen
@@ -120,7 +120,7 @@
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
   - type: Sprite
     layers:
     - state: internals
@@ -142,7 +142,7 @@
         - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
 
 - type: entity
   parent: BoxSurvivalNitrogen
@@ -160,7 +160,7 @@
         - id: EmergencyNitrogenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
   - type: Sprite
     layers:
     - state: internals
@@ -179,7 +179,7 @@
         - id: EmergencyFunnyOxygenTankFilled
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
 
 - type: entity
   parent: BoxSurvivalHug
@@ -194,7 +194,7 @@
         - id: EmergencyNitrogenTankFilled # This should probably be replaced by an equivalent to the funny emergency oxygen tank, once that exists
         - id: EmergencyMedipen
         - id: Flare
-        - id: PillPotassiumIodide
+        # - id: PillPotassiumIodide # SN
 
 # Primarily intended for antagonists that spawn outside the station (e.g ninjas, wizards)
 # Contains food and water because, unlike normal crew, we don't want to force them to seek food mid-round.

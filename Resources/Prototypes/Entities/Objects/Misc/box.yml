@@ -37,7 +37,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseBoxSurvival
+  parent: BoxSurvival
   id: BoxBaseHug
   components:
   - type: Item

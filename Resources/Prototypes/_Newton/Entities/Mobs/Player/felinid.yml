@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   name: felinid appearance
   components:
-  # - type: Sprite
+  # - type: Sprite   Later
   #   noRot: true
   #   drawdepth: Mobs
   #   scale: 0.8, 0.8

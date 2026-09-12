@@ -23,7 +23,7 @@ public sealed partial class MiningServerSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(source.Owner, out var slot))
             return;
         
-        if (!_itemSlots.TryGetSlot(source.Owner, source.Comp.SlotID, out var itemSlot, component: slot) || !itemSlot.HasItem)
+        if (!_itemSlots.TryGetSlot(source.Owner, source.Comp.SlotID, out var itemSlot) || !itemSlot.HasItem)
             return;
 
         if (!TryComp<UpgraderDiskComponent>(itemSlot.Item, out var disk))

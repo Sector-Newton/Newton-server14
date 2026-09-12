@@ -404,22 +404,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (char.IsLetter(textSanitized[^1]))
             textSanitized += ".";
 
-<<<<<<< HEAD
         return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized, isWhisper);
-=======
-        SoundTraits ssmlTraits;
-        if (isWhisper)
-        {
-            ssmlTraits = SoundTraits.RateSlow | SoundTraits.PitchVerylow | SoundTraits.VolumeXSoft;
-        }
-        else
-        {
-            ssmlTraits = SoundTraits.RateFast | SoundTraits.PitchMedium;
-        }
-
-        var textSsml = ToSsmlText(textSanitized, ssmlTraits);
-        return await _ttsManager.ConvertTextToSpeech(speaker, textSsml);
->>>>>>> origin/upstream
     }
 }
 
