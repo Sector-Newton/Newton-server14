@@ -10,3 +10,4 @@ metabolizer-type-dwarf = Дварф
 metabolizer-type-moth = Моль
 metabolizer-type-arachnid = Арахнид
 metabolizer-type-demon = Аркана
+metabolizer-type-changeling = Генокрад

@@ -212,6 +212,12 @@
   name: technical assistant PDA
   description: Why isn't it yellow?
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [TechnicalAssistant]
+  # Corvax-Contraband-end
   - type: Pda
     id: TechnicalAssistantIDCard
   - type: Appearance
@@ -231,6 +237,12 @@
   name: medical intern PDA
   description: Why isn't it white?
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [MedicalIntern]
+  # Corvax-Contraband-end
   - type: Pda
     id: MedicalInternIDCard
   - type: Appearance
@@ -253,6 +265,12 @@
   name: security cadet PDA
   description: Why isn't it red?
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [SecurityCadet]
+  # Corvax-Contraband-end
   - type: Pda
     id: SecurityCadetIDCard
   - type: Appearance
@@ -272,6 +290,12 @@
   name: research assistant PDA
   description: Why isn't it purple?
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ResearchAssistant]
+  # Corvax-Contraband-end
   - type: Pda
     id: ResearchAssistantIDCard
   - type: Appearance
@@ -291,6 +315,12 @@
   name: service worker PDA
   description: Why isn't it gray?
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ServiceWorker]
+  # Corvax-Contraband-end
   - type: Pda
     id: ServiceWorkerIDCard
   - type: Appearance
@@ -305,7 +335,7 @@
     state: pda-internservice
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsChef, BasePDA] # Corvax-Contraband
   id: ChefPDA
   name: chef PDA
   description: Covered in grease and flour.
@@ -323,7 +353,7 @@
     state: pda-cook
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsBotanist, BasePDA] # Corvax-Contraband
   id: BotanistPDA
   name: botanist PDA
   description: Has an earthy scent.
@@ -347,6 +377,12 @@
   name: clown PDA
   description: Looks can be deceiving.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Clown]
+  # Corvax-Contraband-end
   - type: Pda
     id: ClownIDCard
     penSlot:
@@ -407,6 +443,12 @@
   name: mime PDA
   description: Suprisingly not on mute.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Mime]
+  # Corvax-Contraband-end
   - type: Pda
     id: MimeIDCard
     paiSlot:
@@ -448,17 +490,19 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
-  - type: Muted # for random sentience event
   - type: EntityTableContainerFill
     containers:
       preinstalled-program-container: !type:AllSelector
         children:
         - id: CrewManifestCartridge
         - id: NewsReaderCartridge
+  - type: PermanentStatusEffects # for random sentience event
+    statusEffects:
+    - TraitStatusEffectMuted
 
 - type: entity
   name: chaplain PDA
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsChaplain, BasePDA] # Corvax-Contraband
   id: ChaplainPDA
   description: God's chosen PDA.
   components:
@@ -487,7 +531,7 @@
 
 - type: entity
   name: quartermaster PDA
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsQuartermaster, BasePDA] # Corvax-Contraband
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
   components:
@@ -514,7 +558,7 @@
         - id: AstroNavCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsCargoTechnician, BasePDA] # Corvax-Contraband
   id: CargoPDA
   name: cargo PDA
   description: PDA for the guys that order the pizzas.
@@ -532,7 +576,7 @@
     state: pda-cargo
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsSalvageSpecialist, BasePDA] # Corvax-Contraband
   id: SalvagePDA
   name: salvage PDA
   description: Smells like ash.
@@ -560,7 +604,7 @@
         - id: AstroNavCartridge
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsBartender, BasePDA] # Corvax-Contraband
   id: BartenderPDA
   name: bartender PDA
   description: Smells like beer.
@@ -583,6 +627,12 @@
   name: librarian PDA
   description: Smells like books.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Librarian]
+  # Corvax-Contraband-end
   - type: Pda
     id: LibrarianIDCard
     penSlot:
@@ -618,6 +668,12 @@
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Lawyer]
+  # Corvax-Contraband-end
   - type: Pda
     id: LawyerIDCard
     penSlot:
@@ -648,7 +704,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsJanitor, BasePDA] # Corvax-Contraband
   id: JanitorPDA
   name: janitor PDA
   description: Smells like bleach.
@@ -666,7 +722,7 @@
     state: pda-janitor
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsCaptain, BasePDA] # Corvax-Contraband
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -690,7 +746,7 @@
     state: pda-captain
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsHeadOfPersonnel, BasePDA] # Corvax-Contraband
   id: HoPPDA
   name: head of personnel PDA
   description: Looks like it's been chewed on.
@@ -715,7 +771,7 @@
     state: pda-hop
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsChiefEngineer, BasePDA] # Corvax-Contraband
   id: CEPDA
   name: chief engineer PDA
   description: Looks like it's barely been used.
@@ -734,7 +790,7 @@
     state: pda-ce
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsStationEngineer, BasePDA] # Corvax-Contraband
   id: EngineerPDA
   name: engineer PDA
   description: Rugged and well-worn.
@@ -753,7 +809,7 @@
     state: pda-engineer
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseCorvaxContraband431JobsChiefMedicalOfficer, BaseMedicalPDA] # Corvax-Contraband
   id: CMOPDA
   name: chief medical officer PDA
   description: Extraordinarily shiny and sterile.
@@ -806,7 +862,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseCorvaxContraband431JobsParamedic, BaseMedicalPDA] # Corvax-Contraband
   id: ParamedicPDA
   name: paramedic PDA
   description: Shiny and sterile.
@@ -825,7 +881,7 @@
     state: pda-paramedic
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseCorvaxContraband431JobsChemist, BaseMedicalPDA] # Corvax-Contraband
   id: ChemistryPDA
   name: chemistry PDA
   description: It has a few discolored blotches here and there.
@@ -844,7 +900,7 @@
     state: pda-chemistry
 
 - type: entity
-  parent: BaseSciencePDA # SN
+  parent: [BaseCorvaxContraband431JobsResearchDirector, BaseSciencePDA] # SN: Edited BasePDA
   id: RnDPDA
   name: research director PDA
   description: It appears surprisingly ordinary.
@@ -883,7 +939,7 @@
     state: pda-science
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseCorvaxContraband431JobsHeadOfSecurity, BaseSecurityPDA] # Corvax-Contraband
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -912,7 +968,7 @@
         - id: LogProbeCartridge
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseCorvaxContraband431JobsWarden, BaseSecurityPDA] # Corvax-Contraband
   id: WardenPDA
   name: warden PDA
   description: The OS appears to have been jailbroken.
@@ -954,6 +1010,12 @@
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [CentralCommandOfficial]
+  # Corvax-Contraband-end
   - type: Pda
     id: CentcomIDCard
     penSlot:
@@ -1024,6 +1086,12 @@
   id: DeathsquadPDA
   suffix: Death Squad
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [DeathSquad]
+  # Corvax-Contraband-end
   - type: Pda
     id: CentcomIDCardDeathsquad
   - type: Tag #  Ignore Chameleon tags
@@ -1036,6 +1104,12 @@
   name: musician PDA
   description: It fills you with inspiration.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Musician]
+  # Corvax-Contraband-end
   - type: Pda
     id: MusicianIDCard
   - type: Appearance
@@ -1065,7 +1139,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsAtmosphericTechnician, BasePDA] # Corvax-Contraband
   id: AtmosPDA
   name: atmos PDA
   description: Still smells like plasma.
@@ -1112,7 +1186,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: [ BasePDA, BaseSyndicateContraband ]
+  parent: [ BasePDA ] # Corvax-Contraband BaseSyndicateContraband
   id: SyndiPDA
   name: syndicate PDA
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
@@ -1197,6 +1271,12 @@
   suffix: Leader
   description: Red for firepower.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ERTLeader]
+  # Corvax-Contraband-end
   - type: Pda
     id: ERTLeaderIDCard
   - type: Appearance
@@ -1240,6 +1320,12 @@
   suffix: Engineer
   description: Red for firepower, it's well-worn.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ERTEngineer]
+  # Corvax-Contraband-end
   - type: Pda
     id: ERTEngineerIDCard
 
@@ -1250,6 +1336,12 @@
   suffix: Janitor
   description: Red for firepower, it's squeaky clean.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ERTJanitor]
+  # Corvax-Contraband-end
   - type: Pda
     id: ERTJanitorIDCard
 
@@ -1260,6 +1352,12 @@
   suffix: Medic
   description: Red for firepower, it's shiny and sterile.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ERTMedical]
+  # Corvax-Contraband-end
   - type: Pda
     id: ERTMedicIDCard
 
@@ -1270,6 +1368,12 @@
   suffix: Security
   description: Red for firepower, it has tally marks etched on the side.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [ERTSecurity]
+  # Corvax-Contraband-end
   - type: Pda
     id: ERTSecurityIDCard
 
@@ -1279,6 +1383,12 @@
   name: CBURN PDA
   description: Smells like rotten flesh.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [CBURN]
+  # Corvax-Contraband-end
   - type: Pda
     id: CBURNIDcard
   - type: PdaBorderColor
@@ -1292,6 +1402,12 @@
   name: psychologist PDA
   description: Looks immaculately cleaned.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Psychologist]
+  # Corvax-Contraband-end
   - type: Pda
     id: PsychologistIDCard
   - type: Appearance
@@ -1307,10 +1423,41 @@
 
 - type: entity
   parent: BasePDA
+  id: TramDriverPDA
+  name: tram driver PDA
+  description: A serious driver will always arrive on time.
+  components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [TramDriver]
+  # Corvax-Contraband-end
+  - type: Pda
+    id: TramDriverIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-tramdriver
+  - type: PdaBorderColor
+    borderColor: "#454a50"
+    accentVColor: "#ffc500"
+  - type: Icon
+    state: pda-tramdriver
+
+- type: entity
+  parent: BasePDA
   id: ReporterPDA
   name: reporter PDA
   description: Smells like freshly printed press.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [Reporter]
+  # Corvax-Contraband-end
   - type: Pda
     id: ReporterIDCard
     penSlot:
@@ -1367,7 +1514,7 @@
     state: pda-boxer
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: [BaseCorvaxContraband431JobsDetective, BaseSecurityPDA] # Corvax-Contraband
   id: DetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
@@ -1395,7 +1542,7 @@
         - id: LogProbeCartridge
 
 - type: entity
-  parent: BaseMedicalPDA
+  parent: [BaseCorvaxContraband431JobsBrigmedic, BaseMedicalPDA] # Corvax-Contraband
   id: BrigmedicPDA
   name: brigmedic PDA
   description: I wonder whose pulse is on the screen? I hope it doesn't stop...
@@ -1452,7 +1599,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsSeniorEngineerStationEngineer, BasePDA] # Corvax-Contraband
   id: SeniorEngineerPDA
   name: senior engineer PDA
   description: Seems to have been taken apart and put back together several times.
@@ -1476,6 +1623,12 @@
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [SeniorResearcher]
+  # Corvax-Contraband-end
   - type: Pda
     id: SeniorResearcherIDCard
   - type: Appearance
@@ -1496,6 +1649,12 @@
   name: senior physician PDA
   description: Smells faintly like iron and chemicals.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [SeniorPhysician]
+  # Corvax-Contraband-end
   - type: Pda
     id: SeniorPhysicianIDCard
   - type: Appearance
@@ -1516,6 +1675,12 @@
   name: senior officer PDA
   description: Beaten, battered and broken, but just barely useable.
   components:
+  # Corvax-Contraband-start
+  - type: Contraband
+    severity: Corvax431
+    allowedDepartments: []
+    allowedJobs: [SeniorOfficer]
+  # Corvax-Contraband-end
   - type: Pda
     id: SeniorOfficerIDCard
   - type: Appearance
@@ -1530,7 +1695,7 @@
     state: pda-seniorofficer
 
 - type: entity
-  parent: BasePDA
+  parent: [BaseCorvaxContraband431JobsCargoTechnician, BasePDA] # Corvax-Contraband
   id: SeniorCourierPDA
   name: senior courier PDA
   description: Smells like postage stamps and shuttle fuel.

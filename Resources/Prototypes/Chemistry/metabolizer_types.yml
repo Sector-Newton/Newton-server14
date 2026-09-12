@@ -50,3 +50,6 @@
   id: Demon
   name: metabolizer-type-demon
 # SN-end
+- type: metabolizerType
+  id: Changeling
+  name: metabolizer-type-changeling

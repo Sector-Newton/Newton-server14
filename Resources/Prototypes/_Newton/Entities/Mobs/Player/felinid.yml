@@ -5,12 +5,12 @@
   categories: [ HideSpawnMenu ]
   name: felinid appearance
   components:
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-    scale: 0.8, 0.8
-  - type: ScaleVisuals
-    scale: 0.8, 0.8
+  # - type: Sprite
+  #   noRot: true
+  #   drawdepth: Mobs
+  #   scale: 0.8, 0.8
+  # - type: ScaleVisuals
+  #   scale: 0.8, 0.8
   - type: HumanoidProfile
     species: Felinid
   - type: InitialBody
@@ -44,8 +44,6 @@
   - BaseSpeciesMobOrganic
   id: MobFelinid
   components:
-  - type: Hunger
-    baseDecayRate: 0.024
   - type: Respirator
     damage:
       types:
@@ -127,7 +125,6 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Butcherable
-    butcheringType: Spike # TODO human.
     spawned:
       - id: FoodMeat
       - id: ClothingHeadHatCatEars

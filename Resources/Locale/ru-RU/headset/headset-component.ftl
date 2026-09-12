@@ -8,7 +8,7 @@ chat-radio-message-wrap-bold-id = [color={ $color }]{ $channel } [color={ $color
 examine-headset-default-channel = Канал по умолчанию этой гарнитуры [color={ $color }]{ $channel }[/color].
 
 chat-radio-common = Общий
-chat-radio-centcom = Центком
+chat-radio-centcom = ЦК
 chat-radio-command = Командный
 chat-radio-engineering = Инженерный
 chat-radio-medical = Медицинский

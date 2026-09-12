@@ -1,5 +1,5 @@
 - type: entity
-  parent: [SolutionDrain, SolutionGinormous]
+  parent: [SolutionDrain, SolutionGinormous, StructureHealthMachineStrong]
   id: FloorDrain
   name: drain
   description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
@@ -36,7 +36,7 @@
     fillBaseName: fill-
     solutionName: drainBuffer
   - type: Damageable
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: SteelMod
   - type: Injurable
     damageContainer: StructuralInorganic
   # SN-start
@@ -48,13 +48,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 275
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      - !type:SpillBehavior
+        solution: drainBuffer
 
 - type: entity
   parent: [SolutionDrain, SolutionNormal]

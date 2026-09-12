@@ -2,6 +2,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
 using Content.Server.Newton.Administration.Managers; // Newton
+using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
@@ -10,6 +11,9 @@ using Content.Shared.Administration.Notes;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Players.PlayTimeTracking;
+using Robust.Server.Player;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -30,7 +34,10 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     [Dependency] private EuiManager _euis = default!;
     [Dependency] private IEntitySystemManager _systems = default!;
     [Dependency] private IConfigurationManager _config = default!;
-    [Dependency] private IWebhookManager _webhookManager = default!;
+    [Dependency] private IWebhookManager _webhookManager = default!; // Newton
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private IChatManager _chat = default!;
 
     public const string SawmillId = "admin.notes";
 
@@ -45,12 +52,14 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
     public event Action<SharedAdminNote>? NoteDeleted;
 
     private ISawmill _sawmill = default!;
+
     // Newton-start
     public void Initialize()
     {
         _config.OnValueChanged(CCVars.GameHostName, OnServerNameChanged, true);
     }
     // Newton-end
+
     public bool CanCreate(ICommonSession admin)
     {
         return CanEdit(admin);
@@ -89,6 +98,7 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
 
     public async Task AddAdminRemark(ICommonSession createdBy, Guid player, NoteType type, string message, NoteSeverity? severity, bool secret, DateTime? expiryTime)
     {
+        var netUserId = (NetUserId)player;
         message = message.Trim();
 
         // There's a foreign key constraint in place here. If there's no player record, it will fail.
@@ -202,6 +212,18 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
         if (type == NoteType.Note && !secret)
             await _webhookManager.SendNotesWebhook(await GenerateNotePayload(createdBy.Name, playerRecord.LastSeenUserName, message, severityWebhook, expiresString, roundIdWebhook.ToString()));
         // Newton-noteswebhook-end
+
+        // Send a notification to the player that they received a non-secret note.
+        if (!secret && type == NoteType.Note
+            && _player.TryGetSessionById(netUserId, out var session) && _config.GetCVar(CCVars.SeeOwnNotes))
+        {
+            _systems.TryGetEntitySystem(out SharedAudioSystem? audio);
+            var notifMessage = _loc.GetString("admin-notes-manager-note-notification");
+            var notifSound = new SoundPathSpecifier(_config.GetCVar(CCVars.AHelpSound));
+
+            _chat.DispatchServerMessage(session, notifMessage);
+            audio?.PlayGlobal(notifSound, session, AudioParams.Default.AddVolume(-7f));
+        }
     }
 
     private async Task<SharedAdminNote?> GetAdminRemark(int id, NoteType type)

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [BaseItem, BaseXenoArtifact]
   id: BaseXenoArtifactItem
   name: artifact
@@ -62,7 +62,16 @@
         weight: 2
 
 - type: entity
+  id: DummyArtifactItem
   parent: BaseXenoArtifactItem
+  name: artifact
+  suffix: Debug
+  components:
+  - type: XenoArtifact
+    isGenerationRequired: false
+
+- type: entity
+  parent: [BaseCorvaxContraband434DepartmentsScience, BaseXenoArtifactItem] # Corvax-Contraband
   id: ComplexXenoArtifactItem
   suffix: Hand-Sized
   components:
