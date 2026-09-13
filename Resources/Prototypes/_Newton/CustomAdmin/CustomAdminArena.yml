@@ -12,3 +12,8 @@
   id: Ivilasting-arena
   login: Ivilasting
   path: "/Maps/Newton/Maps/Admins/matveii-arena.yml"
+
+- type: customAdminArena
+  id: Davarvama-arena
+  login: Davarvama
+  path: "/Maps/Newton/Maps/Admins/davarvama-arena.yml"
