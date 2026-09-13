@@ -9,10 +9,9 @@
   - 0,1
   baseWhitelist:
     - Space
-    - TrainLattice
+    - Lattice
     - FloorPlanetDirt
     - FloorDesert
-    - FloorLowDesert
     - FloorPlanetGrass
     - FloorSnow
     - FloorDirt
@@ -20,7 +19,6 @@
     - FloorAsteroidSand
     - FloorAsteroidSandBorderless
     - FloorAsteroidIronsandBorderless
-    - FloorAsteroidSandRedBorderless
 
 - type: tile
   id: PlatingRCDNW
@@ -33,10 +31,9 @@
   - 0,1
   baseWhitelist:
     - Space
-    - TrainLattice
+    - Lattice
     - FloorPlanetDirt
     - FloorDesert
-    - FloorLowDesert
     - FloorPlanetGrass
     - FloorSnow
     - FloorDirt
@@ -44,7 +41,6 @@
     - FloorAsteroidSand
     - FloorAsteroidSandBorderless
     - FloorAsteroidIronsandBorderless
-    - FloorAsteroidSandRedBorderless
 
 - type: tile
   id: PlatingRCDSW
@@ -57,10 +53,9 @@
   - 0,1
   baseWhitelist:
     - Space
-    - TrainLattice
+    - Lattice
     - FloorPlanetDirt
     - FloorDesert
-    - FloorLowDesert
     - FloorPlanetGrass
     - FloorSnow
     - FloorDirt
@@ -68,7 +63,6 @@
     - FloorAsteroidSand
     - FloorAsteroidSandBorderless
     - FloorAsteroidIronsandBorderless
-    - FloorAsteroidSandRedBorderless
 
 - type: tile
   id: PlatingRCDSE
@@ -81,10 +75,9 @@
   - 1,1
   baseWhitelist:
     - Space
-    - TrainLattice
+    - Lattice
     - FloorPlanetDirt
     - FloorDesert
-    - FloorLowDesert
     - FloorPlanetGrass
     - FloorSnow
     - FloorDirt
@@ -92,4 +85,3 @@
     - FloorAsteroidSand
     - FloorAsteroidSandBorderless
     - FloorAsteroidIronsandBorderless
-    - FloorAsteroidSandRedBorderless
