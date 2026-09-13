@@ -102280,21 +102280,6 @@ entities:
       pos: 57.5,51.5
     - type: AtmosPipeColor
       color: '#4169E1FF'
-<<<<<<< HEAD
-- proto: Gateway
-  entities:
-  - uid: 11437
-    components:
-    - type: Transform
-      pos: -5.5,22.5
-      parent: 2
-  - uid: 21210
-    components:
-    - type: Transform
-      pos: 0.5,26.5
-      parent: 18382
-=======
->>>>>>> origin/upstream
 - proto: Gauze
   entities:
   - uid: 21211

@@ -9,6 +9,13 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_orange.rsi
   - type: Clothing
     sprite: _Lua/Clothing/Head/Hats/foxyears_orange.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
+      Tail: HEAD
+    slots: []
 
 - type: entity
   parent: ClothingHeadBase
@@ -20,6 +27,13 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_white.rsi
   - type: Clothing
     sprite: _Lua/Clothing/Head/Hats/foxyears_white.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
+      Tail: HEAD
+    slots: []
 
 - type: entity
   parent: ClothingHeadBase
@@ -31,6 +45,13 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_black.rsi
   - type: Clothing
     sprite: _Lua/Clothing/Head/Hats/foxyears_black.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
+      Tail: HEAD
+    slots: []
 
 - type: entity
   parent: ClothingHeadBase
@@ -42,3 +63,10 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_blue.rsi
   - type: Clothing
     sprite: _Lua/Clothing/Head/Hats/foxyears_blue.rsi
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
+      Tail: HEAD
+    slots: []

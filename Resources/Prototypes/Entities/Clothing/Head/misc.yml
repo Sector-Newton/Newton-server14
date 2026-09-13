@@ -235,6 +235,15 @@
     relayAccent: true
   - type: StaticPrice
     price: 15000
+  # SN-start
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+      Tail : HEAD
+    slots: []
+  # SN-end
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]

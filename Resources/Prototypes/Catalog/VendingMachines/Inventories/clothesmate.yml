@@ -95,6 +95,7 @@
     ClothingEyesGlassesCheapSunglasses: 3
     # DO NOT ADD MORE, USE UNIFORM DYING
     # SN-start
+    # Cloaks
     ClothingNeckCloakPan: 3
     ClothingNeckCloakEnby: 3
     ClothingNeckCloakGay: 3
@@ -111,6 +112,11 @@
     ClothingNeckCloakAdmin: 2
     ClothingNeckCloakNanotrasen: 3
     ClothingNeckCloakHerald: 2
+    # Other
+    ClothingHeadHatFoxyOrange: 1
+    ClothingHeadHatFoxyWhite: 1
+    ClothingHeadHatFoxyBlack: 1
+    ClothingHeadHatFoxyBlue: 1
     # SN-end
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
