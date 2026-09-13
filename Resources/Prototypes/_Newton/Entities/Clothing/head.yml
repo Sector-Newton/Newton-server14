@@ -11,9 +11,6 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_orange.rsi
   - type: HideLayerClothing
     layers:
-      Hair: HEAD
-      HeadTop: HEAD
-      HeadSide: HEAD
       Tail: HEAD
     slots: []
 
@@ -29,9 +26,6 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_white.rsi
   - type: HideLayerClothing
     layers:
-      Hair: HEAD
-      HeadTop: HEAD
-      HeadSide: HEAD
       Tail: HEAD
     slots: []
 
@@ -47,9 +41,6 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_black.rsi
   - type: HideLayerClothing
     layers:
-      Hair: HEAD
-      HeadTop: HEAD
-      HeadSide: HEAD
       Tail: HEAD
     slots: []
 
@@ -65,8 +56,5 @@
     sprite: _Lua/Clothing/Head/Hats/foxyears_blue.rsi
   - type: HideLayerClothing
     layers:
-      Hair: HEAD
-      HeadTop: HEAD
-      HeadSide: HEAD
       Tail: HEAD
     slots: []

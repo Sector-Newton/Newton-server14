@@ -238,9 +238,6 @@
   # SN-start
   - type: HideLayerClothing
     layers:
-      Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD
       Tail : HEAD
     slots: []
   # SN-end
