@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Item;
 using Content.Shared.Storage;
+using Robust.Shared.GameObjects; // Newton
 
 namespace Content.Shared.Nyanotrasen.Item.PseudoItem;
 
@@ -16,7 +17,7 @@ public partial class SharedPseudoItemSystem
         if (!Resolve(itemEnt, ref itemEnt.Comp) || !Resolve(storageEnt, ref storageEnt.Comp))
             return false;
 
-        if (!TryComp<MetaDataComponent>(itemEnt, out var metadata))
+        if (!HasComp<MetaDataComponent>(itemEnt)) // Newton
             return false;
 
         TryComp<ItemComponent>(itemEnt, out var item);

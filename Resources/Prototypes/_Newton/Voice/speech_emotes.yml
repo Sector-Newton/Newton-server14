@@ -1,0 +1,45 @@
+- type: emote
+  id: Meow
+  name: chat-emote-name-catmeow
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-catmeow"]
+  chatTriggers:
+  - Meow
+  - Meow.
+  - Meow!
+  - мяукает
+  - мяукает.
+  - мяукает!
+  - мявкает
+  - мявкает.
+  - мявкает!
+  - мяу
+  - мяу.
+  - мяу!
+
+- type: emote
+  id: Hisses
+  name: chat-emote-name-cathisses
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-cathisses"]
+  chatTriggers:
+  - hisses
+  - hisses.
+  - hisses!
+  - шипит
+  - шипит.
+  - шипит!

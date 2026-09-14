@@ -52,12 +52,8 @@
     damageRecovery:
       types:
         Asphyxiation: -1.9
-  # - type: Vocal                                             idk...
-  #   wilhelm: "/Audio/ADT/Felinid/cat_wilhelm.ogg"
-  #   sounds:
-  #     Male: MaleFelinid
-  #     Female: FemaleFelinid
-  #     Unsexed: MaleFelinid
+  - type: Vocal
+    emoteSounds: MaleFelinid
   - type: Destructible #процесс разрушения на органы
     thresholds:
     - trigger:
@@ -119,6 +115,10 @@
         Slash: 4
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: 
+      - Purr
+      - Meow
+      - Hisses
   - type: DamageOnHighSpeedImpact
     damage:
       types:
