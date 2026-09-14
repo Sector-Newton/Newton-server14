@@ -17,7 +17,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'SL'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_crimson.yml
+          emergencyShuttlePath: /Maps/Newton/Shuttles/emergency_bond.yml
         - type: StationJobs
           availableJobs:
             # command

@@ -24,3 +24,4 @@ cmd-forcedeadmin-arg-user = <user name>
 cmd-forcedeadmin-error-args = Должен быть ровно 1 аргумент
 cmd-forcedeadmin-desc = Насильно убирает права администратора у игрока
 cmd-forcedeadmin-help = Использование: { $command } <user name>
+cmd-forcedeadmin-admin-announcement = { $exAdminName } снимает права админа c { $targetAdminName }

@@ -1,3 +1,4 @@
+using Content.Server.Chat.Managers;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -12,6 +13,7 @@ public sealed partial class PlayTimeAddOverallCommand : IConsoleCommand
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private IChatManager _chat = default!;
 
     public string Command => "forcedeadmin";
     public string Description => Loc.GetString("cmd-forcedeadmin-desc");
@@ -51,6 +53,7 @@ public sealed partial class PlayTimeAddOverallCommand : IConsoleCommand
             return;
         }
 
+        // _chat.SendAdminAnnouncement(Loc.GetString("cmd-forcedeadmin-admin-announcement", ("exAdminName", shell.Player.Name), ("targetAdminName",player.Name))); Later
         _adminManager.DeAdmin(player);
 
         shell.WriteLine(Loc.GetString(

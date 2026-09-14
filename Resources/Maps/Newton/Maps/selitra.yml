@@ -4,8 +4,8 @@ meta:
   engineVersion: 284.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/12/2026 12:15:13
-  entityCount: 9308
+  time: 09/13/2026 20:51:20
+  entityCount: 9313
 maps:
 - 1
 grids:
@@ -6085,7 +6085,7 @@ entities:
       pos: 11.5,80.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -93880.086
+      secondsUntilStateChange: -98648.79
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -6647,6 +6647,12 @@ entities:
       access:
       - - Brig
       - - Security
+  - uid: 9312
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-0.5
 - proto: AirlockServiceTheatreLocked
   entities:
   - uid: 6296
@@ -24051,18 +24057,18 @@ entities:
       pos: 10.5,78.5
 - proto: ComputerSurveillanceCameraMonitor
   entities:
-  - uid: 9297
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: 9.5,3.5
   - uid: 9298
     components:
     - type: Transform
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 6.5,12.5
+  - uid: 9313
+    components:
+    - type: Transform
+      parent: 2
+      rot: 1.5707963267948966 rad
+      pos: 5.5,2.5
 - proto: ComputerTelevision
   entities:
   - uid: 7674
@@ -48358,6 +48364,28 @@ entities:
     - type: Transform
       parent: 2
       pos: -11.5,65.5
+- proto: LockerEvidence
+  entities:
+  - uid: 7061
+    components:
+    - type: Transform
+      parent: 2
+      pos: 9.5,3.5
+  - uid: 9297
+    components:
+    - type: Transform
+      parent: 2
+      pos: 8.5,7.5
+  - uid: 9310
+    components:
+    - type: Transform
+      parent: 2
+      pos: 8.5,6.5
+  - uid: 9311
+    components:
+    - type: Transform
+      parent: 2
+      pos: 6.5,0.5
 - proto: LockerFreezer
   entities:
   - uid: 8093
