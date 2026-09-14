@@ -137,6 +137,7 @@
   - BaseSpeciesMobOrganic
   id: MobTajaran
   components:
+  - type: Carriable # SN
   - type: Satiation
     satiations:
       Hunger:

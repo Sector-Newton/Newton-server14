@@ -45,5 +45,7 @@ Space Station 14 это ремейк SS13, который работает на 
 | `_ADT` | AdventureTimeSS14 | https://github.com/AdventureTimeSS14/space_station_ADT | AGPL 3.0 |
 | `_Mono` | Monolith | https://github.com/Monolith-Station/Monolith | AGPL 3.0 |
 | `_Lua` | LuaCorp | https://github.com/Lua-Frontier/sector-frontier-14 | AGPL 3.0 |
+| `_EE` | Einstein Engines | https://github.com/Simple-Station/Einstein-Engines | AGPL 3.0 |
+| `_Nyanotrasen` | Nyanotrasen | https://github.com/Nyanotrasen/Nyanotrasen | MIT |
 
 Контент может быть изменён, это выделено соответствующими комментариями.

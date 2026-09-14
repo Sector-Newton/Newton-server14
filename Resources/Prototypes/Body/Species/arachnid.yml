@@ -74,6 +74,7 @@
   id: MobArachnid
   name: Urist McWebs
   components:
+  - type: Carriable # SN
   - type: Respirator
     damage:
       types:

@@ -45,6 +45,7 @@
   - BaseSpeciesMobOrganic
   id: MobDemon
   components:
+  - type: Carriable
   - type: Wagging
   - type: Speech
     speechSounds: Lizard

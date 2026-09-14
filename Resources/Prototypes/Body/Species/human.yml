@@ -94,6 +94,7 @@
   id: MobHuman
   name: Urist McHands
   components:
+  - type: Carriable # SN
   - type: Butcherable
     spawned:
     - id: FoodMeatHuman

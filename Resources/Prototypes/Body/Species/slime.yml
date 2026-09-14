@@ -90,6 +90,7 @@
   id: MobSlimePerson
   name: Urist McWobble
   components:
+  - type: Carriable # SN
   - type: Storage
     clickInsert: false
     grid:

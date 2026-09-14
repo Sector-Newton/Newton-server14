@@ -175,6 +175,7 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
+  - type: Carriable # SN
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

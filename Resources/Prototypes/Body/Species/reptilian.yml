@@ -137,6 +137,7 @@
   id: MobReptilian
   name: Urist McScales
   components:
+  - type: Carriable # SN
   - type: Puller
     needsHands: false
   - type: Butcherable

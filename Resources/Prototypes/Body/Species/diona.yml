@@ -72,6 +72,7 @@
   id: MobDiona
   name: Urist McPlants
   components:
+  - type: Carriable # SN
   - type: Respirator
     damage:
       types:

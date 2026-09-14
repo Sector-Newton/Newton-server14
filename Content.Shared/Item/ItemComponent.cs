@@ -1,4 +1,5 @@
 using Content.Shared.Hands.Components;
+using Content.Shared.Nyanotrasen.Item.PseudoItem; // Newton
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -12,18 +13,18 @@ namespace Content.Shared.Item;
 /// </summary>
 [RegisterComponent]
 [NetworkedComponent]
-[Access(typeof(SharedItemSystem)), AutoGenerateComponentState(true)]
+[Access(typeof(SharedItemSystem), typeof(SharedPseudoItemSystem)), AutoGenerateComponentState(true)] // Newton
 public sealed partial class ItemComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    [Access(typeof(SharedItemSystem))]
+    [Access(typeof(SharedItemSystem), typeof(SharedPseudoItemSystem))] // Newton
     public ProtoId<ItemSizePrototype> Size = "Small";
 
-    [Access(typeof(SharedItemSystem))]
+    [Access(typeof(SharedItemSystem), typeof(SharedPseudoItemSystem))] // Newton
     [DataField]
     public Dictionary<HandLocation, List<PrototypeLayerData>> InhandVisuals = new();
 
-    [Access(typeof(SharedItemSystem))]
+    [Access(typeof(SharedItemSystem), typeof(SharedPseudoItemSystem))] // Newton
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField, AutoNetworkedField]
     public string? HeldPrefix;
@@ -31,7 +32,7 @@ public sealed partial class ItemComponent : Component
     /// <summary>
     ///     Rsi of the sprite shown on the player when this item is in their hands. Used to generate a default entry for <see cref="InhandVisuals"/>
     /// </summary>
-    [Access(typeof(SharedItemSystem))]
+    [Access(typeof(SharedItemSystem), typeof(SharedPseudoItemSystem))] // Newton
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("sprite")]
     public string? RsiPath;

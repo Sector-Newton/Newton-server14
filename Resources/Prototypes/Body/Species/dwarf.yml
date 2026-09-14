@@ -123,6 +123,7 @@
   id: MobDwarf
   name: Urist McHands the Dwarf
   components:
+  - type: Carriable # SN
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

@@ -16,15 +16,15 @@
   - type: InitialBody
     organs:
       Torso: OrganFelinidTorso
-      Head: OrganHumanHead
-      ArmLeft: OrganHumanArmLeft
-      ArmRight: OrganHumanArmRight
-      HandRight: OrganHumanHandRight
-      HandLeft: OrganHumanHandLeft
-      LegLeft: OrganHumanLegLeft
-      LegRight: OrganHumanLegRight
-      FootLeft: OrganHumanFootLeft
-      FootRight: OrganHumanFootRight
+      Head: OrganFelinidHead
+      ArmLeft: OrganFelinidArmLeft
+      ArmRight: OrganFelinidArmRight
+      HandRight: OrganFelinidHandRight
+      HandLeft: OrganFelinidHandLeft
+      LegLeft: OrganFelinidLegLeft
+      LegRight: OrganFelinidLegRight
+      FootLeft: OrganFelinidFootLeft
+      FootRight: OrganFelinidFootRight
       Brain: OrganHumanBrain
       Eyes: OrganHumanEyes
       Tongue: OrganHumanTongue
@@ -44,6 +44,7 @@
   - BaseSpeciesMobOrganic
   id: MobFelinid
   components:
+  - type: Carriable
   - type: Respirator
     damage:
       types:
@@ -85,7 +86,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.28
         density: 160
         restitution: 0.0
         mask:
@@ -135,13 +136,62 @@
     messagePerceivedByOthers: hugging-success-generic-others
 
 - type: entity
-  parent: OrganHumanTorso
-  id: OrganFelinidTorso
+  parent: OrganBase
+  id: OrganFelinid
+  abstract: true
   suffix: felinid
+
+- type: entity
+  parent: OrganFelinid
+  id: OrganFelinidExternal
+  abstract: true
   components:
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Species/Human/parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: Felinid
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganFelinidExternal, OrganBaseTorso ]
+  id: OrganFelinidTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganFelinidExternal, OrganBaseHead ]
+  id: OrganFelinidHead
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseArmLeft ]
+  id: OrganFelinidArmLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseArmRight ]
+  id: OrganFelinidArmRight
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseHandLeft ]
+  id: OrganFelinidHandLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseHandRight ]
+  id: OrganFelinidHandRight
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseLegLeft ]
+  id: OrganFelinidLegLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseLegRight ]
+  id: OrganFelinidLegRight
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseFootLeft ]
+  id: OrganFelinidFootLeft
+
+- type: entity
+  parent: [ OrganFelinidExternal, OrganBaseFootRight ]
+  id: OrganFelinidFootRight
 
 - type: entity
   parent: OrganHumanStomach

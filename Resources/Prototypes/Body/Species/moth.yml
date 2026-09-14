@@ -140,6 +140,7 @@
   id: MobMoth
   name: Urist McFluff
   components:
+  - type: Carriable # SN
   - type: Damageable
     damageModifierSet: Moth
   - type: ZombieAccentOverride
