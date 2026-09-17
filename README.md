@@ -47,5 +47,6 @@ Space Station 14 это ремейк SS13, который работает на 
 | `_Lua` | LuaCorp | https://github.com/Lua-Frontier/sector-frontier-14 | AGPL 3.0 |
 | `_EE` | Einstein Engines | https://github.com/Simple-Station/Einstein-Engines | AGPL 3.0 |
 | `_Nyanotrasen` | Nyanotrasen | https://github.com/Nyanotrasen/Nyanotrasen | MIT |
+| `_Goobstation` | Goob Station | https://github.com/Goob-Station/Goob-Station | AGPL 3.0 |
 
 Контент может быть изменён, это выделено соответствующими комментариями.
