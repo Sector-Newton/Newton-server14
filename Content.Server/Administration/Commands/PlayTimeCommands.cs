@@ -58,7 +58,7 @@ public sealed class PlayTimeCommandUtilities
             return result;
         }
 
-        MatchCollection timeRegex = Regex.Matches(timeString, "(\\d+)([A-Za-z]+)");
+        MatchCollection timeRegex = new Regex("(\\d+)([A-Za-z]+)", RegexOptions.Compiled).Matches(timeString);
 
         foreach (Match match in timeRegex)
         {
