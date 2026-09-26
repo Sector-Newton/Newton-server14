@@ -9,7 +9,7 @@ using Robust.Shared.Console;
 namespace Content.Server.Newton.Administration.Commands;
 
 [AdminCommand(AdminFlags.Permissions)]
-public sealed partial class ForceDeadminCommands : IConsoleCommand
+public sealed partial class ForceDeadminCommand : IConsoleCommand
 {
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IAdminManager _adminManager = default!;

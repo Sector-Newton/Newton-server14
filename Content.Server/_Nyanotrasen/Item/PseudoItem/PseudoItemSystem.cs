@@ -16,14 +16,14 @@ using Content.Shared.Hands.EntitySystems; // Newton
 
 namespace Content.Server.Nyanotrasen.Item.PseudoItem;
 
-public sealed class PseudoItemSystem : SharedPseudoItemSystem
+public sealed partial class PseudoItemSystem : SharedPseudoItemSystem
 {
-    [Dependency] private readonly StorageSystem _storage = default!;
-    [Dependency] private readonly ItemSystem _item = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly CarryingSystem _carrying = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!; // Newton
+    // [Dependency] private StorageSystem _storage = default!; // Newton-refactor
+    // [Dependency] private ItemSystem _item = default!; // Newton-refactor
+    // [Dependency] private DoAfterSystem _doAfter = default!; // Newton-refactor
+    [Dependency] private CarryingSystem _carrying = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedHandsSystem _hands = default!; // Newton
 
     public override void Initialize()
     {
