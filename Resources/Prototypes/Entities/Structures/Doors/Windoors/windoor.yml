@@ -460,7 +460,7 @@
 # SN-start
 - type: entity
   parent: Windoor
-  id: WindoorSalvageScienceLocked
+  id: WindoorSecureSalvageScienceLocked
   suffix: Salvage, Science, Locked
   components:
   - type: ContainerFill
@@ -471,7 +471,7 @@
 
 - type: entity
   parent: WindoorPlasma
-  id: PlasmaWindoorSalvageScienceLocked
+  id: PlasmaSecureWindoorSalvageScienceLocked
   suffix: Salvage, Science, Locked, Plasma
   components:
   - type: ContainerFill
