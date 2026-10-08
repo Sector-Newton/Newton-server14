@@ -45,4 +45,12 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// </summary>
     [DataField("lockoutTier")]
     public int LockoutTier = 3;
+
+    // Newton-start
+    /// <summary>
+    /// A name used for UI
+    /// </summary>
+    [DataField("uiName", required: true)]
+    public string UIName = string.Empty;
+    // Newtond-end
 }

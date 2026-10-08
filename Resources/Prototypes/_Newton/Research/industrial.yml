@@ -3,6 +3,7 @@
 - type: technology
   id: RCDandRPD
   name: research-technology-RCDandRPD
+  uiPos: -2, -2
   icon:
     sprite: _Newton/Objects/Tools/rpd.rsi
     state: icon
@@ -14,12 +15,17 @@
   - RPD
   - RCDAmmo
   - RPDAmmo
+  # SN-start
+  technologyPrerequisites:
+  - SpaceScanning
+  # SN-end
 
 # Tier 2
 
 - type: technology
   id: Silo
   name: research-technology-silo
+  uiPos: -1, -4
   icon:
     sprite: Structures/Machines/silo.rsi
     state: silo
@@ -28,10 +34,13 @@
   cost: 10000
   recipeUnlocks:
   - MaterialSiloMachineCircuitboard
+  technologyPrerequisites:
+  - SalvageEquipment
 
 - type: technology
   id: Huds
   name: research-technology-huds
+  uiPos: 1, -5
   icon:
     sprite: Clothing/Eyes/Hud/medsec.rsi
     state: icon
@@ -44,5 +53,7 @@
   - ClothingEyesHudCommand
   - ClothingEyesHudMedSec
   - ClothingEyesHudDiagnostic
+  technologyPrerequisites:
+  - AdvancedToolsTechnology
 
 # Tier 3

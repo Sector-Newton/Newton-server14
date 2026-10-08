@@ -3,6 +3,7 @@
 - type: technology
   id: SalvageEquipment
   name: research-technology-salvage-equipment
+  uiPos: -1, -3 # SN-rework-RND
   icon:
     sprite: Objects/Tools/handdrill.rsi
     state: handdrill
@@ -15,10 +16,15 @@
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
   - ClothingShoesBootsJump
+  # SN-start
+  technologyPrerequisites:
+  - SpaceScanning
+  # SN-end
 
 - type: technology
   id: SpaceScanning
   name: research-technology-space-scanning
+  uiPos: 0, -1 # SN-rework-RND
   icon:
     sprite: Objects/Tools/handheld_mass_scanner.rsi
     state: icon
@@ -32,6 +38,7 @@
 - type: technology
   id: AdvancedPowercells
   name: research-technology-advanced-powercells
+  uiPos: 2, -2 # SN-rework-RND
   icon:
     sprite: Structures/Power/turbo_recharger.rsi
     state: empty
@@ -42,9 +49,14 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
+  # SN-start
+  technologyPrerequisites:
+  - SpaceScanning
+  # SN-end
 
 - type: technology
   id: MechanicalCompression
+  uiPos: 2, -3 # SN-rework-RND
   name: research-technology-mechanical-compression
   icon:
     sprite: Structures/Machines/flatpacker.rsi
@@ -54,10 +66,15 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+  # SN-start
+  technologyPrerequisites:
+  - IndustrialEngineering
+  # SN-end
 
 - type: technology
   id: IndustrialEngineering
   name: research-technology-industrial-engineering
+  uiPos: 1, -3 # SN-rework-RND
   icon:
     sprite: Structures/Machines/protolathe_hypercon.rsi
     state: building
@@ -69,10 +86,15 @@
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
+  # SN-start
+  technologyPrerequisites:
+  - SpaceScanning
+  # SN-end
 
 - type: technology
   id: PowerGeneration
   name: research-technology-power-generation
+  uiPos: 2, 0 # SN-rework-RND
   icon:
     sprite: Structures/Power/Generation/portable_generator.rsi
     state: portgen0
@@ -86,10 +108,15 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  # SN-start
+  technologyPrerequisites:
+  - SpaceScanning
+  # SN-end
 
 - type: technology
   id: AtmosphericTech
   name: research-technology-atmospheric-tech
+  uiPos: -3, -2 # SN-rework-RND
   icon:
     sprite: Structures/Piping/Atmospherics/thermomachine.rsi
     state: freezerOff
@@ -99,10 +126,15 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  # SN-start
+  technologyPrerequisites:
+  - RCDandRPD
+  # SN-end
 
 - type: technology
   id: RipleyAPLU
   name: research-technology-ripley-aplu
+  uiPos: -2, 0 # SN-rework-RND
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: ripley
@@ -118,12 +150,17 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
+  # SN-start
+  technologyPrerequisites:
+  - SpaceScanning
+  # SN-end
 
 # Tier 2
 
 - type: technology
   id: Shuttlecraft
   name: research-technology-shuttlecraft
+  uiPos: -4, -3 # SN-rework-RND
   icon:
     sprite: Structures/Shuttles/gyroscope.rsi
     state: base
@@ -135,10 +172,15 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  # SN-start
+  technologyPrerequisites:
+  - AtmosphericTech
+  # SN-end
 
 - type: technology
   id: AdvancedAtmospherics
   name: research-technology-advanced-atmospherics
+  uiPos: -4, -1 # SN-rework-RND
   icon:
     sprite: Objects/Devices/Holoprojectors/atmos.rsi
     state: icon
@@ -155,6 +197,7 @@
 - type: technology
   id: AdvancedToolsTechnology
   name: research-technology-advanced-tools
+  uiPos: 1, -4 # SN-rework-RND
   icon:
     sprite: Objects/Tools/welder_experimental.rsi
     state: icon
@@ -169,10 +212,15 @@
     - Fulton
     - FultonBeacon
     - ClothingHandsGlovesColorYellow # SN
+  # SN-start
+  technologyPrerequisites:
+  - IndustrialEngineering
+  # SN-end
 
 - type: technology
   id: MassExcavation
   name: research-technology-excavation
+  uiPos: -1, -5 # SN-rework-RND
   icon:
     sprite: Objects/Tools/handdrilldiamond.rsi
     state: handdrill
@@ -185,12 +233,17 @@
     - AdvancedMineralScannerEmpty
     - BorgModuleAdvancedMining
     - SalvageExpeditionsComputerCircuitboard # Corvax-Cringe
+  # SN-start
+  technologyPrerequisites:
+  - Silo
+  # SN-end
 
 # Tier 3
 
 - type: technology
   id: BluespaceStorage
   name: research-technology-bluespace-storage
+  uiPos: 0, -6 # SN-rework-RND
   icon:
     sprite: Clothing/Back/Backpacks/holding.rsi
     state: holding
@@ -202,10 +255,16 @@
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
   #- ClothingBeltHolding # SN
+  # SN-start
+  technologyPrerequisites:
+  - MassExcavation
+  - Huds
+  # SN-end
 
 - type: technology
   id: OptimizedMicrogalvanism
   name: research-technology-optimized-microgalvanism
+  uiPos: 3, -1 # SN-rework-RND
   icon:
     sprite: Objects/Power/power_cells.rsi
     state: microreactor
@@ -217,3 +276,4 @@
   - PowerCellHyper
   technologyPrerequisites:
   - AdvancedPowercells
+  - PowerGeneration # SN-rework-RND

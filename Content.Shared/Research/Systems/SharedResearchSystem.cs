@@ -6,6 +6,8 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration; // Newton
+using Content.Shared._Newton.CCVars; // Newton
 
 namespace Content.Shared.Research.Systems;
 
@@ -13,17 +15,28 @@ public abstract partial class SharedResearchSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedLatheSystem _lathe = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // Newton
+    private bool _mainDiscipline; // Newton
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<TechnologyDatabaseComponent, MapInitEvent>(OnMapInit);
+        _cfg.OnValueChanged(NewtonCCVars.MainDiscipline, OnMainDisciplineChanged, true); // Newton
     }
+
+    // Newton-start
+    private void OnMainDisciplineChanged(bool enabled)
+    {
+        _mainDiscipline = enabled;
+    }
+    // Newton-end
 
     private void OnMapInit(EntityUid uid, TechnologyDatabaseComponent component, MapInitEvent args)
     {
         UpdateTechnologyCards(uid, component);
+        UpdateTechnologies(uid, component); // Newton
     }
 
     public void UpdateTechnologyCards(EntityUid uid, TechnologyDatabaseComponent? component = null)
@@ -45,26 +58,42 @@ public abstract partial class SharedResearchSystem : EntitySystem
         }
         Dirty(uid, component);
     }
+    // Newton-start
+    public void UpdateTechnologies(EntityUid uid, TechnologyDatabaseComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
 
-    public List<TechnologyPrototype> GetAvailableTechnologies(EntityUid uid, TechnologyDatabaseComponent? component = null)
+        foreach (var tech in ProtoMan.EnumeratePrototypes<TechnologyPrototype>())
+        {
+            if (component.SupportedDisciplines.Contains(tech.Discipline) && !tech.Hidden)
+                component.AllTechnologies.Add(tech.ID);
+        }
+
+        GetAvailableTechnologies(uid, component).ForEach(i => component.AvailableTechnologies.Add(i.ID));
+
+        Dirty(uid, component);
+    }
+    // Newton-end
+    public List<TechnologyPrototype> GetAvailableTechnologies(EntityUid uid, TechnologyDatabaseComponent? component = null) // Newton
     {
         if (!Resolve(uid, ref component, false))
             return new List<TechnologyPrototype>();
 
         var availableTechnologies = new List<TechnologyPrototype>();
-        var disciplineTiers = GetDisciplineTiers(component);
+        // var disciplineTiers = GetDisciplineTiers(component); // Newton
         foreach (var tech in ProtoMan.EnumeratePrototypes<TechnologyPrototype>())
         {
-            if (IsTechnologyAvailable(component, tech, disciplineTiers))
+            if (IsTechnologyAvailable(component, tech)) // Newton
                 availableTechnologies.Add(tech);
         }
 
         return availableTechnologies;
     }
 
-    public bool IsTechnologyAvailable(TechnologyDatabaseComponent component, TechnologyPrototype tech, Dictionary<string, int>? disciplineTiers = null)
+    public bool IsTechnologyAvailable(TechnologyDatabaseComponent component, TechnologyPrototype tech/*, Dictionary<string, int>? disciplineTiers = null */) // Newton
     {
-        disciplineTiers ??= GetDisciplineTiers(component);
+        // disciplineTiers ??= GetDisciplineTiers(component); // Newton
 
         if (tech.Hidden)
             return false;
@@ -72,8 +101,8 @@ public abstract partial class SharedResearchSystem : EntitySystem
         if (!component.SupportedDisciplines.Contains(tech.Discipline))
             return false;
 
-        if (tech.Tier > disciplineTiers[tech.Discipline])
-            return false;
+        // if (tech.Tier > disciplineTiers[tech.Discipline])
+        //     return false; // Newton
 
         if (component.UnlockedTechnologies.Contains(tech.ID))
             return false;
@@ -102,6 +131,33 @@ public abstract partial class SharedResearchSystem : EntitySystem
     {
         return GetHighestDisciplineTier(component, ProtoMan.Index<TechDisciplinePrototype>(disciplineId));
     }
+
+    // Newton-start
+    public int GetTierPercentage(TechnologyDatabaseComponent component, string disciplineId)
+    {
+        return GetTierPercentage(component, ProtoMan.Index<TechDisciplinePrototype>(disciplineId));
+    }
+
+    public int GetTierPercentage(TechnologyDatabaseComponent component,
+        TechDisciplinePrototype techDiscipline)
+    {
+        var allTech = ProtoMan.EnumeratePrototypes<TechnologyPrototype>()
+            .Where(p => p.Discipline == techDiscipline.ID && !p.Hidden).ToList();
+
+        if (allTech.Count == 0)
+            return 0;
+
+        var researchedVisible = component.UnlockedTechnologies.Count(x =>
+        {
+            var proto = ProtoMan.Index(x);
+            return proto.Discipline == techDiscipline.ID && !proto.Hidden;
+        });
+
+        var percentage = researchedVisible / (float)allTech.Count * 100f;
+
+        return (int)Math.Clamp(percentage, 0, 100);
+    }
+    // Newton-end
 
     public int GetHighestDisciplineTier(TechnologyDatabaseComponent component, TechDisciplinePrototype techDiscipline)
     {
@@ -220,7 +276,10 @@ public abstract partial class SharedResearchSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return;
-
+        // Newton-start
+        if (!_mainDiscipline)
+            return;
+        // Newton-end
         var discipline = ProtoMan.Index(prototype.Discipline);
         if (prototype.Tier < discipline.LockoutTier)
             return;
@@ -269,6 +328,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
         }
         Dirty(entity, entity.Comp);
         UpdateTechnologyCards(entity, entity);
+        UpdateTechnologies(entity, entity); // Newton
         return true;
     }
 

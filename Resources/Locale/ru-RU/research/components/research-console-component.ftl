@@ -19,3 +19,12 @@ research-console-prereqs-list-entry = - [color=orchid]{ $text }[/color]
 
 research-console-no-access-popup = Нет доступа!
 research-console-unlock-technology-radio-broadcast = Пользователь [bold]{ $approver }[/bold] исследовал [bold]{ $technology }[/bold], за [bold]{ $amount }[/bold] очков исследований.
+
+## Rework
+research-console-menu-tooltip = Стоимость: { $cost }
+research-console-tier-info-small-percentage = : { $percentage }%
+research-console-menu-crypto-text = Крипто-валюта: { $crypto }
+research-console-menu-recenter-button = Сбросить
+research-console-menu-server-researched-button = Исследовано
+research-console-info-cost-title = [bold]Стоимость[/bold]
+research-console-info-cost-label = • [color={ $color }]{ $cost }[/color]

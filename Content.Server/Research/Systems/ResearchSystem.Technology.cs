@@ -21,6 +21,8 @@ public sealed partial class ResearchSystem
         primaryDb.SupportedDisciplines = otherDb.SupportedDisciplines;
         primaryDb.UnlockedTechnologies = otherDb.UnlockedTechnologies;
         primaryDb.UnlockedRecipes = otherDb.UnlockedRecipes;
+        primaryDb.AvailableTechnologies = otherDb.AvailableTechnologies; // Newton
+        primaryDb.AllTechnologies = otherDb.AllTechnologies; // Newton
 
         Dirty(primaryUid, primaryDb);
 
@@ -81,9 +83,10 @@ public sealed partial class ResearchSystem
             return false;
 
         AddTechnology(serverEnt.Value, prototype);
-        TrySetMainDiscipline(prototype, serverEnt.Value);
+        // TrySetMainDiscipline(prototype, serverEnt.Value); // Newton-R&D-rework
         ModifyServerPoints(serverEnt.Value, -prototype.Cost);
         UpdateTechnologyCards(serverEnt.Value);
+        UpdateTechnologies(serverEnt.Value); // Newton
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(user):player} unlocked {prototype.ID} (discipline: {prototype.Discipline}, tier: {prototype.Tier}) at {ToPrettyString(client)}, for server {ToPrettyString(serverEnt.Value)}.");
@@ -169,6 +172,8 @@ public sealed partial class ResearchSystem
         component.SupportedDisciplines = new List<ProtoId<TechDisciplinePrototype>>();
         component.UnlockedTechnologies = new List<ProtoId<TechnologyPrototype>>();
         component.UnlockedRecipes = new List<ProtoId<LatheRecipePrototype>>();
+        component.AvailableTechnologies = new List<ProtoId<TechnologyPrototype>>(); // Newton
+        component.AllTechnologies = new List<ProtoId<TechnologyPrototype>>(); // Newton
         Dirty(uid, component);
     }
 }

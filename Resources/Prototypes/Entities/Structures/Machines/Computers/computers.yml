@@ -588,7 +588,7 @@
   - type: UserInterface
     interfaces:
       enum.ResearchConsoleUiKey.Key:
-        type: ResearchConsoleBoundUserInterface
+        type: NewResearchConsoleBoundUserInterface # SN-rework-RND
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:
@@ -609,7 +609,14 @@
   - type: GuideHelp
     guides:
     - Science
-
+# SN-start
+- type: entity
+  parent: ComputerResearchAndDevelopment
+  id: ComputerResearchAndDevelopmentOld
+  components:
+  - type: ActivatableUI
+    key: enum.ResearchConsoleUiKey.Key
+# SN-end
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerAnalysisConsole

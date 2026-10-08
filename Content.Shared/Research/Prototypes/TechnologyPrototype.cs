@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using System.Numerics; // Newton
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Research.Prototypes;
@@ -39,6 +40,11 @@ public sealed partial class TechnologyPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public int Tier;
+
+    // Newton-start
+    [DataField("uiPos")]
+    public Vector2 UIPos = Vector2.Zero;
+    // Newton-end
 
     /// <summary>
     /// Hidden tech is not ever available at the research console.

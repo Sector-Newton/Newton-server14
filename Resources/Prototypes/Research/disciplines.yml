@@ -1,6 +1,7 @@
 - type: techDiscipline
   id: Industrial
   name: research-discipline-industrial
+  uiName: ПРОМ # SN-rework-RND
   color: "#eeac34"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
@@ -13,6 +14,7 @@
 - type: techDiscipline
   id: Arsenal
   name: research-discipline-arsenal
+  uiName: АРС # SN-rework-RND
   color: "#dc373b"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
@@ -25,6 +27,7 @@
 - type: techDiscipline
   id: Experimental
   name: research-discipline-experimental
+  uiName: ЭКСП # SN-rework-RND
   color: "#9a6ef0"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
@@ -37,6 +40,7 @@
 - type: techDiscipline
   id: CivilianServices
   name: research-discipline-civilian-services
+  uiName: СЕРВ # SN-rework-RND
   color: "#7ecd48"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi

@@ -6,6 +6,9 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Newton.Research; // Newton
+using Robust.Shared.Prototypes; // Newton
+using System.Linq; // Newton
 
 namespace Content.Server.Research.Systems;
 
@@ -13,6 +16,7 @@ public sealed partial class ResearchSystem
 {
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!; // Newton
 
     private void InitializeConsole()
     {
@@ -64,27 +68,70 @@ public sealed partial class ResearchSystem
     {
         SyncClientWithServer(uid);
     }
-
+    // Newton-R&D-rework-start
     private void UpdateConsoleInterface(EntityUid uid, ResearchConsoleComponent? component = null, ResearchClientComponent? clientComponent = null)
     {
         if (!Resolve(uid, ref component, ref clientComponent, false))
             return;
 
         ResearchConsoleBoundInterfaceState state;
+        Dictionary<string, ResearchStatus> researchStatusDict;
+        TechnologyDatabaseComponent? syncedDb = null;
+        HashSet<ProtoId<TechnologyPrototype>> available;
+        HashSet<ProtoId<TechnologyPrototype>> unlocked;
+        HashSet<ProtoId<TechnologyPrototype>> allTech;
+        var points = 0;
 
-        if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
+        if (TryGetClientServer(uid, out var serverUid, out var serverComponent, clientComponent) && TryComp<TechnologyDatabaseComponent>(serverUid, out var db))
         {
-            var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points);
+            points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
+            syncedDb = db;
+            available = new HashSet<ProtoId<TechnologyPrototype>>(db.AvailableTechnologies);
+            unlocked = new HashSet<ProtoId<TechnologyPrototype>>(db.UnlockedTechnologies);
+            allTech = new HashSet<ProtoId<TechnologyPrototype>>(db.AllTechnologies);
+
+            researchStatusDict = allTech.ToDictionary(
+                techId => techId.ToString(),
+                techId =>
+                {
+                    var listUnlockedPrerequisites = new List<ProtoId<TechnologyPrototype>>();
+                    var tech = _prototypeManager.Index(techId);
+                    bool canResearch = tech.Cost <= serverComponent.Points;
+
+                    tech.TechnologyPrerequisites.ForEach(i =>
+                    {
+                        if (unlocked.Contains(i))
+                            listUnlockedPrerequisites.Add(i);
+                    });
+
+                    if (unlocked.Contains(techId))
+                        return ResearchStatus.Researched;
+
+                    if (!available.Contains(techId))
+                    {
+                        if (listUnlockedPrerequisites.Count > 0)
+                            return ResearchStatus.Prerequisites;
+                        else
+                            return ResearchStatus.Unavailable;
+                    }
+
+                    return canResearch ? ResearchStatus.Available : ResearchStatus.Unavailable;
+                }
+            );
+
+            if (clientComponent != null)
+                points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
         }
         else
         {
-            state = new ResearchConsoleBoundInterfaceState(default);
+            researchStatusDict = new Dictionary<string, ResearchStatus>();
         }
+
+        state = new ResearchConsoleBoundInterfaceState(points, researchStatusDict);
 
         _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key, state);
     }
-
+    // Newton-R&D-rework-end
     private void OnPointsChanged(EntityUid uid, ResearchConsoleComponent component, ref ResearchServerPointsChangedEvent args)
     {
         if (!_uiSystem.IsUiOpen(uid, ResearchConsoleUiKey.Key))

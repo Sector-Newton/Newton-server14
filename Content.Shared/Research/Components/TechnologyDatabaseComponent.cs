@@ -40,6 +40,16 @@ public sealed partial class TechnologyDatabaseComponent : Component
     [AutoNetworkedField]
     [DataField]
     public List<ProtoId<LatheRecipePrototype>> UnlockedRecipes = new();
+    
+    // Newton-start
+    [AutoNetworkedField]
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>> AvailableTechnologies = new();
+
+    [AutoNetworkedField]
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>> AllTechnologies = new();
+    // Newton-end
 }
 
 /// <summary>

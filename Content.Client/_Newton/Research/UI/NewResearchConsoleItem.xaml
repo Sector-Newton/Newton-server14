@@ -1,0 +1,27 @@
+<LayoutContainer xmlns="https://spacestation14.io"
+                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 x:Class="Content.Client.Newton.Research.UI.NewResearchConsoleItem"
+                 Margin="5"
+                 HorizontalExpand="False">
+    <BoxContainer Name="NodeContainer" Orientation="Vertical" SetSize="80 80"> <!-- Orion-Edit: NodeContainer -->
+        <PanelContainer VerticalExpand="True"
+                        HorizontalExpand="True"
+                        Name="Panel">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#162031"
+                                       BorderColor="#4972A1"
+                                       BorderThickness="2"/>
+            </PanelContainer.PanelOverride>
+            <Button Name="Button"
+                             Access="Public"
+                             ModulateSelfOverride="#00000000"
+                             HorizontalExpand="True"/>
+            <TextureRect
+                Name="ResearchDisplay"
+                TextureScale="2 2"
+                Stretch="KeepAspectCentered">
+            </TextureRect>
+        </PanelContainer>
+    </BoxContainer>
+</LayoutContainer>

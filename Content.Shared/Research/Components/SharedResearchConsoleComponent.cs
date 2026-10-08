@@ -1,4 +1,5 @@
 using Robust.Shared.Serialization;
+using Content.Shared.Newton.Research; // Newton
 
 namespace Content.Shared.Research.Components
 {
@@ -29,9 +30,11 @@ namespace Content.Shared.Research.Components
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
         public int Points;
-        public ResearchConsoleBoundInterfaceState(int points)
+        public Dictionary<string, ResearchStatus> ResearchStatus; // Newton
+        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchStatus> researchStatus) // Newton
         {
             Points = points;
+            ResearchStatus = researchStatus; // Newton
         }
     }
 }

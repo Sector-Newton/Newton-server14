@@ -11,4 +11,7 @@ public sealed partial class NewtonCCVars : CVars
 
     public static readonly CVarDef<string> DiscordNotesWebhook =
         CVarDef.Create("discord.notes_webhook", string.Empty, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> MainDiscipline =
+        CVarDef.Create("ic.main_discipline", false, CVar.SERVER | CVar.REPLICATED);
 }

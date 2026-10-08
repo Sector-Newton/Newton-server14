@@ -1,0 +1,71 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      xmlns:newton="clr-namespace:Content.Client.Newton.Research.UI"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      x:Class="Content.Client.Newton.Research.UI.NewResearchConsoleMenu"
+                      Title="{Loc 'research-console-menu-title'}"
+                      SetSize="1260 850">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True">
+        <PanelContainer VerticalExpand="False" HorizontalExpand="True">
+        <!-- <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+        </PanelContainer.PanelOverride> -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      VerticalExpand="False"
+                      MinHeight="85"
+                      Margin="10">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                <RichTextLabel Name="ResearchAmountLabel"/>
+                <RichTextLabel Name="CryptoLabel"/>
+                <Control VerticalExpand="True"/>
+                <BoxContainer Name="TierDisplayContainer" Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Bottom"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalAlignment="Right">
+                <Button Name="ServerButton" Text="{Loc 'research-console-menu-server-selection-button'}" MinHeight="40" MaxWidth="200"/>
+                <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" MaxWidth="200"/>
+            </BoxContainer>
+        </BoxContainer>
+        </PanelContainer>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      VerticalExpand="True">
+            <BoxContainer Orientation="Vertical"
+                          VerticalExpand="True"
+                          HorizontalExpand="True"
+                          SizeFlagsStretchRatio="3"
+                          Margin="0 0 0 10">
+                <PanelContainer Name="ResearchesContainer" VerticalExpand="True" HorizontalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+                    </PanelContainer.PanelOverride>
+                    <AnimatedTextureRect Name="StaticSprite"
+                        HorizontalExpand="True"
+                        VerticalExpand="True">
+                        <newton:ResearchesContainerPanel
+                            HorizontalExpand="True"
+                            VerticalExpand="True"
+                            Name="DragContainer"
+                            MouseFilter="Pass"
+                            RectClipContent="True">
+                        </newton:ResearchesContainerPanel>
+                    </AnimatedTextureRect>
+                    <PanelContainer SizeFlagsStretchRatio="2" HorizontalAlignment="Right">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Name="InfoContainer"
+                            Orientation="Vertical"
+                            VerticalExpand="True"
+                            HorizontalExpand="True"
+                            SizeFlagsStretchRatio="1"
+                            Margin="0"/>
+                    </PanelContainer>
+                </PanelContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
