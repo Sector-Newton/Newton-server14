@@ -14,6 +14,11 @@ public sealed partial class TechnologyPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
+    // Newton-start
+    [DataField]
+    public string Description = string.Empty;
+    // Newton-end
+
     /// <summary>
     /// The name of the technology.
     /// Supports locale strings

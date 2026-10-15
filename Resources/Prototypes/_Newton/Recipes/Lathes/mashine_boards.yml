@@ -14,3 +14,47 @@
   parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: MiningServerCircuitboard
   result: MiningServerCircuitboard
+
+# Radiation Collector
+- type: latheRecipe
+  id: RadiationCollectorFlatpack
+  result: RadiationCollectorFlatpack
+  completetime: 2
+  materials:
+    Steel: 500
+    Plastic: 500
+    PlasmaGlass: 1000
+
+- type: entity
+  id: RadiationCollectorCircuitboard
+  parent: BaseMachineCircuitboard
+  name: radiation collector machine board
+  description: A machine printed circuit board for radiation Collector.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: RadiationCollector
+    stackRequirements:
+      Plasma: 5
+
+# Solar Assembly Flatpack
+- type: latheRecipe
+  id: SolarAssemblyFlatpack
+  result: SolarAssemblyFlatpack
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 500
+    Silver: 500
+    Gold: 500
+
+# Tesla Coil Flatpack
+- type: latheRecipe
+  id: TeslaCoilFlatpack
+  result: TeslaCoilFlatpack
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 500
+    Gold: 500

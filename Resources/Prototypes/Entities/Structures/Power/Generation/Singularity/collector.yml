@@ -68,6 +68,8 @@
   - type: Anchorable
   - type: Rotatable
   - type: Pullable
+  - type: Machine # SN
+    board: RadiationCollectorCircuitboard # SN
   - type: GuideHelp
     guides:
     - SingularityEngine

@@ -136,8 +136,10 @@
     - RollerBedsStatic
     - LightsStatic
     - ServiceStatic
+    dynamicPacks:
     - PowerCellsStatic
     - ElectronicsStatic
+    - PowerGenerationPack # SN
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -214,6 +216,7 @@
     - Equipment
     - HudsPack # SN
     - RCDandRPD # SN
+    - PowerGenerationPack # SN
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo

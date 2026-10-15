@@ -16,11 +16,64 @@
   - RCDAmmo
   - RPDAmmo
   # SN-start
-  technologyPrerequisites:
-  - SpaceScanning
   # SN-end
 
+- type: technology
+  id: BaseEngineering
+  name: research-technology-base-engineering
+  uiPos: 1, 0
+  icon:
+    sprite: Structures/Machines/protolathe.rsi
+    state: building
+  discipline: Industrial
+  tier: 1
+  cost: 6000
+  recipeUnlocks:
+  - IntercomElectronics
+  - FirelockElectronics
+  - DoorElectronics
+  - AirAlarmElectronics
+  - StationMapElectronics
+  - FireAlarmElectronics
+  - MailingUnitElectronics
+  - SignalTimerElectronics
+  - APCElectronics
+  - SubstationMachineCircuitboard
+  - WallmountSubstationElectronics
+  - FreezerElectronics
+
+- type: technology
+  id: BaseElectronic
+  name: research-technology-base-Electronic
+  uiPos: 2, -1
+  icon:
+    sprite: Structures/Machines/protolathe.rsi
+    state: building
+  discipline: Industrial
+  tier: 1
+  cost: 7000
+  recipeUnlocks:
+  - SMESMachineCircuitboard
+  - CellRechargerCircuitboard
+  - WeaponCapacitorRechargerCircuitboard
+  - PowerCellSmall
+  - PowerCellMedium
+  - PortableGeneratorJrPacmanMachineCircuitboard
+
 # Tier 2
+
+- type: technology
+  id: SingularityPower
+  name: research-technology-singularity-power
+  uiPos: 3, -3 # SN-rework-RND
+  icon:
+    sprite: Structures/Power/Generation/portable_generator.rsi
+    state: portgen0
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - EmitterCircuitboard
 
 - type: technology
   id: Silo
@@ -34,8 +87,6 @@
   cost: 10000
   recipeUnlocks:
   - MaterialSiloMachineCircuitboard
-  technologyPrerequisites:
-  - SalvageEquipment
 
 - type: technology
   id: Huds
@@ -53,7 +104,5 @@
   - ClothingEyesHudCommand
   - ClothingEyesHudMedSec
   - ClothingEyesHudDiagnostic
-  technologyPrerequisites:
-  - AdvancedToolsTechnology
 
 # Tier 3

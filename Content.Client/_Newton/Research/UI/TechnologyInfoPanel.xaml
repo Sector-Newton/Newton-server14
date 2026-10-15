@@ -5,7 +5,8 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          x:Class="Content.Client.Newton.Research.UI.TechnologyInfoPanel"
          Margin="5"
-         MinWidth="450"
+         MinWidth="300"
+         MaxWidth="450"
          VerticalExpand="True"
          HorizontalExpand="True">
     <BoxContainer Orientation="Vertical"
@@ -39,9 +40,11 @@
                     StyleClasses="LabelKeyText"
                     HorizontalExpand="True"/>
             <RichTextLabel Name="TechnologyDescriptionLabel"
-                    HorizontalExpand="True"/>
+                    HorizontalExpand="True"
+                    MinWidth="200"/>
             <RichTextLabel Name="TechnologyCostLabel"
-                    HorizontalExpand="True"/>
+                    HorizontalExpand="True"
+                    MinWidth="200"/>
             <Button Name="ResearchButton"
                     Text="{Loc 'research-console-menu-server-research-button'}"
                     HorizontalAlignment="Left"

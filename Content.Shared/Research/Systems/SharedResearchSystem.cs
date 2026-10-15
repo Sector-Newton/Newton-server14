@@ -209,6 +209,13 @@ public abstract partial class SharedResearchSystem : EntitySystem
         TechDisciplinePrototype? disciplinePrototype = null)
     {
         var description = new FormattedMessage();
+        // Newton-start
+        if (!string.IsNullOrEmpty(technology.Description))
+        {
+            description.AddMarkupOrThrow(Loc.GetString("research-console-info-description", ("desc", technology.Description)));
+            description.PushNewline();
+        }
+        // Newton-end
         if (includeTier)
         {
             disciplinePrototype ??= ProtoMan.Index(technology.Discipline);

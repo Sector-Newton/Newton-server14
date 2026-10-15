@@ -28,3 +28,4 @@ research-console-menu-recenter-button = Сбросить
 research-console-menu-server-researched-button = Исследовано
 research-console-info-cost-title = [bold]Стоимость[/bold]
 research-console-info-cost-label = • [color={ $color }]{ $cost }[/color]
+research-console-info-description = [italic]{ $desc }[/italic]
