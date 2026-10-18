@@ -130,6 +130,12 @@ namespace Content.Shared.Administration
         /// </summary>
         Bypass = 1 << 22,
 
+        // Newton
+        /// <summary>
+        ///     Allow to use aghost
+        /// </summary>
+        AGhost = 1 << 23,
+
         // Corvax-DiscordRoles
         /// <summary>
         ///     Allows you to edit players playtime.
