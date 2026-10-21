@@ -29,3 +29,13 @@
   - RPD
   - RCDAmmo
   - RPDAmmo
+
+# - type: latheRecipePack
+#   id: ScienceBoardsDynamic
+#   recipes:
+#   - ProtolatheMachineCircuitboard
+#   - AutolatheMachineCircuitboard
+#   - CircuitImprinterMachineCircuitboard
+#   - ExosuitFabricatorMachineCircuitboard
+#   - CutterMachineCircuitboard
+#   - BorgChargerCircuitboard

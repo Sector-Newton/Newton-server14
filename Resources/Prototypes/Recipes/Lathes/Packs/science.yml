@@ -87,6 +87,14 @@
   - ArtifactCrusherMachineCircuitboard
   - StationTeleportersControlCircuitboard
   - StationTeleporterMachineCircuitboard
+  # SN-start
+  - ProtolatheMachineCircuitboard
+  - AutolatheMachineCircuitboard
+  - CircuitImprinterMachineCircuitboard
+  - ExosuitFabricatorMachineCircuitboard
+  - CutterMachineCircuitboard
+  - BorgChargerCircuitboard
+  # SN-end
 
 - type: latheRecipePack
   id: CameraBoards

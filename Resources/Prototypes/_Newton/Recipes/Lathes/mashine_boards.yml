@@ -58,3 +58,59 @@
     Steel: 1000
     Plastic: 500
     Gold: 500
+
+# Singularity Generator Flatpack
+- type: latheRecipe
+  id: SingularityGeneratorFlatpack
+  result: SingularityGeneratorFlatpack
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Glass: 500
+    Silver: 1000
+    Gold: 1000
+    Plasma: 500
+
+# Tesla Generator Flatpack
+- type: latheRecipe
+  id: TeslaGeneratorFlatpack
+  result: TeslaGeneratorFlatpack
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Glass: 500
+    Silver: 1000
+    Gold: 1000
+    Plasma: 500
+
+# Crew Monitoring
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: CrewMonitoringServerMachineCircuitboard
+  result: CrewMonitoringServerMachineCircuitboard
+
+# Research And Development Server
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: ResearchAndDevelopmentServerMachineCircuitboard
+  result: ResearchAndDevelopmentServerMachineCircuitboard
+
+# Comms Computer
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: CommsComputerCircuitboard
+  result: CommsComputerCircuitboard
+
+# Atmos Monitoring Computer
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: AtmosMonitoringComputerCircuitboard
+  result: AtmosMonitoringComputerCircuitboard
+
+# Power Computer
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: PowerComputerCircuitboard
+  result: PowerComputerCircuitboard

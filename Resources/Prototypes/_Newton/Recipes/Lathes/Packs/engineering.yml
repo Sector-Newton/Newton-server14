@@ -4,3 +4,54 @@
   - RadiationCollectorFlatpack
   - SolarAssemblyFlatpack
   - TeslaCoilFlatpack
+  - SingularityGeneratorFlatpack
+  - TeslaGeneratorFlatpack
+
+- type: latheRecipePack
+  id: ToolsDynamic
+  recipes:
+  - VoiceSensor
+  - Wirecutter
+  - Screwdriver
+  - Welder
+  - Wrench
+  - CrowbarGreen
+  - Multitool
+  - NetworkConfigurator
+  - Signaller
+  - SprayPainter
+  - SprayPainterAmmo
+  - FlashlightLantern
+  - HandheldGPSBasic
+  - TRayScanner
+  - UtilityBelt
+  - ClothingOuterVestTank
+  - HandheldStationMap
+  - ClothingHeadHatWelding
+  - ClothingHeadHatCone
+
+- type: latheRecipePack
+  id: ElectronicsDynamic
+  recipes:
+  - IntercomElectronics
+  - FirelockElectronics
+  - DoorElectronics
+  - AirAlarmElectronics
+  - StationMapElectronics
+  - FireAlarmElectronics
+  - MailingUnitElectronics
+  - SignalTimerElectronics
+  - APCElectronics
+  - SMESMachineCircuitboard
+  - SubstationMachineCircuitboard
+  - WallmountSubstationElectronics
+  - CellRechargerCircuitboard
+  - WeaponCapacitorRechargerCircuitboard
+  - FreezerElectronics
+
+- type: latheRecipePack
+  id: AtmosDynamic
+  recipes:
+  - AirTank
+  - GasAnalyzer
+  - HolofanProjector

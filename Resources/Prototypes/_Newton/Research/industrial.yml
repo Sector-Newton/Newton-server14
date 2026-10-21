@@ -1,33 +1,76 @@
-# Tier 1
-
 - type: technology
-  id: RCDandRPD
-  name: research-technology-RCDandRPD
-  uiPos: -2, -2
+  id: BasicTools
+  name: research-technology-basic-tools
+  uiPos: 3, 0
   icon:
-    sprite: _Newton/Objects/Tools/rpd.rsi
+    sprite: Objects/Tools/crowbar.rsi
     state: icon
   discipline: Industrial
   tier: 1
-  cost: 8000
+  cost: 1000
   recipeUnlocks:
-  - RCD
-  - RPD
-  - RCDAmmo
-  - RPDAmmo
-  # SN-start
-  # SN-end
+    - VoiceSensor
+    - Wirecutter
+    - Screwdriver
+    - Welder
+    - Wrench
+    - CrowbarGreen
+    - Multitool
+    - NetworkConfigurator
+    - Signaller
+    - SprayPainter
+    - SprayPainterAmmo
+    - FlashlightLantern
+    - HandheldGPSBasic
+    - TRayScanner
+    - UtilityBelt
+    - ClothingOuterVestTank
+    - HandheldStationMap
+    - ClothingHeadHatWelding
+    - ClothingHeadHatCone
+    - GasAnalyzer
 
 - type: technology
-  id: BaseEngineering
-  name: research-technology-base-engineering
-  uiPos: 1, 0
+  id: BasicEngineering
+  name: research-technology-basic-engineering
+  uiPos: 3, -1
   icon:
-    sprite: Structures/Machines/protolathe.rsi
+    sprite: Structures/Machines/circuit_imprinter.rsi
     state: building
   discipline: Industrial
   tier: 1
-  cost: 6000
+  cost: 2000
+  recipeUnlocks:
+  - ProtolatheMachineCircuitboard
+  - AutolatheMachineCircuitboard
+  - CircuitImprinterMachineCircuitboard
+  - CutterMachineCircuitboard
+  - Igniter
+  - ModularReceiver
+  - MicroManipulatorStockPart
+  - ConveyorBeltAssembly
+  - SpaceHeaterMachineCircuitBoard
+  - LightTube
+  - LedLightTube
+  - SodiumLightTube
+  - ExteriorLightTube
+  - LightBulb
+  - LedLightBulb
+  - DimLightBulb
+  - WarmLightBulb
+  technologyPrerequisites:
+  - BasicTools
+
+- type: technology
+  id: Electronics
+  name: research-technology-electronics
+  uiPos: 2, -1
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  discipline: Industrial
+  tier: 1
+  cost: 2500
   recipeUnlocks:
   - IntercomElectronics
   - FirelockElectronics
@@ -41,57 +84,118 @@
   - SubstationMachineCircuitboard
   - WallmountSubstationElectronics
   - FreezerElectronics
+  - CableStack
+  - CableMVStack
+  - CableHVStack
+  technologyPrerequisites:
+  - BasicEngineering
 
 - type: technology
-  id: BaseElectronic
-  name: research-technology-base-Electronic
-  uiPos: 2, -1
+  id: ManipulateEnergy
+  name: research-technology-manipulate-energy
+  uiPos: 2, -2
   icon:
-    sprite: Structures/Machines/protolathe.rsi
-    state: building
+    sprite: Structures/Power/smes.rsi
+    state: smes
   discipline: Industrial
   tier: 1
-  cost: 7000
+  cost: 5000
   recipeUnlocks:
-  - SMESMachineCircuitboard
-  - CellRechargerCircuitboard
-  - WeaponCapacitorRechargerCircuitboard
   - PowerCellSmall
   - PowerCellMedium
+  - SolarAssemblyFlatpack
+  - SolarControlComputerCircuitboard
+  - SolarTrackerElectronics
+  - SMESMachineCircuitboard
   - PortableGeneratorJrPacmanMachineCircuitboard
-
-# Tier 2
+  - CellRechargerCircuitboard
+  - WeaponCapacitorRechargerCircuitboard
+  - PortableGeneratorPacmanMachineCircuitboard
+  - PowerComputerCircuitboard
+  technologyPrerequisites:
+  - Electronics
 
 - type: technology
-  id: SingularityPower
-  name: research-technology-singularity-power
-  uiPos: 3, -3 # SN-rework-RND
+  id: HoloProjectors
+  name: research-technology-holo-projectors
+  uiPos: 5, -1
   icon:
-    sprite: Structures/Power/Generation/portable_generator.rsi
-    state: portgen0
+    sprite: Objects/Devices/Holoprojectors/atmos.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - Holoprojector
+  - HoloprojectorSecurity
+  - HolofanProjector
+  technologyPrerequisites:
+  - BasicEngineering
+
+- type: technology
+  id: ExperimentalTools
+  name: research-technology-experimental-tools
+  uiPos: 6, -2
+  icon:
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  discipline: Industrial
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - PowerDrill
+  - WelderExperimental
+  - JawsOfLife
+  - ClothingHandsGlovesColorYellow
+  technologyPrerequisites:
+  - HoloProjectors
+  - AdvancedEngineering
+
+- type: technology
+  id: AdvancedEngineering
+  name: research-technology-advanced-engineering
+  uiPos: 3, -3
+  icon:
+    sprite: Structures/Machines/protolathe_hypercon.rsi
+    state: building
   discipline: Industrial
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - EmitterCircuitboard
+  - AutolatheHyperConvectionMachineCircuitboard
+  - ProtolatheHyperConvectionMachineCircuitboard
+  - CircuitImprinterHyperConvectionMachineCircuitboard
+  - FlatpackerMachineCircuitboard
+  technologyPrerequisites:
+  - BasicEngineering
 
 - type: technology
-  id: Silo
-  name: research-technology-silo
-  uiPos: -1, -4
+  id: AdvancedEnergy
+  name: research-technology-advanced-energy
+  uiPos: 2, -3
   icon:
-    sprite: Structures/Machines/silo.rsi
-    state: silo
+    sprite: Structures/Power/smes.rsi
+    state: advancedsmes
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 15000
   recipeUnlocks:
-  - MaterialSiloMachineCircuitboard
+  - PortableGeneratorSuperPacmanMachineCircuitboard
+  - SMESAdvancedMachineCircuitboard
+  - TurboItemRechargerCircuitboard
+  - PowerCellHigh
+  - PowerCellHyper
+  - TeslaCoilFlatpack
+  - RadiationCollectorFlatpack
+  - PowerCageRechargerCircuitboard
+  technologyPrerequisites:
+  - AdvancedEngineering
+  - ManipulateEnergy
 
 - type: technology
   id: Huds
   name: research-technology-huds
-  uiPos: 1, -5
+  uiPos: 7, -2
   icon:
     sprite: Clothing/Eyes/Hud/medsec.rsi
     state: icon
@@ -104,5 +208,99 @@
   - ClothingEyesHudCommand
   - ClothingEyesHudMedSec
   - ClothingEyesHudDiagnostic
+  technologyPrerequisites:
+  - ExperimentalTools
 
-# Tier 3
+- type: technology
+  id: AtmosTechnology
+  name: research-technology-atmos-technology
+  uiPos: 6, -3
+  icon:
+    sprite: Structures/Piping/Atmospherics/thermomachine.rsi
+    state: freezerOff
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - PortableScrubberMachineCircuitBoard
+  - HellfireFreezerMachineCircuitBoard
+  - GasRecyclerMachineCircuitboard
+  - ThermomachineFreezerMachineCircuitBoard
+  - AtmosMonitoringComputerCircuitboard
+  technologyPrerequisites:
+  - AdvancedEngineering
+
+- type: technology
+  id: EngineeringInstruments
+  name: research-technology-holo-engineering-instruments
+  uiPos: 6, -1
+  icon:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - RCD
+  - RPD
+  - RCDAmmo
+  - RPDAmmo
+  technologyPrerequisites:
+  - HoloProjectors
+
+- type: technology
+  id: SingularityEnergy
+  name: research-technology-singularity-energy
+  uiPos: 2, -4
+  icon:
+    sprite: Structures/Power/Generation/Singularity/generator.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - SingularityGeneratorFlatpack
+  - TeslaGeneratorFlatpack
+  - EmitterCircuitboard
+  technologyPrerequisites:
+  - AdvancedEngineering
+  - AdvancedEnergy
+
+- type: technology
+  id: Shuttle
+  name: research-technology-shuttle
+  uiPos: 7, -3
+  icon:
+    sprite: Structures/Shuttles/thruster.rsi
+    state: base
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ShuttleConsoleCircuitboard
+  - RadarConsoleCircuitboard
+  - ThrusterMachineCircuitboard
+  - GyroscopeMachineCircuitboard
+  - MiniGravityGeneratorCircuitboard
+  technologyPrerequisites:
+  - AtmosTechnology
+
+- type: technology
+  id: Telecom
+  name: research-technology-telecom
+  uiPos: 4, -2
+  icon:
+    sprite: Objects/Tools/handdrill.rsi
+    state: handdrill
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - SurveillanceCameraRouterCircuitboard
+  - TelecomServerCircuitboard
+  - HolopadMachineCircuitboard
+  - CrewMonitoringServerMachineCircuitboard
+  - ResearchAndDevelopmentServerMachineCircuitboard
+  - CommsComputerCircuitboard
+  technologyPrerequisites:
+  - BasicEngineering

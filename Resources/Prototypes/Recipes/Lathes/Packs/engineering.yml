@@ -91,4 +91,8 @@
   - TelecomServerCircuitboard
   - SMESAdvancedMachineCircuitboard
   - HolopadMachineCircuitboard
-  - RadiationCollectorCircuitboard # SN
+  # SN-start
+  - SpaceHeaterMachineCircuitBoard
+  - AtmosMonitoringComputerCircuitboard
+  - PowerComputerCircuitboard
+  # SN-end

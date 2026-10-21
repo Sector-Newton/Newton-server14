@@ -123,23 +123,25 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+    # SN-start
     staticPacks:
-    - ToolsStatic
-    - PartsStatic
-    - AtmosStatic
-    - CablesStatic
     - PaperworkStatic
     - TowelsStatic
-    - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
     - RollerBedsStatic
-    - LightsStatic
     - ServiceStatic
     dynamicPacks:
-    - PowerCellsStatic
-    - ElectronicsStatic
-    - PowerGenerationPack # SN
+    - LightsDynamic
+    - CargoDynamic
+    - AtmosDynamic
+    - CablesDynamic
+    - ToolsDynamic
+    - PartsDynamic
+    - PowerCellsDynamic
+    - ElectronicsDynamic
+    - PowerGenerationPack
+    # SN-end
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -197,26 +199,34 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
+    # SN-start
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
     dynamicPacks:
+    - LightsDynamic
+    - CargoDynamic
+    - AtmosDynamic
+    - CablesDynamic
+    - ToolsDynamic
+    - PartsDynamic
+    - PowerCellsDynamic
+    - ElectronicsDynamic
     - AdvancedTools
     - ScienceEquipment
     - ScienceExplosives
     - ScienceClothing
-    - PowerCells
     - ScienceWeapons
     - Mining
-    - AtmosTools
     - EngineeringWeapons
     - Chemistry
     - Janitor
     - Instruments
     - Equipment
-    - HudsPack # SN
-    - RCDandRPD # SN
-    - PowerGenerationPack # SN
+    - HudsPack
+    - RCDandRPD
+    - PowerGenerationPack
+    # SN-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -258,23 +268,23 @@
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
     runningState: building
+    # SN-start
     staticPacks:
-    - ScienceBoardsStatic
     - ServiceBoardsStatic
-    - CargoBoardsStatic
     - MedicalBoardsStatic
-    - EngineeringBoardsStatic
     dynamicPacks:
+    - CommandBoards
+    - ScienceBoards
     - EngineeringBoards
     - CargoBoards
     - MedicalBoards
     - ServiceBoards
-    - ScienceBoards
     - CameraBoards
     - MechBoards
     - ShuttleBoards
-    - SiloBoard # SN
-    - MiningServerPack # SN
+    - SiloBoard
+    - MiningServerPack
+    # SN-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards

@@ -1,0 +1,35 @@
+- type: latheRecipePack
+  id: PowerCellsDynamic
+  recipes:
+  - PowerCellSmall
+  - PowerCellMedium
+  - PowerCellMicroreactor
+  - PowerCellHigh
+  - PowerCellHyper
+
+- type: latheRecipePack
+  id: CablesDynamic
+  recipes:
+  - CableStack
+  - CableMVStack
+  - CableHVStack
+
+- type: latheRecipePack
+  id: PartsDynamic
+  recipes:
+  - Igniter
+  - ModularReceiver
+  - MicroManipulatorStockPart
+  - ConveyorBeltAssembly
+
+- type: latheRecipePack
+  id: LightsDynamic
+  recipes:
+  - LightTube
+  - LedLightTube
+  - SodiumLightTube
+  - ExteriorLightTube
+  - LightBulb
+  - LedLightBulb
+  - DimLightBulb
+  - WarmLightBulb
