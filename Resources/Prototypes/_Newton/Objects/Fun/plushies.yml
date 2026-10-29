@@ -96,6 +96,17 @@
   - type: SpeakOnTrigger
     pack: PlushieIviSpeech
 
+- type: entity
+  parent: BaseNewtonPlushie
+  id: PlushieOlivka
+  name: плюшевая Оливия Найт
+  description: Плюшевая... Ай, мне лень.
+  components:
+  - type: Sprite
+    state: olivka
+  - type: SpeakOnTrigger
+    pack: PlushieOlivkaSpeech
+
 - type: entityTable
   id: AllNewtonPlushieTable
   table: !type:GroupSelector
@@ -105,3 +116,4 @@
     - id: PlushieKarl
     - id: PlushieRaisa
     - id: PlushieIvi
+    - id: PlushieOlivka
