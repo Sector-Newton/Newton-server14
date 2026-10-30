@@ -1,6 +1,7 @@
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.GameTicking;
+using Robust.Server.Console; // Newton
 using Robust.Shared.Console;
 
 namespace Content.Server.GameTicking.Commands
@@ -10,6 +11,7 @@ namespace Content.Server.GameTicking.Commands
     {
         [Dependency] private IEntityManager _e = default!;
         [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private IConGroupController _conGroupController = default!; // Newton
 
         public string Command => "observe";
         public string Description => "";
@@ -42,6 +44,11 @@ namespace Content.Server.GameTicking.Commands
                 status != PlayerGameStatus.JoinedGame)
             {
                 ticker.JoinAsObserver(player);
+
+                // Newton-start
+                if (isAdminCommand && _conGroupController.CanCommand(player, "aghost"))
+                    shell.ConsoleHost.ExecuteCommand(player, "aghost");
+                // Newton-end
             }
             else
             {
