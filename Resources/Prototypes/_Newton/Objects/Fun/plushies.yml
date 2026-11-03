@@ -24,7 +24,7 @@
         Blunt: 0
     hidden: true
   - type: UseDelay
-    delay: 10
+    delay: 8
   - type: TriggerOnActivate
   - type: TriggerOnSignal
   - type: DeviceNetwork
