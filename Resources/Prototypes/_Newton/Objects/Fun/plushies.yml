@@ -1,3 +1,4 @@
+# Base to all newton custom plushies. Please, use this
 - type: entity
   abstract: true
   parent: [ BaseItem, BaseStash ]
@@ -107,6 +108,7 @@
   - type: SpeakOnTrigger
     pack: PlushieOlivkaSpeech
 
+# Table of all newton custom plushies. Please, add your custom plushie here
 - type: entityTable
   id: AllNewtonPlushieTable
   table: !type:GroupSelector
