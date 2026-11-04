@@ -10,7 +10,7 @@ namespace Content.Packaging;
 
 public static class ClientPackaging
 {
-    private static readonly bool UseSecrets = File.Exists(Path.Combine("Secrets", "CorvaxSecrets.sln")); // Corvax-Secrets
+    private static readonly bool UseSecrets = File.Exists(Path.Combine("Secrets", "NewtonSecrets.sln")); // Newton-Secrets
     /// <summary>
     /// Be advised this can be called from server packaging during a HybridACZ build.
     /// </summary>
@@ -35,7 +35,7 @@ public static class ClientPackaging
                     "/m"
                 }
             };
-            // Corvax-Secrets-Start
+            // Newton-Secrets-Start
             if (UseSecrets)
             {
                 await ProcessHelpers.RunCheck(new ProcessStartInfo
@@ -44,7 +44,7 @@ public static class ClientPackaging
                     ArgumentList =
                     {
                         "build",
-                        Path.Combine("Secrets","Content.Corvax.Client", "Content.Corvax.Client.csproj"),
+                        Path.Combine("Secrets","Content.Newton.Client", "Content.Newton.Client.csproj"),
                         "-c", "Release",
                         "--nologo",
                         "/v:m",
@@ -54,7 +54,7 @@ public static class ClientPackaging
                     }
                 });
             }
-            // Corvax-Secrets-End
+            // Newton-Secrets-End
 
             if (logBuild)
             {
@@ -100,17 +100,17 @@ public static class ClientPackaging
 
         var inputPass = graph.Input;
 
-        // Corvax-Secrets-Start: Add Corvax interfaces to Magic ACZ
-        var assemblies = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database", "Content.Corvax.Interfaces.Client", "Content.Corvax.Interfaces.Shared" };
+        // Newton-Secrets-Start
+        var assemblies = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database", "Content.Corvax.Interfaces.Client", "Content.Corvax.Interfaces.Shared" }; // Corvax-Secrets: Add Corvax interfaces to Magic ACZ
         if (UseSecrets)
-            assemblies.AddRange(new[] { "Content.Corvax.Shared", "Content.Corvax.Client" });
-        // Corvax-Secrets-End
+            assemblies.AddRange(new[] { "Content.Newton.Shared", "Content.Newton.Client" });
+        // Newton-Secrets-End
 
         await RobustSharedPackaging.WriteContentAssemblies(
             inputPass,
             contentDir,
             "Content.Client",
-            assemblies, // Corvax-Secrets
+            assemblies, // Newton-Secrets
             cancel: cancel);
 
         await WriteClientResources(
@@ -122,10 +122,10 @@ public static class ClientPackaging
         inputPass.InjectFinished();
     }
 
-    // Corvax-Secrets-Start
+    // Newton-Secrets-Start
     public static IReadOnlySet<string> ContentClientIgnoredResources { get; } = new HashSet<string>
     {
-        "CorvaxSecretsServer"
+        "NewtonSecretsServer"
     };
 
     private static async Task WriteClientResources(
@@ -140,5 +140,5 @@ public static class ClientPackaging
 
         await RobustSharedPackaging.DoResourceCopy(Path.Combine(contentDir, "Resources"), pass, ignoreSet, cancel: cancel);
     }
-    // Corvax-Secrets-End
+    // Newton-Secrets-End
 }

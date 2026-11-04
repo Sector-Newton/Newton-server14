@@ -15,11 +15,11 @@
 
 # Secret
 Secrets
-Resources/Prototypes/CorvaxSecrets
-Resources/Prototypes/CorvaxSecretsServer
-Resources/Textures/CorvaxSecrets
-Resources/Audio/CorvaxSecrets
-Resources/Locale/ru-RU/corvax-secrets
+Resources/Prototypes/NewtonSecrets
+Resources/Prototypes/NewtonSecretsServer
+Resources/Textures/NewtonSecrets
+Resources/Audio/NewtonSecrets
+Resources/Locale/ru-RU/newton-secrets
 
 # Build results
 [Dd]ebug/

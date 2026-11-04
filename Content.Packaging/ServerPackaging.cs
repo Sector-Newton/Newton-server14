@@ -61,7 +61,7 @@ public static class ServerPackaging
         "server_config.toml" // RT config (use our Content-facing one)
     };
 
-    private static readonly bool UseSecrets = File.Exists(Path.Combine("Secrets", "CorvaxSecrets.sln")); // Corvax-Secrets
+    private static readonly bool UseSecrets = File.Exists(Path.Combine("Secrets", "NewtonSecrets.sln")); // Newton-Secrets
     public static async Task PackageServer(bool skipBuild, bool hybridAcz, bool logBuild, IPackageLogger logger, string configuration, List<string>? platforms = null)
     {
         if (platforms == null)
@@ -115,7 +115,7 @@ public static class ServerPackaging
                     "/m"
                 }
             };
-            // Corvax-Secrets-Start
+            // Newton-Secrets-Start
             if (UseSecrets)
             {
                 logger.Info($"Secrets found. Building secret project for {platform}...");
@@ -125,7 +125,7 @@ public static class ServerPackaging
                     ArgumentList =
                     {
                         "build",
-                        Path.Combine("Secrets","Content.Corvax.Server", "Content.Corvax.Server.csproj"),
+                        Path.Combine("Secrets","Content.Newton.Server", "Content.Newton.Server.csproj"),
                         "-c", "Release",
                         "--nologo",
                         "/v:m",
@@ -136,7 +136,7 @@ public static class ServerPackaging
                     }
                 });
             }
-            // Corvax-Secrets-End
+            // Newton-Secrets-End
 
             if (logBuild)
             {
@@ -257,13 +257,13 @@ public static class ServerPackaging
         // Remove .dll suffix and apply filtering.
         var names = depsContentExclusive.Select(p => p[..^4]).Where(p => !ServerNotExtraAssemblies.Any(p.StartsWith)).ToList();
 
-        // Corvax-Secrets-Start
+        // Newton-Secrets-Start
         if (UseSecrets)
         {
-            names.Add("Content.Corvax.Shared");
-            names.Add("Content.Corvax.Server");
+            names.Add("Content.Newton.Shared");
+            names.Add("Content.Newton.Server");
         }
-        // Corvax-Secrets-End
+        // Newton-Secrets-End
 
         return names;
 
