@@ -25,7 +25,7 @@ jobs:
         fetch-depth: 0
         filter: blob:none
 
-    # Corvax-Secrets-Start
+    # Newton-Secrets-Start
     - name: Setup secrets
       env:
         SSH_KEY: ${{ secrets.SECRETS_PRIVATE_KEY }}
@@ -38,13 +38,19 @@ jobs:
         echo "  Hostname github.com" >> ~/.ssh/config
         echo "  Port 22" >> ~/.ssh/config
         echo "  StrictHostKeyChecking no" >> ~/.ssh/config
-        git clone git@github.com:corvax-nexus/secrets.git Secrets
-        cp -R Secrets/Resources/Prototypes Resources/Prototypes/CorvaxSecrets
-        cp -R Secrets/Resources/ServerPrototypes Resources/Prototypes/CorvaxSecretsServer
-        cp -R Secrets/Resources/Locale Resources/Locale/ru-RU/corvax-secrets
-        cp -R Secrets/Resources/Textures Resources/Textures/CorvaxSecrets
-        cp -R Secrets/Resources/Audio Resources/Audio/CorvaxSecrets
-    # Corvax-Secrets-End
+        git clone git@github.com:Sector-Newton/Newton-server14-secrets.git Secrets
+        if [ ! -d "Secrets" ]; then
+          echo "::error::Failed to clone secrets repository"
+          exit 1
+        fi
+        echo "Secrets cloned SUCCESS"
+        cp -R Secrets/Resources/Prototypes Resources/Prototypes/NewtonSecrets
+        cp -R Secrets/Resources/ServerPrototypes Resources/Prototypes/NewtonSecretsServer
+        cp -R Secrets/Resources/Locale Resources/Locale/ru-RU/newton-secrets
+        cp -R Secrets/Resources/Textures Resources/Textures/NewtonSecrets
+        cp -R Secrets/Resources/Audio Resources/Audio/NewtonSecrets
+        echo "Secrets copied SUCCESS"
+    # Newton-Secrets-End
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v5
