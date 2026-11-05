@@ -1,10 +1,8 @@
 <Document>
- # Правило 2 - Логика
+ # Правило 2 - Гриф
 
- Нарушение логики своего персонажа.
+ Любые разрушительные действия без обоснования, будут наказываться.
 
- - [textlink="2.1 Воспоминания" link="NewtonDefaultRule21"]
- - [textlink="2.2 Powergaming" link="NewtonDefaultRule22"]
- - [textlink="2.3 Таблица навыков" link="NewtonDefaultRule23"]
+ - [textlink="2.1" link="NewtonDefaultRule21"]
 
 </Document>
