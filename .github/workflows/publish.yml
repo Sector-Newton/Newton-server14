@@ -127,3 +127,11 @@ jobs:
     #      run: Tools/actions_changelog_rss.py
     #      env:
     #        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
+
+    # Newton-Webhook-Start
+    - name: Send webhook
+      run: Tools/newton/send_webhook.py
+      env:
+        UPDATE_WEBHOOK: ${{ secrets.UPDATE_WEBHOOK }}
+        UPDATE_ROLE_ID: ${{ vars.UPDATE_ROLE_ID }}
+    # Newton-Webhook-End
