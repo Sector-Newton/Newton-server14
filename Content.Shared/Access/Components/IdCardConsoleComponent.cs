@@ -49,6 +49,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Detective",
         "Captain",
         "Cargo",
+        "CargoConsole", // Newton
         "Chapel",
         "Chemistry",
         "ChiefEngineer",
@@ -69,6 +70,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Medical",
         "Quartermaster",
         "Research",
+        "ResearchConsole", // Newton
         "ResearchDirector",
         "Salvage",
         "Security",

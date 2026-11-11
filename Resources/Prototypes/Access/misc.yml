@@ -20,7 +20,9 @@
   - Quartermaster
   - Salvage
   - Cargo
+  - CargoConsole # SN
   - Research
+  - ResearchConsole # SN
   - Service
   - Maintenance
   - External

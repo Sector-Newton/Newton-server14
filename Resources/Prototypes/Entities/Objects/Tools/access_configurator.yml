@@ -26,6 +26,7 @@
       - Detective
       - Captain
       - Cargo
+      - CargoConsole # SN
       - Chapel
       - Chemistry
       - ChiefEngineer
@@ -43,6 +44,7 @@
       - Medical
       - Quartermaster
       - Research
+      - ResearchConsole # SN
       - ResearchDirector
       - Salvage
       - Security
@@ -98,6 +100,7 @@
     - Detective
     - Captain
     - Cargo
+    - CargoConsole # SN
     - Chapel
     - Chemistry
     - ChiefEngineer
@@ -117,6 +120,7 @@
     - Medical
     - Quartermaster
     - Research
+    - ResearchConsole # SN
     - ResearchDirector
     - Salvage
     - Security

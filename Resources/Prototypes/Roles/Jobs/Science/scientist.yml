@@ -13,6 +13,7 @@
   access:
   - Research
   - Maintenance
+  - ResearchConsole # SN
 
 - type: startingGear
   id: ScientistGear

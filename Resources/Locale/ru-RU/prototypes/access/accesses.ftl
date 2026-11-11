@@ -18,6 +18,7 @@ id-card-access-level-atmospherics = Атмосферный
 
 id-card-access-level-research-director = Научный руководитель
 id-card-access-level-research = Научный
+id-card-access-level-research-console = Научный: Исследования
 
 id-card-access-level-chief-medical-officer = Главный врач
 id-card-access-level-medical = Медицинский
@@ -26,6 +27,7 @@ id-card-access-level-paramedic = Парамедик
 
 id-card-access-level-quartermaster = Квартирмейстер
 id-card-access-level-cargo = Снабжение
+id-card-access-level-cargo-console = Снабжение: Заказы
 id-card-access-level-salvage = Утилизаторский
 
 id-card-access-level-bar = Бар

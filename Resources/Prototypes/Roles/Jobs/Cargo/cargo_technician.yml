@@ -9,6 +9,7 @@
   access:
   - Cargo
   - Maintenance
+  - CargoConsole # SN
   extendedAccess:
   - Salvage
   special:

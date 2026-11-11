@@ -14,6 +14,8 @@
   access:
   - Research
   - Maintenance
+  extendedAccess:
+  - ResearchConsole # SN
 
 - type: startingGear
   id: ResearchAssistantGear

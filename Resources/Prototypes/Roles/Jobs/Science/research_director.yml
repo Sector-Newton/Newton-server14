@@ -24,6 +24,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
+  - ResearchConsole # SN
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

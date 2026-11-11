@@ -15,6 +15,7 @@
   - Salvage
   - Maintenance
   - External
+  - CargoConsole # SN
 
 - type: startingGear
   id: SalvageSpecialistGear

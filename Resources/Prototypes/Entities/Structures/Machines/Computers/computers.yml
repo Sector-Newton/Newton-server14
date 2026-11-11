@@ -601,7 +601,7 @@
   - type: Computer
     board: ResearchComputerCircuitboard
   - type: AccessReader
-    access: [["Research"]]
+    access: [["ResearchConsole"]] # SN
   - type: PointLight
     radius: 1.5
     energy: 4.0
@@ -970,7 +970,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: CargoOrderConsole
-    removeLimitAccess: [ "Quartermaster" ]
+    removeLimitAccess: [ "CargoConsole" ] # SN
   - type: ActiveRadio
     channels:
     - Supply
@@ -989,7 +989,7 @@
     energy: 4.0
     color: "#b89f25"
   - type: AccessReader
-    access: [["Cargo"]]
+    access: [["CargoConsole"]] # SN
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -1025,7 +1025,7 @@
   - type: CargoOrderConsole
     account: Engineering
     announcementChannel: Engineering
-    removeLimitAccess: [ "ChiefEngineer" ]
+    removeLimitAccess: [ "Engineering" ] # SN
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1059,7 +1059,7 @@
   - type: CargoOrderConsole
     account: Medical
     announcementChannel: Medical
-    removeLimitAccess: [ "ChiefMedicalOfficer" ]
+    removeLimitAccess: [ "Medical" ] # SN
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1093,7 +1093,7 @@
   - type: CargoOrderConsole
     account: Science
     announcementChannel: Science
-    removeLimitAccess: [ "ResearchDirector" ]
+    removeLimitAccess: [ "ResearchConsole" ] # SN
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1126,7 +1126,7 @@
   - type: CargoOrderConsole
     account: Security
     announcementChannel: Security
-    removeLimitAccess: [ "HeadOfSecurity" ]
+    removeLimitAccess: [ "Security" ] # SN
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1159,7 +1159,7 @@
   - type: CargoOrderConsole
     account: Service
     announcementChannel: Service
-    removeLimitAccess: [ "HeadOfPersonnel" ]
+    removeLimitAccess: [ "Service" ] # SN
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
