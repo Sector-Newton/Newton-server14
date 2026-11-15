@@ -77,21 +77,21 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.28
-        density: 160
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.6
-    baseSprintSpeed : 4.6
+  # - type: Fixtures
+  #   fixtures: # TODO: This needs a second fixture just for mob collisions.
+  #     fix1:
+  #       shape:
+  #         !type:PhysShapeCircle
+  #         radius: 0.28
+  #       density: 160
+  #       restitution: 0.0
+  #       mask:
+  #       - MobMask
+  #       layer:
+  #       - MobLayer
+  # - type: MovementSpeedModifier
+  #   baseWalkSpeed : 2.6
+  #   baseSprintSpeed : 4.6
   - type: SlowOnDamage
     speedModifierThresholds:
       48: 0.85
