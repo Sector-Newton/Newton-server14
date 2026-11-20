@@ -1,0 +1,9 @@
+- type: loadout
+  id: ClothingUnderwearBottomBoxer
+  equipment:
+    underwearbottom: ClothingUnderwearBottomBoxer
+
+- type: loadout
+  id: ClothingUnderwearBottomBriefs
+  equipment:
+    underwearbottom: ClothingUnderwearBottomBriefs

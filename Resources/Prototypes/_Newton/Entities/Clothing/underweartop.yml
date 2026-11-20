@@ -1,0 +1,64 @@
+- type: entity
+  abstract: true
+  parent: [SolutionFood, SolutionToolSmall, Clothing, BaseSlicingRefinable]
+  id: ClothingUnderwearTopBase
+  components:
+  - type: Clothing
+    slots:
+    - UNDERWEARTOP
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - UnderwearTop
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopTanktop
+  components:
+  - type: Clothing
+    sprite: _Newton/Clothing/Underwear/Top/tanktop.rsi
+  - type: Sprite
+    sprite: _Newton/Clothing/Underwear/Top/tanktop.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBinder
+  components:
+  - type: Clothing
+    sprite: _Newton/Clothing/Underwear/Top/binder.rsi
+  - type: Sprite
+    sprite: _Newton/Clothing/Underwear/Top/binder.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopClassic
+  components:
+  - type: Clothing
+    sprite: _Newton/Clothing/Underwear/Top/classic.rsi
+  - type: Sprite
+    sprite: _Newton/Clothing/Underwear/Top/classic.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopSports
+  components:
+  - type: Clothing
+    sprite: _Newton/Clothing/Underwear/Top/sports.rsi
+  - type: Sprite
+    sprite: _Newton/Clothing/Underwear/Top/sports.rsi

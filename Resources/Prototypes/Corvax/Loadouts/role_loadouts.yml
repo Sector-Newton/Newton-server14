@@ -8,6 +8,9 @@
   - CommonBackpack
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathTool
 
 #Law
@@ -22,6 +25,9 @@
   - CommonBackpack
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -37,6 +43,9 @@
   - SeniorEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathTool
 
 # Science
@@ -54,6 +63,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathTool
 
 # Security
@@ -69,6 +81,9 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -84,6 +99,9 @@
   - BrigmedicShoes
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -98,6 +116,9 @@
   - SeniorOfficerBelt
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -115,4 +136,7 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - GroupSpeciesBreathToolMedical

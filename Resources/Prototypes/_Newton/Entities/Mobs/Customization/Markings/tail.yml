@@ -142,6 +142,7 @@
 - type: marking
   id: DemonGoatee
   bodyPart: FacialHair
+  groupWhitelist: [Demon]
   sprites:
   - sprite: _ADT/Mobs/Customization/demon.rsi
     state: goatee

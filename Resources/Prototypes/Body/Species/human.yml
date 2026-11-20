@@ -1,5 +1,5 @@
 - type: markingsGroup
-  parent: Undergarments
+  # parent: Undergarments # SN-edit
   id: Human
   limits:
     enum.HumanoidVisualLayers.HeadTop:

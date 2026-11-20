@@ -1,0 +1,28 @@
+- type: loadoutGroup
+  id: Socks
+  name: loadout-group-socks
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - UnderSocksBee
+  - UnderSocksCoder
+
+- type: loadoutGroup
+  id: UnderwearTop
+  name: loadout-group-underweartop
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ClothingUnderwearTopTanktop
+  - ClothingUnderwearTopBinder
+  - ClothingUnderwearTopClassic
+  - ClothingUnderwearTopSports
+
+- type: loadoutGroup
+  id: UnderwearBottom
+  name: loadout-group-underwearbottom
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ClothingUnderwearBottomBoxer
+  - ClothingUnderwearBottomBriefs

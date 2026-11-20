@@ -1,5 +1,5 @@
 - type: markingsGroup
-  parent: Undergarments
+  # parent: Undergarments
   id: Demon
   limits:
     enum.HumanoidVisualLayers.Special:
@@ -68,10 +68,10 @@
       required: false
 
 - type: markingsGroup
-  parent: Undergarments
+  # parent: Undergarments
   id: Felinid
   limits:
-    enum.HumanoidVisualLayers.Special:
+    enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
       default: [ CatEars ]
@@ -101,9 +101,6 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 3
-      required: false
-    enum.HumanoidVisualLayers.HeadTop:
       limit: 3
       required: false
     enum.HumanoidVisualLayers.Eyes:

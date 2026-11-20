@@ -1,0 +1,46 @@
+- type: entity
+  abstract: true
+  parent: [SolutionFood, SolutionToolSmall, Clothing, BaseSlicingRefinable]
+  id: ClothingUnderwearBottomBase
+  components:
+  - type: Clothing
+    slots:
+    - UNDERWEARBOTTOM
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - UnderwearBottom
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomBoxer
+  components:
+  - type: Clothing
+    sprite: _Newton/Clothing/Underwear/Bottom/boxers.rsi
+  - type: Sprite
+    sprite: _Newton/Clothing/Underwear/Bottom/boxers.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomBriefs
+  components:
+  - type: Clothing
+    sprite: _Newton/Clothing/Underwear/Bottom/briefs.rsi
+  - type: Sprite
+    sprite: _Newton/Clothing/Underwear/Bottom/briefs.rsi

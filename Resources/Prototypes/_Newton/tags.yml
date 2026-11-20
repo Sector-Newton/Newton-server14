@@ -6,3 +6,12 @@
 
 - type: Tag
   id: PreventLabel
+
+- type: Tag
+  id: UnderwearTop
+
+- type: Tag
+  id: UnderwearBottom
+
+- type: Tag
+  id: Socks

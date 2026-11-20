@@ -1,0 +1,9 @@
+- type: loadout
+  id: UnderSocksBee
+  equipment:
+    socks: ClothingUnderSocksBee
+
+- type: loadout
+  id: UnderSocksCoder
+  equipment:
+    socks: ClothingUnderSocksCoder

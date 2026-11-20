@@ -1,0 +1,19 @@
+- type: loadout
+  id: ClothingUnderwearTopTanktop
+  equipment:
+    underweartop: ClothingUnderwearTopTanktop
+
+- type: loadout
+  id: ClothingUnderwearTopBinder
+  equipment:
+    underweartop: ClothingUnderwearTopBinder
+
+- type: loadout
+  id: ClothingUnderwearTopClassic
+  equipment:
+    underweartop: ClothingUnderwearTopClassic
+
+- type: loadout
+  id: ClothingUnderwearTopSports
+  equipment:
+    underweartop: ClothingUnderwearTopSports

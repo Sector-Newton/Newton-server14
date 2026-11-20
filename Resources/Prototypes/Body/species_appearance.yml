@@ -17,15 +17,20 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: ["enum.HumanoidVisualLayers.LFoot"] # SN
+    - map: ["enum.HumanoidVisualLayers.RFoot"] # SN
 
     # Underwear & clothing
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["underweartop"] # SN
+    - map: ["underwearbottom"] # SN
+    - map: ["socks"] # SN
     - map: ["jumpsuit"]
 
     # Extremities
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    # - map: ["enum.HumanoidVisualLayers.LFoot"]
+    # - map: ["enum.HumanoidVisualLayers.RFoot"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
 

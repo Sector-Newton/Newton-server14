@@ -1,6 +1,26 @@
 - type: inventoryTemplate
   id: arachnid
   slots:
+    # SN-start
+    - name: underweartop
+      slotTexture: undershirt
+      slotFlags: UNDERWEARTOP
+      uiWindowPos: 3,2
+      strippingWindowPos: 3,3
+      displayName: Underweartop
+    - name: underwearbottom
+      slotTexture: underwear
+      slotFlags: UNDERWEARBOTTOM
+      uiWindowPos: 3,1
+      strippingWindowPos: 3,2
+      displayName: Underweartop
+    - name: socks
+      slotTexture: socks
+      slotFlags: SOCKS
+      uiWindowPos: 3,0
+      strippingWindowPos: 3,1
+      displayName: Socks
+    # SN-end
     - name: shoes
       slotTexture: shoes
       slotFlags: FEET

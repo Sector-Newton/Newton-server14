@@ -11,6 +11,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- CaptainJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -28,6 +31,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- HoPJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -59,6 +65,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -75,6 +84,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -89,6 +101,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -106,6 +121,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ChefJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -120,6 +138,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -135,6 +156,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -155,6 +179,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ChaplainJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -172,6 +199,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - JanitorJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -188,6 +218,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -206,6 +239,9 @@
   - AssistiveItems
   - SurvivalClown
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - ClownJobTrinkets
 
 - type: roleLoadout
@@ -224,6 +260,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- MimeJobTrinkets
 
 - type: roleLoadout
@@ -240,6 +279,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- MusicianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -259,6 +301,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -277,6 +322,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -292,6 +340,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -310,6 +361,9 @@
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -323,6 +377,9 @@
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -340,6 +397,9 @@
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -355,6 +415,9 @@
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -375,6 +438,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -395,6 +461,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -409,6 +478,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -427,6 +499,9 @@
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -443,6 +518,9 @@
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -460,6 +538,9 @@
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -476,6 +557,9 @@
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   - DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -488,6 +572,9 @@
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -505,6 +592,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- ReporterJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -519,6 +609,9 @@
   - AssistiveItems
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -534,6 +627,9 @@
   - Glasses
   - Survival
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
   #- TramDriverJobTrinkets
   - GroupSpeciesBreathTool
 

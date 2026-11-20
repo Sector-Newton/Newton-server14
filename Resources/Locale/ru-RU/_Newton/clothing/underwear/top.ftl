@@ -1,0 +1,10 @@
+ent-ClothingUnderwearTopBase = { "" }
+    .desc = Стандартное бельё Nanotrasen
+ent-ClothingUnderwearTopTanktop = Майка
+    .desc = { ent-ClothingUnderwearTopBase.desc }
+ent-ClothingUnderwearTopBinder = Бандаж
+    .desc = { ent-ClothingUnderwearTopBase.desc }
+ent-ClothingUnderwearTopClassic = Классический бюстгальтер
+    .desc = { ent-ClothingUnderwearTopBase.desc }
+ent-ClothingUnderwearTopSports = Спортивный бюстгальтер
+    .desc = { ent-ClothingUnderwearTopBase.desc }

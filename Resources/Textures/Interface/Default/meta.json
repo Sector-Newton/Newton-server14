@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Taken from https://github.com/goonstation/goonstation at commit e77d85d9c1d93aa32da7702737ceeac2b56738ac, slightly modified by PixelTK, ID slots made by YoungThugSS14",
+    "copyright": "Taken from https://github.com/goonstation/goonstation at commit e77d85d9c1d93aa32da7702737ceeac2b56738ac, slightly modified by PixelTK, ID slots made by YoungThugSS14 | socks, undershirt, underwear by PuroSlavKing (Github) (Taken)",
     "size": {
         "x": 32,
         "y": 32
@@ -68,6 +68,9 @@
             "name": "shoes"
         },
         {
+            "name": "socks"
+        },
+        {
             "name": "suit"
         },
         {
@@ -75,6 +78,12 @@
         },
         {
             "name": "uniform"
+        },
+        {
+            "name": "undershirt"
+        },
+        {
+            "name": "underwear"
         },
         {
             "name": "inventory"

@@ -1,0 +1,28 @@
+- type: entity
+  abstract: true
+  parent: [SolutionFood, SolutionToolSmall, Clothing, BaseSlicingRefinable]
+  id: ClothingSocksBase
+  components:
+  - type: Clothing
+    slots:
+    - SOCKS
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: ToolRefinable
+    refineResult:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - Socks

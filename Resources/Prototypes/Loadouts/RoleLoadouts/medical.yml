@@ -16,6 +16,9 @@
   - AssistiveItems
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
 #  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -35,6 +38,9 @@
   - AssistiveItems
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
 #  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -49,6 +55,9 @@
   - AssistiveItems
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
 #  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -66,6 +75,9 @@
   - AssistiveItems
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
 #  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -84,5 +96,8 @@
   - AssistiveItems
   - SurvivalMedical
   - Trinkets
+  - UnderwearTop # SN
+  - UnderwearBottom # SN
+  - Socks # SN
 #  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
